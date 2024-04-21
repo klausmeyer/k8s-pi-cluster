@@ -1,6 +1,6 @@
 docker-registry:
   image:
-    tag: "2.8.1" # renovate: image=registry
+    tag: "2.8.3" # renovate: image=registry
 
   deployment:
     updateStrategy: Replace
