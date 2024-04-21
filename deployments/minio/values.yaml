@@ -6,6 +6,9 @@ minio:
 
   replicas: 1
 
+  deploymentUpdate:
+    type: Recreate
+
   persistence:
     enabled: true
     size: 10Gi
