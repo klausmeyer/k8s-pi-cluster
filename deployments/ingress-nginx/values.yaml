@@ -1,0 +1,13 @@
+ingress-nginx:
+  controller:
+    config:
+      use-proxy-protocol: true
+      proxy-buffers-number: 4
+      proxy-buffer-size: 512k
+    kind: DaemonSet
+    service:
+      type: NodePort
+      nodePorts:
+        http: 32080
+        https: 32443
+      externalTrafficPolicy: Local
