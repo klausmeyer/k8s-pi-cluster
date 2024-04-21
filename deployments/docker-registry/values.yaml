@@ -1,0 +1,50 @@
+docker-registry:
+  image:
+    tag: "2.8.1" # renovate: image=registry
+
+  deployment:
+    updateStrategy: Replace
+
+  ingress:
+    enabled: true
+    path: /v2/
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: 1G
+    hosts:
+      - registry.home.klaus-meyer.net
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
+
+  persistence:
+    deleteEnabled: true
+    enabled: true
+
+docker-registry-browser:
+  fullnameOverride: "docker-registry-browser"
+
+  image:
+    tag: "1.7.2" # renovate: image=klausmeyer/docker-registry-browser
+
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    hosts:
+      - host: registry.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
+
+  environment:
+    DOCKER_REGISTRY_URL: http://docker-registry:5000
+    ENABLE_DELETE_IMAGES: "true"
+    PUBLIC_REGISTRY_URL: registry.home.klaus-meyer.net
+    SECRET_KEY_BASE: insecure # NOTE: Needs to be passed as via secrets
