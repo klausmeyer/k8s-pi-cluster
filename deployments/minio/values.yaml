@@ -1,0 +1,55 @@
+minio:
+  image:
+    tag: RELEASE.2024-04-06T05-26-02Z
+
+  mode: standalone
+
+  replicas: 1
+
+  persistence:
+    enabled: true
+    size: 10Gi
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: 500m
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    path: /
+    hosts:
+      - s3.home.klaus-meyer.net
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
+
+  consoleIngress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: 500m
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    path: /
+    hosts:
+      - minio.home.klaus-meyer.net
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
+
+  resources:
+    requests:
+      memory: 512Mi
+
+  existingSecret: minio
+
+  buckets:
+    - name: whatchy
+      policy: none
+
+  environment:
+    MINIO_SERVER_URL: https://s3.home.klaus-meyer.net
+    MINIO_BROWSER_REDIRECT_URL: https://minio.home.klaus-meyer.net

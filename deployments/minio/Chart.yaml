@@ -1,0 +1,10 @@
+apiVersion: v2
+name: minio
+description: Deployment chart for minio
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: minio
+    version: "5.0.14"
+    repository: https://charts.min.io
