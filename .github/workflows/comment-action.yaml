@@ -1,0 +1,62 @@
+name: comment action
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  trigger:
+    name: Trigger helm-install action
+    if: ${{ github.event.issue.pull_request && github.event.comment.author_association == 'OWNER' }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            let createComment = function (message) {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: message
+              });
+            }
+
+            const parsed = context.payload.comment.body.match(/\/(?<command>[^\s]+) (?<deployment>[^\s]+)/));
+
+            console.log(parsed);
+
+            if (parsed == null) return;
+
+            if (parsed.command == 'deploy') {
+              try {
+                const pull_request = await github.rest.pulls.get({
+                  owner: context.payload.repository.owner.login,
+                  repo: context.payload.repository.name,
+                  pull_number: context.payload.issue.number
+                });
+
+                const dispatch = await github.rest.actions.createWorkflowDispatch({
+                  owner: context.payload.repository.owner.login,
+                  repo: context.payload.repository.name,
+                  workflow_id: ".github/workflows/helm-install.yaml",
+                  ref: pull_request.data.head.ref,
+                  inputs: { deployment: parsed.deployment }
+                });
+
+                createComment(`✅ ${dispatch}`);
+              }
+              catch (error) {
+                if (error.status) {
+                  createComment(`💥 ${error.message}`);
+                }
+                else {
+                  throw error;
+                }
+              }
+            }
