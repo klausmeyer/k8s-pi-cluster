@@ -1,9 +1,9 @@
 dependencies:
 - name: docker-registry
   repository: https://helm.twun.io
-  version: 2.1.0
+  version: 2.2.3
 - name: docker-registry-browser
   repository: https://klausmeyer.github.io/helm-charts
   version: 0.2.0
-digest: sha256:86136a0d2473db4bfe076bd8dfc8c3faaf3df6553ccd16950c51b386df81ddc7
-generated: "2024-04-21T21:58:42.667578842+02:00"
+digest: sha256:4958abf030de332aaf22c03203acf09847d628b4d74409933850aafca126ab14
+generated: "2024-04-21T20:13:52.251508694Z"

@@ -2,8 +2,8 @@ docker-registry:
   image:
     tag: "2.8.3" # renovate: image=registry
 
-  deployment:
-    updateStrategy: Replace
+  updateStrategy:
+    type: Recreate
 
   ingress:
     enabled: true
