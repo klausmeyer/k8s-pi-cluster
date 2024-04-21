@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    email: mail+letsencrypt@klaus-meyer.net
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: cluster-issuer-acme-key
+    solvers:
+      - dns01:
+          webhook:
+            groupName: cert-manager-webhook-inwx.smueller18.gitlab.com
+            solverName: inwx
+            config:
+              usernameSecretKeyRef:
+                name: inwx-credentials
+                key: username
+              passwordSecretKeyRef:
+                name: inwx-credentials
+                key: password
+              otpKeySecretKeyRef:
+                name: inwx-credentials
+                key: otpKey

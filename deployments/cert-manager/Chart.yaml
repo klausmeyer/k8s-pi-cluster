@@ -1,0 +1,14 @@
+apiVersion: v2
+name: cert-manager
+description: Deployment chart for cert-manager
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: cert-manager
+    version: "1.13.3"
+    repository: https://charts.jetstack.io
+
+  - name: cert-manager-webhook-inwx
+    version: "0.5.0"
+    repository: https://smueller18.gitlab.io/helm-charts

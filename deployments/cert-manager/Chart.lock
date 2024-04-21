@@ -1,0 +1,9 @@
+dependencies:
+- name: cert-manager
+  repository: https://charts.jetstack.io
+  version: v1.13.3
+- name: cert-manager-webhook-inwx
+  repository: https://smueller18.gitlab.io/helm-charts
+  version: 0.5.0
+digest: sha256:278cd2d7b117187251e29c85421a10a027b2c5f28fee0cf4f80e80122e0d92a4
+generated: "2024-04-21T17:07:53.252099782+02:00"
