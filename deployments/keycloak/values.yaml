@@ -1,0 +1,65 @@
+keycloakx:
+  fullnameOverride: "keycloak"
+  image:
+    tag: "24.0.3"
+  command:
+    - "/opt/keycloak/bin/kc.sh"
+    - "start"
+    - "--http-enabled=true"
+    - "--http-port=8080"
+    - "--hostname-strict=false"
+    - "--hostname-strict-https=false"
+    - "--features=docker"
+  extraEnv: |
+    - name: KEYCLOAK_ADMIN
+      value: admin
+    - name: KEYCLOAK_ADMIN_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: keycloak-admin-password
+          key: password
+    - name: JAVA_OPTS_APPEND
+      value: >-
+        -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
+  extraVolumes: |
+    - name: theme
+      emptyDir: {}
+  extraVolumeMounts: |
+    - name: theme
+      mountPath: /opt/keycloak/themes/keywind
+  extraInitContainers: |
+    - name: theme-provider
+      image: registry.home.klaus-meyer.net/home/keycloak-themes:latest
+      imagePullPolicy: IfNotPresent
+      command:
+        - sh
+      args:
+        - -c
+        - |
+          echo "Copying theme..."
+          cp -R /themes/keywind/* /theme
+      volumeMounts:
+        - name: theme
+          mountPath: /theme
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    rules:
+      - host: idp.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - "*.home.klaus-meyer.net"
+        secretName: tls-wildcard-home-klaus-meyer-net
+  database:
+    vendor: postgres
+    hostname: postgres.databases.svc.cluster.local
+    port: 5432
+    database: keycloak
+    username: keycloak
+    existingSecret: keycloak-database
