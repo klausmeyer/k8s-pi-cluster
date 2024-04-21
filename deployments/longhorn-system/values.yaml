@@ -1,0 +1,24 @@
+oauth2-proxy:
+  fullnameOverride: "oauth2-proxy"
+
+  config:
+    existingSecret: oauth2-proxy
+    configFile: |-
+      email_domains = [ "*" ]
+      upstreams = [ "http://longhorn-frontend" ]
+      provider = "keycloak-oidc"
+      oidc_issuer_url = "https://idp.home.klaus-meyer.net/auth/realms/home"
+      code_challenge_method = "S256"
+
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    hosts:
+      - longhorn.home.klaus-meyer.net
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"

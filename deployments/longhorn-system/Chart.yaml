@@ -1,0 +1,10 @@
+apiVersion: v2
+name: longhorn-system
+description: Deployment chart for longhorn-system
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: oauth2-proxy
+    version: "6.18.3"
+    repository: https://oauth2-proxy.github.io/manifests
