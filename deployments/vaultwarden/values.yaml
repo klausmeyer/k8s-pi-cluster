@@ -1,0 +1,28 @@
+vaultwarden:
+  image:
+    tag: "1.30.5" # renovate: image=vaultwarden/server
+
+  database:
+    type: postgresql
+    existingSecret: vaultwarden
+
+  vaultwarden:
+    allowSignups: false
+    admin:
+      enabled: true
+      existingSecret: vaultwarden
+
+  ingress:
+    enabled: true
+    className: nginx
+    host: vault.home.klaus-meyer.net
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
+
+  persistence:
+    enabled: true
