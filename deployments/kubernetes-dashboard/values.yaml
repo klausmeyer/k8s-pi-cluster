@@ -1,0 +1,20 @@
+kubernetes-dashboard:
+  app:
+    ingress:
+      enabled: true
+      hosts:
+        - kubernetes.home.klaus-meyer.net
+      ingressClassName: nginx
+      secretName: tls-kubernetes-home-klaus-meyer-net
+      issuer:
+        scope: cluster
+        name: letsencrypt
+      annotations:
+        cert-manager.io/common-name: "kubernetes.home.klaus-meyer.net"
+
+  cert-manager:
+    enabled: false
+    installCRDs: false
+
+  nginx:
+    enabled: false
