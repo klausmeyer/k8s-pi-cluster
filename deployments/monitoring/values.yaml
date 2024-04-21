@@ -1,0 +1,98 @@
+prometheus:
+  alertmanager:
+    enabled: false
+
+  kube-state-metrics:
+    enabled: false
+
+  prometheus-node-exporter:
+    enabled: false
+
+  prometheus-pushgateway:
+    enabled: false
+
+  server:
+    enabled: true
+    ingress:
+      enabled: false
+    persistentVolume:
+      enabled: true
+      size: 10Gi
+
+  extraScrapeConfigs: |
+    - job_name: smarthome-temperature
+      static_configs:
+        - targets:
+            - smarthome-metrics-temperature.smarthome.svc.cluster.local
+
+    - job_name: smarthome-weather
+      static_configs:
+        - targets:
+            - wttr.in
+      metrics_path: '/Mering'
+      scheme: https
+      params:
+        format: ['p1']
+
+    - job_name: pi-k8s-cluster
+      static_configs:
+        - targets:
+            - km-pi4b-1.fritz.box:9100
+            - km-pi4b-2.fritz.box:9100
+            - km-pi4b-3.fritz.box:9100
+            - km-pi4b-4.fritz.box:9100
+
+grafana:
+  image:
+    tag: "10.4.2" # renovate: image=grafana/grafana
+
+  grafana.ini:
+    server:
+      root_url: https://grafana.home.klaus-meyer.net
+    auth:
+      disable_login_form: true
+    auth.generic_oauth:
+      enabled: true
+      name: Keycloak
+      allow_sign_up: true
+      client_id: $__file{/etc/secrets/oauth/client_id}
+      client_secret: $__file{/etc/secrets/oauth/client_secret}
+      scopes: openid email profile offline_access roles
+      email_attribute_path: email
+      login_attribute_path: username
+      name_attribute_path: full_name
+      auth_url: https://idp.home.klaus-meyer.net/auth/realms/home/protocol/openid-connect/auth
+      token_url: https://idp.home.klaus-meyer.net/auth/realms/home/protocol/openid-connect/token
+      api_url: https://idp.home.klaus-meyer.net/auth/realms/home/protocol/openid-connect/userinfo
+      role_attribute_path: contains(realm_access.roles[*], 'admin') && 'Admin' || contains(realm_access.roles[*], 'editor') && 'Editor' || 'Viewer'
+    database:
+      type: postgres
+      host: postgres.databases.svc.cluster.local
+      name: grafana
+      user: grafana
+      password: $__file{/etc/secrets/database/password}
+
+  extraSecretMounts:
+    - name: grafana-database-secret-mount
+      secretName: grafana-database
+      defaultMode: 0440
+      mountPath: /etc/secrets/database
+      readOnly: true
+    - name: grafana-oauth-secret-mount
+      secretName: grafana-oauth
+      defaultMode: 0440
+      mountPath: /etc/secrets/oauth
+      readOnly: true
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    hosts:
+      - grafana.home.klaus-meyer.net
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
