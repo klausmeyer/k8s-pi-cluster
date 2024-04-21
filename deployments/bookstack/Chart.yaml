@@ -1,0 +1,10 @@
+apiVersion: v2
+name: bookstack
+description: Deployment chart for bookstack
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: bookstack
+    version: "0.16.1"
+    repository: https://charts.gabe565.com

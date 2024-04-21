@@ -1,0 +1,29 @@
+name: helm install
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment:
+        description: Name of the deployment
+        required: true
+
+jobs:
+  execute:
+    runs-on: self-hosted
+    steps:
+      - name: Setup
+        uses: alexellis/arkade-get@master
+        with:
+          kubectl: latest
+          helm: latest
+          yq: latest
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy
+        run: bash ./bin/deploy.sh
+        env:
+          NAMESPACE: ${{ inputs.deployment }}
+          RELEASE: ${{ inputs.deployment }}
+          CHART: ${{ inputs.deployment }}

@@ -1,0 +1,6 @@
+dependencies:
+- name: bookstack
+  repository: https://charts.gabe565.com
+  version: 0.16.1
+digest: sha256:01d8c4037aac8e442d4fe6e2e02b9f781b8244cbf02f7a1dc19148f2bd84709d
+generated: "2024-04-21T12:52:10.308187744+02:00"
