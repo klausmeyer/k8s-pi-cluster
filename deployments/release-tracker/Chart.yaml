@@ -1,0 +1,10 @@
+apiVersion: v2
+name: release-tracker
+description: Deployment chart for release-tracker
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: release-tracker
+    version: "0.1.0-alpha1"
+    repository: https://klausmeyer.github.io/helm-charts

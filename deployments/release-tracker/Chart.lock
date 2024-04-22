@@ -1,0 +1,6 @@
+dependencies:
+- name: release-tracker
+  repository: https://klausmeyer.github.io/helm-charts
+  version: 0.1.0-alpha1
+digest: sha256:7ce0b2e5a2e22a16b3f85f0e69bcd76d625df45d03ce77d83d9041e81cc710b7
+generated: "2024-04-22T03:29:47.461751976+02:00"
