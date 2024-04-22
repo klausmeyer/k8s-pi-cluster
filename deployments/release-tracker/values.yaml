@@ -4,7 +4,7 @@ release-tracker:
       tag: master
       pullPolicy: Always
     environment:
-      sealedSecrets: false
+      sealedSecrets: true
       plain:
         AIRBRAKE_HOST: "http://oopsy.oopsy.svc.cluster.local"
         AIRBRAKE_PROJECT_ID: "2"
@@ -20,7 +20,7 @@ release-tracker:
         cert-manager.io/cluster-issuer: letsencrypt
         cert-manager.io/common-name: "*.home.klaus-meyer.net"
       hosts:
-        - host: release2.home.klaus-meyer.net
+        - host: releases.home.klaus-meyer.net
           paths:
             - path: /
               pathType: Prefix
