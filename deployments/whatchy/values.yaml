@@ -1,4 +1,4 @@
-irails-application:
+rails-application:
   image:
     tag: master
     pullPolicy: Always
