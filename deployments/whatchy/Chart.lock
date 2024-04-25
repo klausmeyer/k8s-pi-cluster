@@ -1,0 +1,6 @@
+dependencies:
+- name: whatchy
+  repository: https://klausmeyer.github.io/helm-charts
+  version: 0.2.0-alpha1
+digest: sha256:093b4fb17d62fffbba2dcd7dcaf02aa77808e19b2a251183d2eb0a5dae7c3479
+generated: "2024-04-25T20:08:17.066913102+02:00"

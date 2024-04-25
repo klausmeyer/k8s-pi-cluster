@@ -1,0 +1,44 @@
+whatchy:
+  rails-application:
+    image:
+      tag: master
+      pullPolicy: Always
+
+    environment:
+      sealedSecrets: true
+      plain:
+        AIRBRAKE_HOST: "http://oopsy.oopsy.svc.cluster.local"
+        AIRBRAKE_PROJECT_ID: "1"
+        BANNER_CACHE_HOST: "https://www.thetvdb.com"
+        DOMAIN: "whatchy.home.klaus-meyer.net"
+        S3_BUCKET: "whatchy"
+        S3_ENDPOINT: "https://s3.home.klaus-meyer.net"
+        S3_REGION: "us-east-1"
+        SMTP_ENABLED: "true"
+        SMTP_PORT: "587"
+        SMTP_SERVER: "smtp.sendgrid.net"
+      secret:
+        AIRBRAKE_API_KEY: AgBhSfZGYCPh6XYoazKEeoDs9ja376YGJaY9QsQJwgmLH/OUZgZruV/gXWR206mfdL2yA/CgUyTqHYMlMhAg43uiR5soGqME4SE2PcDXBL/twsK5mySYCnjWNfmOD+BCj9dK/c6QItIUDcJbAr9/4bZnTiSAer/RqYw3TtFT7lWvMyxxnPzY4UJH74K94SOzpATT2sxyKuS0WlEB/fb6MMAXuurJytEYr0B44XShHYk3xB85qXNzn86cXnEe2N4tR2vw5yXiOwux08hgFsYUe4ucjew8ab3ZtqORJryksSkA/wBGeJZMAEi7pPcfHalv8Hxs54tv8nAhZ08JLcT2m3LmXs0HgS3Ufm//cibii9C3DfHNxGBByaF58XtvMZacwXmoEePAovlp6SUcTHhmdcqjOhxIL+Agj5WP6PmZtV/P97IlUG4ilVId/P5VYMJFPsAsstKNMx6OwH2X+IKyQhshi3XaZvsu19lpn8rd9i8ZDrmIPqrb7WF6X++XbIxYnJKVqhB6stU48pALjHK73xH4y/Xp8lDz7jI05HU9yHO1sp4sv1JfnFSCxySANXI2ZIeN+e1VvXKmAHT8d7W+J6e/R8q8PejVW5+ZjLzjh9HGYfw6/uEklnYlto6Vdc06kATmR4Q/jzAE2woytr0Uhon5tpvZkYagf0HFupBM1Fq0/OJ6wQ32zW8IkqXyGIU7rk1wcUPd/6GSgdJE5hwOYk1g2v8VXEIelkdXM2bqgkGRoQ==
+        DATABASE_URL: AgCVrh+lZgCpMhwttaPaDjHdtHjX+0p3ai6DfdxvMeXKYrO4TfFDrRche+wosLLiaux/sgmnkInm5QyB91VqODIGUwSZfbzP/pNsvkv3AjRFiRkKXKdQ9w5Or9UZnWLVgjByoMEYX3M4uera9Fz3OnJ7TdhTE27sQ4X9yMu3YryLYjRqs6LeoAXAtFSur4SFTzspE/+XGnD5zyxfbgIc3palmEkqXOHOG7oxPEssi8t+bze9clSkbK3Z3ooB7e88NSpsYAKG74UnT2XuFfF7MMZOehDPbFSlzjg2w3R3r15l0eogNPXdqMOrhkbgB0qjG5h1gfF1yY69JQWqNyRGn4wTaBmVDkVmO6wkcN4+Zexqk+E/fuhruXA8bMI3llhE8qEmldwPr/frx0ct1OXVqDFulu1WpUiRSRAxIuOJG5NPfhgwPW5qbNihMT/h4ZgRPbR1FfvcunYKRzET10QALKRSDfHYNpiNbnTphG7S3EZgFK5Fpl4BoXO66DS2Ww5Guyi+a/pjN8cTfhHnkERL/PFg/stk1R5NAmvIqJnktw5RbQ1UeY6FqA+Amk7FHDw5eVd4U4N7JQBKprRWKNkrjWSrNTTa/n0d/u4269QwgD63NtmhamQRtJ1FD9csKo/LvTFp8HzzFmri1PepdnEN28UgyUMGPElaozFA7h2sY/u1gy+2Umgae44DchVccram49e6G/phgqw0I8ZzTFtoW3ZhXxO4ShWXLOELHqqKKpALJfIEsVlFW1Yg9rUlYLWReAxF3EYkDnppe2hfQ9I/pU/q2hPM3WsGcuVLTNZMLDbHJAVZTIA0fSEbJkn92VLcM4M=
+        S3_ACCESS_KEY_ID: AgBVyYbctsXLsBvPMsCPnMwsRleDeWu7oGaBDNASTCNLGaK/BmlvVtCRrCGudKm6CnlCI4WFZM9jcE6eGLs3WH3cPTzcwICVSif5HtpvTq3jPd5wB6PuL/eqSVJuT711UYIEgV6yayBUXq5qiVUoidrQu5u8XP6nEK//hT3fO9eK+SCXoM87BYRn/0C21/I2gS2T2yNuFgG9ZE+h6yeRxEU/90QI9/YN3hTBaEUfp06elG63+4OL7i+DGeSOVjCsbrfjb3+O3AmDkbCJpdHqZYLTJAI5o8SUKgKG6R+vhz5Kr29vi1lwaap/Epq6HKi/qU9MRymR+fbB2ESEb5jyNu+f4OaZR1/BynELg6Wg/LiWtx8R3I0Mx8jUWe8VKbNBmQ3cyXlSPIwqZQMQBErk7cgSD07iW2zEVk4uQ/L1qcAtEoJU/9oQbR0l3GSy5yQRXiLkgXGg7nqM3/wx3+YPCZsntYRMLF7FB0cY8DGDDxkOPaPDTVxoS+phezc2aFXOuzbR+LVuDdMjeNnAozKXR4r0GrcrYb4C+z+u+WAzcgfo6956SdW2iKVqbBxHd7S47YOXX5PJJS4ZiG/FT8pBGHWxU52YCcKxDc0gDtqB2xCAAYSBKgro4/Mhde8FMtRAVF/s9QPhkPcQlP63ruxrm+9kneAqsF0xL9LE7u5+pPMofz7sylaB9HQpcbFIsuB17kBTtC/Pbw35Q3huaj/u8pOShRBGIg==
+        S3_SECRET_ACCESS_KEY: AgCjfbVJt0TU5r0q323KDLaR5sii/i4cOCBLW4I5M28VeRHN8sP6K3zrQASwGR6TZf2/QFs3FRHZZaizxiO69sQH+cWAbg00xCUkkjiL+Etytv5vxFyE3K/tbSSznHd8VOYzZMsmwd/HWL+KnYBM/KhcwsTtwt8ExLjRdkKx/ouTp1sUAeHIVlDhSsLqvMIkSWMMAMtagTwiNaeYwTyNdHrNFPP8MW4uI1v2dvG18t5FFQPDNPtygtBKFeoZd22pbOZIdWRvyWOVlskVePk8bosIuYj/9n5yTawGIkhKdBoLSp4FMUCJFBmcpY0MdckjxVfIXyitQm+9hul96FVaKZT3dffHFJoawU23eASKzxKei29pCh4BDra60xC8KFPIyimWrq3C8kyh5fqnvBvBL9eOA8djpZI9UqN4kfJYEK3oz+wb/XTVG/7PJUtuNzACceHNl1gMxrOuavx37doxWa7rrTAs1xUab7T/EOC43y07+5+PBZ2LjhUn3TArDTCD6+gRnt5sw0TJZ9GJyDu8QAl1hj3Y2VgRhTmrhM6/7wi06iTz+hwpaw83vsN10TEb97KQas0bDqhX2p/oUa2Ijq9GR4kYYMCJPqmkkg0Y8g4xQvsWemtzydJWJH4pRCw1uFoPiwHGIdafPhPjTBAadJoYHyFPhDWnf+zaxSvhTdIfAgveb62JgLjm6b4aR8Dcs+/r+sj5ppdq6Da3K1JI/eH6z0QPRCaKus28+kF6IsXmayE27Aqseibr
+        SECRET_KEY_BASE: AgBGyUAARsCIpe9gYGX9ilHR6x6IkoC3t64BiF3E8+DnlZvpSTgEh2buKO8Z4AfJnsGwRSfJnFekznBNzWLnuNh0V05bbzLIByfJ0xdL3TFB3Kz6O3BhOR1NuUup5COQTtcmzKA/p8lBodd7d7nIUnadYbiFAb1eJsbXEMZ6mg325ch4cs4+eMAb1Q88ua9byM7bAJCnnJzWVld304Y23LvouViR7U1k3HWCHrfif6o4AzoVrqBzLhaZXlpmyMSebRY+1oHydeUr77Rl6jM5EiF7M7WCOiMUj1PBmxnMmTQ50UzvGbmfb4Q0iht7pxIYEogWvXPjyzNB2hWX7SlEQklA1w3JD3E480tuDKneSzp3k1/xvkppPPDCA1CbmvxOoLsJB7z4YOo5KqEBckkDucVPY0XF0yMjBQsWv9hAn5jR76LItDYYTW7Ut1JbheOY6iB1hTsqw32s9oTn1XU6F+LuVfLFHEmzGBOo8DO3460cIupMtM6syDrnRX6UQV1lT5O02oX7FzS+mQZC4bsjQOkPwPUqmdlfaAGjdgWZf3Qp+JsspckcDE/o9d76zd0wZmtuYwLD31VtcKNSQLH+03WMJl71VDa0c961aSheZgKDhi6zU6zNW1Xg0t1Jszfnfh8PT+XczVFZTMdlrlbvNXZqiM4kqTG6rf/FAKTHESMCNUerU0ubZnIqq/mzdcJKEa0HkxJhM6YBwb2EV7tD+J4g+i6cdmeibT7RcnC+ysCrUEN5t7Qtmd7wP3Xat12GMku4O1C3UM2nolkMAo4GE1NxPmtqRavp1wDcKFuY+IDXnhFZoaL2I42Ni0sxLyp23O0NbY8qYlzU0SOHCJUqs4NIG+YSH79X3cF7fWTs3HmR2g==
+        SMTP_PASSWORD: AgAE3dzL8GN45R6sgt28w5W+X6/sQN//c1t9x+t5ZweEjYc7o4W+wN5JvCW7p7Km2LBrZWiFTixMO76msaC1aSRejSI4xcgG4BCHGjik7N6BuWOuFPWFLgurnloVUMarAKe9Hqc0Zy8rRgDtr++QHcJaW1XfDHlVOlS46lldlfHjvWzU8XJ5+XuCNHEDpDiloGdyV47RNf/e4ChQTbnnbqG8EjiVQ2qajiuCpVUYKYBqTn9+789480nnb9ovFC5wN5IL51OiHcueLe1/uTnSKJ1TCW5GTJyKJsgQCgjA0Ttns+lBwt5E1CCLkHHAn032ubpqidKwV3xqIlMxMAVsBefbngiaVSwB6DBOv8hTQX5WTre9xw4UQ/sY3P+6rgtuNcx6/olEI1rk/nAK1iYu/WbEC/jBtK8ETsxdzEM9At5WYz+61L8sffUoHqTKOwPOWZ2AbxlqBtSGtBdRG9dN5TQes/zPNW8SimMksmFwambR9NHz9qXhTgpiUkJ1a0Gp9wb1XLg6uP9N0duBDVVgLSGdRLn08G7oxA6MnEWb3uo6FkjP3+NklfPbDPDPSg+BsL2QMHERYxyAdmzhSOptaO6kT5PAAfAWdf9wzQ0ZcSeyXBpe/kHWiRiE6QIPXWXh6qTMctJfchp0CDY/D1mn3Y2gY5eXOBn0CaRLFGoajJ40m6CQEj+9UvsRk8RdUPtUAl0mkpAhW2rPdgVYdi2GiBpC3ax5XBVj2z1JK8CO8evoKG0hnDXyoVpdeCX97HvoHV4KViLSs05LLHcoe8+EofD8key2hOw=
+        SMTP_USERNAME: AgB/I9XqGVCZ5JBJYP0U47m45qKFt/mM0k+ln27Cfpxgv8ekJIw9Jmlei4QaFC/G/UtEyNjbBJCa0UG3ZepxOYcbyK1krunoqc/jFB3maXYIafyFjSfz6r4k5Qyijyw9Zo9g0Dfzw9lH/9Bqm0ZSl6DtI+rrSuftG3WD/Rle33NH0Bd5ub1NPweFZ75ndWQtvXMJpsNefiVj5epgCHJbAk1reqQl/HPZTPe1Yo13ZOu+RqPiFo59/77iFI9XMo0HDwHDUla6KV5Skd/QAQGAV7znmOe53ZXHnU7GQ8eyn4224FFUR2NQy6hMv+0bu4ffC6hXTIOQsiG15RmuebDKBhPssjBNhPe/zJ4MB3uHTll5zP64VgvMfnQHTauMmbI1/hN84WFthOdbbVFa+MbV4nmpoxAiy0tsMO7qpnexZKUYecWBi+5uCri7YwLVidPQbYhpX+qev0SHxAsFVZ0dQR+T2AI1TUF/IlE4Qhva9HUyEbZ8dtwp5jbMScBDbLciXRrzQFA9nao6rVt9SWzF8NjcmvXIv/oj1jWLp8hCKEjFnPSvXE7ZmKZd7FnQd0uE/ZQZxlErWpuUIj7JTsya+BFAOq9VWz7CIsn+pq/ezzNc0VYi7EAyQF+qX6g9zOGQNCtHcMJPoCWKiUnDmVxicGP8Z703yUr2naRTVxjMRlGMs64Hy9n6mx3L0foWXvexMpeIpvmn5ks=
+        THETVDB_APIKEY: AgBVnYgHAOIRX85E14ZFYmbKRaLQeGJR2vaL6nfmjNfbA+mHnOlBOQF0Qt6vZNLmoVWFAeZv2N6gEPJiyt36zgFJXYKhgCRoRjo3MZ2+rSecxFnakD7EnQm+HUWZOIlZ2s+tGqizfTCy9bZ5E/nwviNDwHVpHlon4hWrx5cmIWalgdV4eN8LFopspAmecrSyYK97Ss6Jy4kCTW0FzSC549zVtUsLcUNBlFRP0xmlnwDZCC4c44UutCKnxn/2fhamQz/9rkAwidUZOfThFS0KLAQDZxqZ0pnShN4vSqAfdlW3JLzNZ8SVSsb18q9GhH7uGLNa6B7mb4ZtB5Gn7+mAf+JvG0i9mLzHtQBP6RZNlTuyGAjyVEHr9Cd9Pd2fv5DqoIPYQac1m22hNWU+bSCzKVEB7Pffw+lbkS3bdvbfbYEc53qyUH2pkTpb0AO9BTIWId+1jYN7rOYTcYmx5NdKJJfZnLPMyCpuINMh/DhfL8rd+lZTDz6ngq1E1F8D/einWDFWmcSGBg0tupHRwcXlvOG2K2U8di/fF7tyulTppPsBRY8M9+qsAnHK7LBjyw/c5qd8AUk+zgG56LRcDV6tvVbh+r9T3CyEazJgiT9a+oTa8mIMse8WCfbT4RaRBy/3TFyL0fbkn7bO3Vx9IPIqxltdSnFDw6B5ZjTuTzM27mvgRnqi0RenxWT5wEy9gkHn4KzlNJ7UbpRLQAvPaFEL30sv
+
+    ingress:
+      enabled: true
+      className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        cert-manager.io/common-name: "*.home.klaus-meyer.net"
+      hosts:
+        - host: whatchy.home.klaus-meyer.net
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: tls-wildcard-home-klaus-meyer-net
+          hosts:
+            - "*.home.klaus-meyer.net"
