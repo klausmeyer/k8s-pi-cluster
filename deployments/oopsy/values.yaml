@@ -1,0 +1,33 @@
+oopsy:
+  rails-application:
+    image:
+      tag: master
+      pullPolicy: Always
+    environment:
+      sealedSecrets: true
+      plain:
+        PUBLIC_HOST: "oopsy.home.klaus-meyer.net"
+        PUBLIC_PORT: "443"
+        PUBLIC_SCHEME: "https"
+        REDIS_URL: "redis://oopsy-redis:6379/0"
+        WEBHOOK_DISCORD_ENABLED: "true"
+        WEBHOOKS_ENABLED: "true"
+      secret:
+        DATABASE_URL: AgAzcLmDWnNs7WHgimG/v6lgC4jrGnhL6IxhTMaCQnJHNBrXOEpxw+bWGxIHa+D/SUUw3cJmuIKbWwFzgktaYGaghhf5ShnS2cMNaAvYqsaNZes5HfV+8LgTF1wmAfR3F1E7VAynQpJFvq5ApBVQlvkYXWerLoWFM0MIPLiGAht9xrfOrW7USPgHSH8vwzqAuy5SV0ssstYc7gGkLLTzcvdIBqElaHwG7U1MSfQYZCaTwaUbiXazAuEArrXEO1TlloCpskswMfddJAf0Wd6c+MTGAe9ivALN4Y/exlu6A0G0OYWSpgYxRMw6/vMte2WsDKDI+qvPO+5EgHCb6bTuWc8laPih7Y87VEBl4qEF34v0b+QLNp4L7jtuud1C+rtmN4pMrWhB14+pDZoSSr4Z9VK/x86xHBnv3BTj4wr6SV/MpVI1rCod4rmXWu0Y5IFkIjoMM/L2HNlAaRlsR0povcykdlK6qc0q6mRLa8kit3eM2GW3+FOROO0rGHrqiQkhzVAAHTY0rF5GZPAjNscX8/8WByYj7DfDC/drnUWhpgVEkYu9u+6K8ipRLwTvdV3OWkwGzKnPQVY0aI4rgZRYdHxccdBZEsO0Oc6LkfpDSLIU7Qg0v8gH4ADr+d+t3w2ydc0GxE+nnctPxK52sq+c5YvrB0fNYcIzd4ZIdtqi4pGdKd5+jUb59nLeK0CAGRFEHYNFdCMxnoO2WMLqfNk9uXmZ8WSov3zno4Lskz1D4qPDM5JMeM3Ftgu1zKX6ffxzp5bITLm887jk1xBU2hUo3+KLkwnoOg6XD1sLTpCLNBOqn9FgCWp6PbkBgRjf4A==
+        SECRET_KEY_BASE: AgBeo5Vs6dEHPDgFjNx7T27A2PDpwcF+r9VwiVlcN7uOzDSUgjnxBUpjjQygfhdb+HHMhmLwc76MjzGYKglHZkO4WxhfnXXj34N8dx26QUSe9pwkO9EbACCFWOm4LXrudf0zNfSkhWvabpmVdAs2GYkYLnOdRb0KaUCe2ZdeHxpeE1/onhnSt4TKW7d2ZVqwGs6iIgOcVg9oOR499TH2rT4Zjfafcz8+hgRQaLUv30znulETkbHfzWvg17mWcLA5dagRWYG1ZB/RA1IFbrRLXs1kkdIvqS8GOwOOLoExIP1ImbQZx2WQWD7p0pCRbGwExpTAV9f+ba8rueDl2YUaopEqYVm2yK3ELpxj3RUdud8vugnQJlF0NGYbsGb+7OCz9nMFF/3gYdV76knxVAplSkKd/oqYQxZ6/vC/ZEKUUpWPXNn5krs+UZy7J3/alsa10Yv7XLulPzl5qjMvd6GLtrpuSmg48gBIwQFtMUxYvFGpGvf30o07E9jrS6ZRMlbdXYi1fICaa4pfEaFkAsVb81TcdSg2bDtlVdyW+f5pXLGmLvfriaCcVGA66kpUpPZBlBd/RHtyZR7W1UcSzLYP6lKV1tvvhPD3Kjv7f/osm9pqsoxJXQp26fjsGckBkSFuKZCyPBJ1964HV+a4K4Rltzdy9Ay3/YmzSquKNHI4kzxJj5g2U4dBk65mu+GDHxCwpknQ2sXPENC+n4BgphaPpHEBbt71uqmnbfTZhcMpa5SBZIHlziki2Dx+3MNaeREnFw7yfINhlJLSSeD+iSN42pAPdo9LB9oS1VbGCPn8uLgxMqIGHvbGQhiSzdlZAnFBet/tEwVj1Zia5RPDqcyY1G63RONblBtrltk5viz3h2qtHg==
+        WEBHOOK_DISCORD_URL: AgANEisIfOk91x88uLMU1UfR01L3Eqw1UykZc5krDrdgImUWB2YKuS8QcMGV+N6JqW1zEhsfT4YFZk2P6Ex65VgjxrraI+n33aEVqEX7Av0EkfJdcGaIrCOt8ckl2tUzBi/opMJ52JDQPJXJ/Yzuu7N+mxqRRIC3JbuFyyuNqrHg9kU53lwSQH8nXXi5OheU/5VHuPH0XQ5USiFiw35oWCsp5ItHRRKHTF/fLhklhDkx5hLvVrChRBX9anHRVOKWTRzX7wPXxrToG+KtNaJhZFqRbRV4ROrm4zZsqR7AwkLFNCmCxc9gtk2hnomTeGcnW3BLXXRxRi3UfyKJzfWQB0GX3pxE2wtZi8nbYQkKOSF50U5CzMojeQmf03BBw4b1RsKw4X9+9kKPgEEDon+1bGtWoa3o6rbv7xoMNTUYSZdt24n/+xT9NpkZfrfMozPkk0r/p6koSKBaPYaCwjt4/srsnTrmzSYbKguGslb5kHRmpudvrpGhorUD0IGOoyHI1CS/2+Bnc0x2AuYz7V9/GRHrN2KQGev8u03I8sMIFax0vDIjvZu7/wFIwZ7VcOPYeAhq3KGUOSyh9sQ503AVuBLlGJKZ9fJor4TEs3J9+ng/SrFn+qbnsEbkKaBplWOXe6ltk3y6Xgp8KK8ObP9lwKivE3++xQfSYH7wYZSIOiZbae/wi2c+HEtunr3BbsMhrM1zym6IiEL3hEysRleyQUIWj812r8GdoUoKMRdqg9Yljjo7MBfbvfE+Lwz9Rsis06bbYkYeYMaW9Pg8RrX6F3I4KwGrW0hwiroSH//oRLOIepM22tQh5V3fh7OotF0tJ0VxYRb7yjeleYmrkB+gLz8Lfu/WNvNKsttG
+    ingress:
+      enabled: true
+      className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        cert-manager.io/common-name: "*.home.klaus-meyer.net"
+      hosts:
+        - host: oopsy.home.klaus-meyer.net
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: tls-wildcard-home-klaus-meyer-net
+          hosts:
+            - "*.home.klaus-meyer.net"

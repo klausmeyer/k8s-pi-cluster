@@ -1,0 +1,6 @@
+dependencies:
+- name: oopsy
+  repository: https://klausmeyer.github.io/helm-charts
+  version: 0.2.0-alpha1
+digest: sha256:d0262e833c5cc12668d1060251a5c50454acf43cac78c7e0da03f4134a410fae
+generated: "2024-04-26T17:07:14.940095328+02:00"
