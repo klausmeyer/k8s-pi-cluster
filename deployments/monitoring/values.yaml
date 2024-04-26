@@ -23,7 +23,7 @@ prometheus:
     - job_name: smarthome-temperature
       static_configs:
         - targets:
-            - smarthome-metrics-temperature.smarthome.svc.cluster.local
+            - smarthome-metrics-temperature-web.smarthome-metrics-temperature.svc.cluster.local
 
     - job_name: smarthome-weather
       static_configs:

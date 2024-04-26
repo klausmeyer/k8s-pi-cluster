@@ -1,0 +1,6 @@
+dependencies:
+- name: smarthome-metrics-temperature
+  repository: https://klausmeyer.github.io/helm-charts
+  version: 0.1.0-alpha1
+digest: sha256:588f2efa907d655f3011c3e350168c771e4a7009f42c3bc389d73fa740b58c76
+generated: "2024-04-26T18:59:16.734293+02:00"

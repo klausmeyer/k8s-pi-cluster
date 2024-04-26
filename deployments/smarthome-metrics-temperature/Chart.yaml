@@ -1,0 +1,10 @@
+apiVersion: v2
+name: smarthome-metrics-temperature
+description: Deployment chart for smarthome
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: smarthome-metrics-temperature
+    version: "0.1.0-alpha1"
+    repository: https://klausmeyer.github.io/helm-charts
