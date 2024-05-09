@@ -22,8 +22,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy
-        run: bash ./bin/deploy.sh
-        env:
-          NAMESPACE: ${{ inputs.deployment }}
-          RELEASE: ${{ inputs.deployment }}
-          CHART: ${{ inputs.deployment }}
+        run: bash ./bin/deploy.sh "${{ inputs.deployment }}"

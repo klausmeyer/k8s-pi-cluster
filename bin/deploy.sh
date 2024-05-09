@@ -4,6 +4,10 @@ set -e
 set -o pipefail
 set -u
 
+NAMESPACE="${NAMESPACE:-$1}"
+CHART="${CHART:-$1}"
+RELEASE="${RELEASE:-$1}"
+
 cd "./deployments/${CHART}"
 
 if [ -f "./Chart.lock" ]; then
