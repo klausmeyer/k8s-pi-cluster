@@ -34,7 +34,7 @@ prometheus:
       params:
         format: ['p1']
 
-    - job_name: pi-k8s-cluster
+    - job_name: node
       static_configs:
         - targets:
             - km-pi4b-1.fritz.box:9100
