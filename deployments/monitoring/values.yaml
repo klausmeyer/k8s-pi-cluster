@@ -44,7 +44,7 @@ prometheus:
 
 grafana:
   image:
-    tag: "10.4.3" # renovate: image=grafana/grafana
+    tag: "11.0.0" # renovate: image=grafana/grafana
 
   grafana.ini:
     server:
