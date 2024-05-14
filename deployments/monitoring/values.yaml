@@ -13,6 +13,9 @@ prometheus:
 
   server:
     enabled: true
+    extraFlags:
+      - web.enable-lifecycle
+      - web.enable-admin-api
     ingress:
       enabled: false
     persistentVolume:
