@@ -23,20 +23,6 @@ prometheus:
       size: 10Gi
 
   extraScrapeConfigs: |
-    - job_name: smarthome-temperature
-      static_configs:
-        - targets:
-            - smarthome-metrics-temperature-web.smarthome-metrics-temperature.svc.cluster.local
-
-    - job_name: smarthome-weather
-      static_configs:
-        - targets:
-            - wttr.in
-      metrics_path: '/Mering'
-      scheme: https
-      params:
-        format: ['p1']
-
     - job_name: pi-k8s-cluster
       static_configs:
         - targets:
