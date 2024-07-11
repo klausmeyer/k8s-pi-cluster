@@ -23,6 +23,10 @@ prometheus:
       size: 10Gi
 
   extraScrapeConfigs: |
+    - job_name: pi-standalone
+      static_configs:
+        - targets:
+            - km-pi4b-8gb-e97bcc2c.fritz.box:9100
     - job_name: pi-k8s-cluster
       static_configs:
         - targets:
