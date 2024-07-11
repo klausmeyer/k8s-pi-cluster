@@ -6,7 +6,6 @@ keycloakx:
     - "/opt/keycloak/bin/kc.sh"
     - "start"
     - "--hostname-strict=false"
-    - "--hostname-strict-https=false"
     - "--features=docker"
   extraEnv: |
     - name: KEYCLOAK_ADMIN
