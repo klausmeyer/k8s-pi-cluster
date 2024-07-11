@@ -40,7 +40,7 @@ keycloakx:
         - name: theme
           mountPath: /theme
   proxy:
-    mode: edge
+    mode: xforwarded
     http:
       enabled: true
   ingress:
