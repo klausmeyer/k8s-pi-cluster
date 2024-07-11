@@ -1,14 +1,11 @@
 keycloakx:
   fullnameOverride: "keycloak"
   image:
-    tag: "24.0.5" # renovate: image=quay.io/keycloak/keycloak
+    tag: "25.0.1" # renovate: image=quay.io/keycloak/keycloak
   command:
     - "/opt/keycloak/bin/kc.sh"
     - "start"
-    - "--http-enabled=true"
-    - "--http-port=8080"
     - "--hostname-strict=false"
-    - "--hostname-strict-https=false"
     - "--features=docker"
   extraEnv: |
     - name: KEYCLOAK_ADMIN
@@ -41,6 +38,10 @@ keycloakx:
       volumeMounts:
         - name: theme
           mountPath: /theme
+  proxy:
+    mode: xforwarded
+    http:
+      enabled: true
   ingress:
     enabled: true
     ingressClassName: nginx
