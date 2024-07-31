@@ -1,0 +1,10 @@
+apiVersion: v2
+name: paperless-ngx
+description: Deployment chart for paperless-ngx
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: paperless-ngx
+    version: "0.18.1"
+    repository: https://charts.gabe565.com

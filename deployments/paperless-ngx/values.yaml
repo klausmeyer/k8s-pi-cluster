@@ -1,0 +1,44 @@
+paperless-ngx:
+  env:
+    PAPERLESS_DBENGINE: postgresql
+    PAPERLESS_DBHOST: postgres.databases.svc.cluster.local
+    PAPERLESS_DBNAME: paperless
+    PAPERLESS_DBUSER: paperless
+    PAPERLESS_DBPASS:
+      secretKeyRef:
+        name: paperless-postgresql
+        key: password
+  redis:
+    enabled: true
+  persistence:
+    data:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+    media:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+    export:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+    consume:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        cert-manager.io/common-name: "*.home.klaus-meyer.net"
+      hosts:
+        - host: paperless.home.klaus-meyer.net
+          paths:
+            - path: /
+      tls:
+        - secretName: tls-wildcard-home-klaus-meyer-net
+          hosts:
+            - "*.home.klaus-meyer.net"
