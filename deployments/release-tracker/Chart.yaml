@@ -6,5 +6,5 @@ version: "0.0.0"
 
 dependencies:
   - name: release-tracker
-    version: "0.1.0-alpha1"
+    version: "0.1.0-alpha2"
     repository: https://klausmeyer.github.io/helm-charts
