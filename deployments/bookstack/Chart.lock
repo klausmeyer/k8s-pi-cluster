@@ -1,6 +1,6 @@
 dependencies:
 - name: bookstack
   repository: https://charts.gabe565.com
-  version: 0.17.1
-digest: sha256:505d13bfd5f8760b20c5f7e17d5dc32988476c365886b581fbc900ea3f2d34c4
-generated: "2024-08-05T06:03:28.643935824Z"
+  version: 0.17.2
+digest: sha256:06d4b0b855e5ad540537efc5dbb32a6f24524c6f3803ff9ec532f9b2db9eddfe
+generated: "2024-09-03T08:06:44.138516364Z"
