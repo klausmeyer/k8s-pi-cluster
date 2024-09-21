@@ -51,4 +51,4 @@ paperless-ngx:
       image: "ghcr.io/paperless-ngx/tika:latest"
     gotenberg:
       name: "gotenberg"
-      image: "docker.io/gotenberg/gotenberg:8.9"
+      image: "docker.io/gotenberg/gotenberg:8.10"
