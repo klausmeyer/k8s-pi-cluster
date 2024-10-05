@@ -11,9 +11,6 @@ kubernetes-dashboard:
         name: letsencrypt
       annotations:
         cert-manager.io/common-name: "kubernetes.home.klaus-meyer.net"
-  kong:
-    manager:
-      enabled: false
 
   cert-manager:
     enabled: false
