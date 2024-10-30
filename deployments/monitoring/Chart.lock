@@ -7,6 +7,6 @@ dependencies:
   version: 25.28.0
 - name: grafana
   repository: https://grafana.github.io/helm-charts
-  version: 8.5.8
-digest: sha256:4ee0afcc0431804217ff983c6e81457455d8faf482c5c9a0cbedf1b54851e77a
-generated: "2024-10-25T19:57:08.516725513Z"
+  version: 8.5.9
+digest: sha256:7980ead12437642b76e998f783e9a3c4baaecec74c204842d1e284fbd6b552be
+generated: "2024-10-30T12:34:14.226006464Z"
