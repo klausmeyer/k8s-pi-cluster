@@ -10,7 +10,7 @@ dependencies:
     repository: https://prometheus-community.github.io/helm-charts
 
   - name: prometheus
-    version: "25.29.0"
+    version: "25.30.0"
     repository: https://prometheus-community.github.io/helm-charts
 
   - name: grafana
