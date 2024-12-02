@@ -1,4 +1,7 @@
 bookstack:
+  envFrom:
+    - secretRef:
+        name: bookstack-env
   ingress:
     main:
       enabled: true
