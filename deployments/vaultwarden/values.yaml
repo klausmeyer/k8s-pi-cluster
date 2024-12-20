@@ -1,6 +1,6 @@
 vaultwarden:
   image:
-    tag: "1.32.6" # renovate: image=vaultwarden/server
+    tag: "1.32.7" # renovate: image=vaultwarden/server
 
   database:
     type: postgresql
