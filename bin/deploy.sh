@@ -11,7 +11,7 @@ RELEASE="${RELEASE:-$1}"
 cd "./deployments/${CHART}"
 
 if [ -f "./Chart.lock" ]; then
-  yq -r --indent 0 '.dependencies | map(["helm", "repo", "add", "--force-update", .name, .repository] | join(" ")) | .[]' "./Chart.lock"  | sh --;
+  yq -r --indent 0 '.dependencies | filter(.repository != "oci://*") | map(["helm", "repo", "add", "--force-update", .name, .repository] | join(" ")) | .[]' "./Chart.lock"  | sh --;
 fi
 
 helm dependency build
