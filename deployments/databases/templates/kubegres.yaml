@@ -1,0 +1,33 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: postgres-secret
+  namespace: databases
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+spec:
+  encryptedData:
+    superUserPassword: AgAT+zq8M4YL0yN7jD5OveLVNV0tsR3nIaaWAQuKjrl43MeB6GBwk9hDLdiNmMswiFWdHxY11gtEtNjVI7xY59iPxmyYww/NS4Ck/rgL7O9CojvRF1TskNUtA7Ksvw/obyVB2DlFGE8K7LTchA/ZrpvJEQPUTliIDOWjaK1NFZvSNG5WL2+MfubxwFIGCa4NqTSUZ/KXvKwG8FYCJk9HAXiCnjNNzfK3xmqTjshIf848NNi5ywFCt1CCDrWvAnLv1Sv+0quvQUt3m4crAh+hHlN4l7Oj4upWlOPxj+lPEBWPKTSbZURNp/x+8kE98F1R0/I8cicW+/J6K8jnK2F6qjUsQT3MBUCmCXwrk/GElJLWPYwXlrykci1u/9NMr/Si+YQPmy0rCzMETE7GPT36zHoS1ob29FM87JOsmHu8avVbPIzw8Uuyx+oK27FLB8cfq6d9OJsOPDgqvPzo4v2+sOF2MMEmfbDzszRcfpDnd7PQ57MdUJlGDlCLnxxR/HXI6lpsdgmkTqBXYaERoleHnx5liopSkGgP75MTXPIXAVg8sKMhoDDFXfIq4RywuLkfh7FlJDULg7n0sEX1LHijAuob1CTMd4+NfD+f7rcls37PJAoFy8qBcOP179QYy6+wEQmeCiUomDlphYtkji0WSpWbnJViH9UDzTEBEIabaVCpA53HgH4U3wUm6eZG2x9cSuN+jAMNsqNSCcZ8WYtytxCqJBzs3ttxC5RSk+bcKTVFcQ==
+    replicationUserPassword: AgAA4D/FxHfD83LMafThPDKXUlh0Lu64mm7KSAlKutzpf8i7tc9T0/O/ZWCMvI2q0Wxv77NJN/v9/yvCIpcpsVzYtMHwF0ByAbeWLf/259FyBxF9MPEkNuMXrU9HidJtaK+ppqmqplnXFfKAJnJfuVE7jutv/JfNWuVaOE9zHzKO2c9D2F+P7k3OGKVvqM0JLLBj9JX7XqzL66CpMR53ESy7l1+H3MvZ6zh8+aI2L0B4bByFwwQDiPBYKTg9uOXp2M+j6zOJ5VFA8un5XWsAzA2Gv24p2UzV5HXO+AzTjJzPO/yz1DBtH4ZP88xm021TxItJdjWh2UFs2XWX1BlBjutxdfb85Yqd/6x9nliPgPdt+dKWMpkpG+UK9oVghkLGI4hN43+bKCjLBqOI5rZcF7RYrbJ+sSFT3wI0HSv8YunInYJ2USJsAQUyHNMwPp8Ur0p6SSBIf+dbwRuFydPxE2nvmaCE8K3cw1j2DxUQD9/NxV+j1qYJ7R7Otg2qfr/eZ8zIyfOdyCKuEmfbEXWL+B4V6ID3/vZtu3eV+Q60wmx0TOqIVvGcWDblaKrGJ4qzHcYNDxQfbw2we5VPldDJwAyWcc0oWo6fV86aYRm5Vck6NMZK89R1VX/rre583z/J9bIftYTB3kaOhXn8V6w2VBo7fGTSEGsXy+XT+7mPkWLCExZTXl2eenClcTKnFCRCGfItRuY400cm7RInnCxE6XpRs9bZvL835Di5c4z5Tw1LLA==
+---
+apiVersion: kubegres.reactive-tech.io/v1
+kind: Kubegres
+metadata:
+  name: postgres
+  namespace: databases
+spec:
+  replicas: 3
+  image: postgres:17.2
+  database:
+    size: 2Gi
+  env:
+    - name: POSTGRES_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: postgres-secret
+          key: superUserPassword
+    - name: POSTGRES_REPLICATION_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: postgres-secret
+          key: replicationUserPassword

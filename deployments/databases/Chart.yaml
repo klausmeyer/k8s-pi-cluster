@@ -1,0 +1,5 @@
+apiVersion: v2
+name: databases
+description: Deployment chart for databases
+type: application
+version: "0.0.0"
