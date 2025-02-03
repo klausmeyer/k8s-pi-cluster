@@ -1,7 +1,10 @@
 vaultwarden:
   image:
-    tag: "1.33.0" # renovate: image=vaultwarden/server
-
+    tag: "1.33.1-alpine" # renovate: image=vaultwarden/server
+  
+  controller:
+    strategy: Recreate # To work well with the PV
+  
   database:
     type: postgresql
     existingSecret: vaultwarden
