@@ -1,0 +1,10 @@
+apiVersion: v2
+name: mailcatcher
+description: Deployment chart for mailcatcher
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: common
+    version: 3.7.1
+    repository: https://bjw-s.github.io/helm-charts/

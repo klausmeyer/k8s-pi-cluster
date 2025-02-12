@@ -1,0 +1,55 @@
+controllers:
+  mailcatcher:
+    enabled: true
+    type: deployment
+    defaultContainerOptions:
+      image:
+        repository: dockage/mailcatcher
+        tag: 0.9.0
+    containers:
+      mailcatcher:
+        enabled: true
+service:
+  http:
+    enabled: true
+    nameOverride: http
+    controller: mailcatcher
+    primary: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 80
+        protocol: HTTP
+        targetPort: 1080
+  smtp:
+    enabled: true
+    nameOverride: smtp
+    controller: mailcatcher
+    primary: false
+    ports:
+      smtp:
+        enabled: true
+        primary: true
+        port: 25
+        protocol: TCP
+        targetPort: 1025
+ingress:
+  mailcatcher:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    className: nginx
+    hosts:
+      - host: mailcatcher.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              identifier: http
+              port: 80
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
