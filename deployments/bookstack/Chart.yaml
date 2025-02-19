@@ -6,5 +6,5 @@ version: "0.0.0"
 
 dependencies:
   - name: bookstack
-    version: "0.19.0"
+    version: "0.20.0"
     repository: https://charts.gabe565.com
