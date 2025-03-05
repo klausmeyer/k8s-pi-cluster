@@ -39,6 +39,9 @@ jobs:
                   pull_number: context.payload.issue.number
                 });
 
+                console.log(`context.issue.number: ${context.issue.number}`);
+                console.log(`context.payload.issue.number: ${context.payload.issue.number}`);
+
                 const dispatch = await github.rest.actions.createWorkflowDispatch({
                   owner: context.payload.repository.owner.login,
                   repo: context.payload.repository.name,
