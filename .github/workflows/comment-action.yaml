@@ -47,7 +47,7 @@ jobs:
                   repo: context.payload.repository.name,
                   workflow_id: "helm-install.yaml",
                   ref: pull_request.data.head.ref,
-                  inputs: { deployment: parsed.groups.deployment, pr: context.payload.issue.number }
+                  inputs: { deployment: parsed.groups.deployment, pr: context.payload.issue.number.toString() }
                 });
 
                 console.log(dispatch)
