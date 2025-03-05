@@ -40,4 +40,4 @@ jobs:
               repo: context.repo.repo,
               body: 'Done'
             });
-        if: ${{ inputs.pr != "" }}
+        if: ${{ inputs.pr }}
