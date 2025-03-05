@@ -6,6 +6,9 @@ on:
       deployment:
         description: Name of the deployment
         required: true
+      pr:
+        description: Id of the related pull-request
+        required: false
 
 jobs:
   execute:
@@ -17,9 +20,31 @@ jobs:
           kubectl: latest
           helm: latest
           yq: latest
-
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Deploy
         run: bash ./bin/deploy.sh "${{ inputs.deployment }}"
+
+  report:
+    if: ${{ always() && inputs.pr }}
+    needs: [execute]
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Comment PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let status  = '${{ needs.execute.result }}';
+            let icon    = status == 'success' ? '✅' : '❌';
+            let message = `${icon} Done: ${status}`;
+
+            github.rest.issues.createComment({
+              issue_number: ${{ inputs.pr }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            });
