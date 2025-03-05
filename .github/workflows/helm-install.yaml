@@ -38,9 +38,13 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            let status. = '${{ job.status }}';
+            let icon.   = status == 'success' ? : '✅' : '❌';
+            let message = `${icon} Done: ${status}`;
+
             github.rest.issues.createComment({
               issue_number: ${{ inputs.pr }},
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Done: ${{ job.status }}'
+              body: message
             });

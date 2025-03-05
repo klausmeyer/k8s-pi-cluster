@@ -49,7 +49,7 @@ jobs:
 
                 console.log(dispatch)
 
-                createComment("✅ Created new [helm-install](https://github.com/klausmeyer/k8s-pi-cluster/actions/workflows/helm-install.yaml) workflow run");
+                createComment("⏳ Running: [helm-install](https://github.com/klausmeyer/k8s-pi-cluster/actions/workflows/helm-install.yaml) workflow run");
               }
               catch (error) {
                 if (error.status) {
