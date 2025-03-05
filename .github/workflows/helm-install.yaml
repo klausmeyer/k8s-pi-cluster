@@ -35,9 +35,9 @@ jobs:
         with:
           script: |
             github.rest.issues.createComment({
-              issue_number: inputs.pr,
+              issue_number: ${{ inputs.pr }},
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Done'
             });
-        if: ${{ inputs.pr }}
+        if: ${{ inputs.pr != "" }}
