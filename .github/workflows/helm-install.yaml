@@ -13,10 +13,6 @@ on:
 jobs:
   execute:
     runs-on: self-hosted
-    permissions:
-      actions: write
-      issues: write
-      pull-requests: write    
     steps:
       - name: Setup
         uses: alexellis/arkade-get@master
@@ -24,20 +20,27 @@ jobs:
           kubectl: latest
           helm: latest
           yq: latest
-
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Deploy
         run: bash ./bin/deploy.sh "${{ inputs.deployment }}"
-
-      - uses: actions/github-script@v7
+        
+  report:
+    if: ${{ inputs.pr }}
+    needs: [execute]
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      issues: write
+      pull-requests: write 
+    steps:
+      - name: Comment PR
+        uses: actions/github-script@v7
         with:
           script: |
             github.rest.issues.createComment({
               issue_number: ${{ inputs.pr }},
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Done'
+              body: 'Done: ${{ job.status }}'
             });
-        if: ${{ inputs.pr }}
