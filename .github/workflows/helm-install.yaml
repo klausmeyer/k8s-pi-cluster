@@ -38,7 +38,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            let status  = '${{ job.status }}';
+            let status  = '${{ needs.execute.result }}';
             let icon    = status == 'success' ? '✅' : '❌';
             let message = `${icon} Done: ${status}`;
 
