@@ -6,10 +6,17 @@ on:
       deployment:
         description: Name of the deployment
         required: true
+      pr:
+        description: Id of the related pull-request
+        required: false
 
 jobs:
   execute:
     runs-on: self-hosted
+    permissions:
+      actions: write
+      issues: write
+      pull-requests: write    
     steps:
       - name: Setup
         uses: alexellis/arkade-get@master
@@ -23,3 +30,14 @@ jobs:
 
       - name: Deploy
         run: bash ./bin/deploy.sh "${{ inputs.deployment }}"
+
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: inputs.pr,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Done'
+            });
+        if: ${{ inputs.pr }}
