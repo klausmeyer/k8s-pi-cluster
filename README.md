@@ -2,7 +2,9 @@
 
 ## Intro
 
-This repository is used to manage a small raspberry-pi based kubernetes cluster I am running as a pet-project in my homelab.
+This repository is used to manage a small raspberry-pi based kubernetes cluster I am running as a pet-project in my "homelab".
+
+![Pi Cluster](https://github.com/user-attachments/assets/bccca540-ec7c-4e57-96d1-ee376656ec6c)
 
 ## Repo Structure
 
