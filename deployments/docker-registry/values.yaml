@@ -1,6 +1,6 @@
 docker-registry:
   image:
-    tag: "2.8.3" # renovate: image=registry
+    tag: "3.0.0" # renovate: image=registry
 
   updateStrategy:
     type: Recreate
@@ -16,6 +16,10 @@ docker-registry:
       - secretName: tls-wildcard-home-klaus-meyer-net
         hosts:
           - "*.home.klaus-meyer.net"
+
+  extraEnvVars:
+    - name: "OTEL_TRACES_EXPORTER"
+      value: "none"
 
   persistence:
     deleteEnabled: true
