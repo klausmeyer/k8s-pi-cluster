@@ -6,4 +6,4 @@ dependencies:
   repository: https://klausmeyer.github.io/helm-charts
   version: 0.2.0
 digest: sha256:4958abf030de332aaf22c03203acf09847d628b4d74409933850aafca126ab14
-generated: "2024-04-21T20:13:52.251508694Z"
+generated: "2025-04-15T23:58:42.962828+02:00"
