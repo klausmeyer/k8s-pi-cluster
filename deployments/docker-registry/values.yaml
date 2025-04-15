@@ -26,29 +26,32 @@ docker-registry:
     enabled: true
 
 docker-registry-browser:
-  fullnameOverride: "docker-registry-browser"
+  rails-application:
+    fullnameOverride: docker-registry-browser
 
-  image:
-    tag: "master"
+    version: master # Bleeding edge
 
-  ingress:
-    enabled: true
-    className: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      cert-manager.io/common-name: "*.home.klaus-meyer.net"
-    hosts:
-      - host: registry.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: Prefix
-    tls:
-      - secretName: tls-wildcard-home-klaus-meyer-net
-        hosts:
-          - "*.home.klaus-meyer.net"
+    environment:
+      sealedSecrets: true
+      plain:
+        DOCKER_REGISTRY_URL: http://docker-registry:5000
+        ENABLE_DELETE_IMAGES: "true"
+        PUBLIC_REGISTRY_URL: registry.home.klaus-meyer.net
+      secret:
+        SECRET_KEY_BASE: AgCptE0W+xSkDoWEm0wDo+iP3JQD86kyhH+8nstHm/Bl4uRIh/G/YvtfBGv8x9izptRov+ezn1fryLlIoa4FIhWeKb8HYJbVbH7MdlpHii4SsHTPU0I0A6lUggcetC1vJvK0UWzQLXr/+jwyxs5a5vDI79nmAm6FpkukDKuEEKNnE8J5AAAE7iIJLS5l72Rnfcib6Vtu1NIILlVZ15YBPSq5Ol/onHSXXgB4CozIqt6hgz/go1jZeJXR65KmKLy3W9XDbP3v8EwK1xIix24K3G0fUqAOFcKKH780kqxtNwzlby6+W1cBm5yeavMvHhrkAok5xL0XjxK12JUgwq+bmKvQBQk8NXIVxtkmFZyPyb6Q49Il8FTLU3UvPOHQSooRcVtwLT2oMRE9pva3oPKmXDIy7udFeqtLY1zvH3rNRPIVB1h4PTumdd325/WQYGPRob6hXR9pmR+qvHgETj9DXPbasYEnyRnscwncf6/hR/LtQZmStiZ6406Uf596y7DG5gX8l9A2umeex15YsDF2bzZ9Yl1OnyDCyLo3DHygI3r/19A96dhlXm8izgU9tQFFJfhMaPTUXz0Jz7GAO8m63q4T/s+XfAlfS/enHZAvBuYz8wLBYw0ZzayyvLAqi1H7NyvgMYwjUbKmXB4kBidcvnH+vE5NiJQX0hiRQw5MUYDuPgnKm3EChT91ANOMQ+l/LsBjc5/jCXfzS3Fj7gDmpi/S8sPsC90enoDFOwuzQzmZ27UM+1ZFfiuUnWID9/V++rkbbFr30rT2pg0vai7OwQBK9M8lx566Dw4VYGo+rPBM9nb+zsUvZNT8llWmJNjUYfteRK2NoFE+KhTb+pCaL+A0cf3R1bQw8NU7QpjMfQ8zPQ==
 
-  environment:
-    DOCKER_REGISTRY_URL: http://docker-registry:5000
-    ENABLE_DELETE_IMAGES: "true"
-    PUBLIC_REGISTRY_URL: registry.home.klaus-meyer.net
-    SECRET_KEY_BASE: insecure # NOTE: Needs to be passed as via secrets
+    ingress:
+      enabled: true
+      className: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        cert-manager.io/common-name: "*.home.klaus-meyer.net"
+      hosts:
+        - host: registry.home.klaus-meyer.net
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: tls-wildcard-home-klaus-meyer-net
+          hosts:
+            - "*.home.klaus-meyer.net"
