@@ -1,4 +1,6 @@
 paperless-ngx:
+  image:
+    tag: 2.15.2
   env:
     PAPERLESS_DBENGINE: postgresql
     PAPERLESS_DBHOST: postgres.databases.svc.cluster.local
