@@ -1,0 +1,26 @@
+planka:
+  existingSecretkeySecret: planka-secretkey
+  existingAdminCredsSecret: planka-adminuser
+  existingDburlSecret: planka-dburl
+
+  admin_email: spam@klaus-meyer.net
+  admin_name: Klaus Meyer
+
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    hosts:
+      - host: planka.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
+
+  postgresql:
+    enabled: false
