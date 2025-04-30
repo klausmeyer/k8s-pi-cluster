@@ -1,0 +1,10 @@
+apiVersion: v2
+name: planka
+description: Deployment chart for planka
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: planka
+    version: "0.2.24"
+    repository: http://plankanban.github.io/planka
