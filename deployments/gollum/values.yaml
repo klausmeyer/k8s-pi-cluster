@@ -33,21 +33,27 @@ persistence:
     # retain: true
     globalMounts:
       - path: /wiki
-ingress:
-  gollum:
+
+oauth2-proxy:
+  fullnameOverride: "oauth2-proxy"
+
+  config:
+    existingSecret: oauth2-proxy
+    configFile: |-
+      email_domains = [ "*" ]
+      upstreams = [ "http://gollum" ]
+      provider = "keycloak-oidc"
+      oidc_issuer_url = "https://idp.home.klaus-meyer.net/auth/realms/home"
+      code_challenge_method = "S256"
+
+  ingress:
     enabled: true
+    className: nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
       cert-manager.io/common-name: "*.home.klaus-meyer.net"
-    className: nginx
     hosts:
-      - host: wiki.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              identifier: gollum
-              port: 80
+      - wiki.home.klaus-meyer.net
     tls:
       - secretName: tls-wildcard-home-klaus-meyer-net
         hosts:
