@@ -1,9 +1,9 @@
 dependencies:
 - name: cert-manager
   repository: https://charts.jetstack.io
-  version: v1.18.0
+  version: v1.18.1
 - name: cert-manager-webhook-inwx
   repository: ""
   version: 0.5.0
-digest: sha256:0c617d8e4a34ae8c9c8c24d8614f8cff7e03c4b353db19a4a8f056ca3bf5b852
-generated: "2025-06-14T22:17:50.459886+02:00"
+digest: sha256:b8be42490f48b0300040eca26313ea97ad96427cf4d69a32d4d474782f30ed13
+generated: "2025-06-18T12:04:18.412613353Z"
