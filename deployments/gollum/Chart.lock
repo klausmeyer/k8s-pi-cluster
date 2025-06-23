@@ -1,9 +1,9 @@
 dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts/
-  version: 4.1.1
+  version: 4.1.2
 - name: oauth2-proxy
   repository: https://oauth2-proxy.github.io/manifests
   version: 7.12.18
-digest: sha256:50207015b7061cadda2a5553d36e5eeda863a45a97c1279f877257f3e04c7e05
-generated: "2025-06-12T13:44:46.313769805Z"
+digest: sha256:a1b919b33d3854c5cfcfc1b77d4f7465205c2b4ba164434f75fcf9f9d1106000
+generated: "2025-06-23T14:35:32.272908537Z"
