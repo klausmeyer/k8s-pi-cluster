@@ -4,7 +4,7 @@
 
 This repository is used to manage a small raspberry-pi based kubernetes cluster I am running as a pet-project in my "homelab".
 
-![Pi Cluster](https://github.com/user-attachments/assets/bccca540-ec7c-4e57-96d1-ee376656ec6c)
+![Pi Cluster](https://github.com/user-attachments/assets/03eed7fb-0bc0-4841-b611-0ad5446c4278)
 
 ## Repo Structure
 
