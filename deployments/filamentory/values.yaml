@@ -1,0 +1,47 @@
+controllers:
+  filamentory:
+    enabled: true
+    type: deployment
+    defaultContainerOptions:
+      image:
+        repository: klausmeyer/filamentory
+        tag: master
+      envFrom:
+        - secretRef:
+            name: filamentory
+    containers:
+      filamentory:
+        enabled: true
+    pod:
+      securityContext:
+        fsGroup: 1000
+service:
+  filamentory:
+    enabled: true
+    controller: filamentory
+    primary: true
+    ports:
+      http:
+        enabled: true
+        primary: true
+        port: 80
+        protocol: HTTP
+        targetPort: 4000
+ingress:
+  filamentory:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    className: nginx
+    hosts:
+      - host: filamentory.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              port: 80
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
