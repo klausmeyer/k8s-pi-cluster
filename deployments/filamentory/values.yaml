@@ -2,6 +2,7 @@ controllers:
   filamentory:
     enabled: true
     type: deployment
+    strategy: RollingUpdate
     defaultContainerOptions:
       image:
         repository: klausmeyer/filamentory
