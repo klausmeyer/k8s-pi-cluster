@@ -1,6 +1,6 @@
 dependencies:
 - name: planka
   repository: http://plankanban.github.io/planka
-  version: 1.0.2
-digest: sha256:9d16817fa1ff79e9ea271e7c7bb522b5684c7a8b9fa15a976741f6c9e184e0dd
-generated: "2025-05-28T02:53:52.09292874Z"
+  version: 1.0.4
+digest: sha256:7711a5200071f640393f8383d8ec8df4208957f9c4dc1aad6accf6391fb24ff8
+generated: "2025-09-04T17:23:34.815873324Z"
