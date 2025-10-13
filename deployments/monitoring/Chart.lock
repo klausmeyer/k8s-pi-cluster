@@ -4,9 +4,9 @@ dependencies:
   version: 6.3.0
 - name: prometheus
   repository: https://prometheus-community.github.io/helm-charts
-  version: 27.40.0
+  version: 27.40.1
 - name: grafana
   repository: https://grafana.github.io/helm-charts
   version: 10.1.0
-digest: sha256:e5aca4bb02c68658827f33078802257632c270b63c78ab840383ef663419cd1d
-generated: "2025-10-10T16:53:52.308806358Z"
+digest: sha256:fa11e40318eda3cb44241b306b521f9373fe27c75ecf42e1f025f6ac3c4c8e6e
+generated: "2025-10-13T21:08:37.876935757Z"
