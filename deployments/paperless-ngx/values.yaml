@@ -1,6 +1,6 @@
 paperless-ngx:
   image:
-    tag: "2.19.2" # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
+    tag: "2.19.3" # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
   env:
     PAPERLESS_DBENGINE: postgresql
     PAPERLESS_DBHOST: postgres.databases.svc.cluster.local
