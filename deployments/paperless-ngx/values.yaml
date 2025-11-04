@@ -51,7 +51,7 @@ paperless-ngx:
   additionalContainers:
     tika:
       name: "tika"
-      image: "ghcr.io/paperless-ngx/tika:latest"
+      image: "docker.io/apache/tika:latest"
     gotenberg:
       name: "gotenberg"
       image: "docker.io/gotenberg/gotenberg:8.24"
