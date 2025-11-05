@@ -7,7 +7,7 @@ version: "0.0.0"
 dependencies:
   - name: docker-registry
     version: "3.0.0"
-    repository: https://helm.twun.io
+    repository: https://twuni.github.io/docker-registry.helm
 
   - name: docker-registry-browser
     version: "0.3.0"
