@@ -17,7 +17,7 @@ metadata:
   namespace: databases
 spec:
   replicas: 3
-  image: postgres:17.2
+  image: postgres:17.6
   database:
     size: 2Gi
   env:
