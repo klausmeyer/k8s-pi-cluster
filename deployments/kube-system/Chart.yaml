@@ -1,0 +1,10 @@
+apiVersion: v2
+name: kube-system
+description: Deployment chart for kube-system
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: sealed-secrets
+    version: "2.17.9"
+    repository: https://bitnami-labs.github.io/sealed-secrets
