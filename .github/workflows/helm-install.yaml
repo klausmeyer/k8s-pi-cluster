@@ -18,7 +18,7 @@ jobs:
         uses: alexellis/arkade-get@master
         with:
           kubectl: latest
-          helm: "3.19.2"
+          helm: "v3.19.2"
           yq: latest
       - name: Checkout
         uses: actions/checkout@v6
