@@ -6,5 +6,5 @@ version: "0.0.0"
 
 dependencies:
   - name: whatchy
-    version: "0.2.0"
+    version: "0.3.1"
     repository: https://klausmeyer.github.io/helm-charts
