@@ -4,6 +4,6 @@ dependencies:
   version: 4.5.0
 - name: oauth2-proxy
   repository: https://oauth2-proxy.github.io/manifests
-  version: 9.0.1
-digest: sha256:c11f948c8ff1f726c927a6540f5d39e2b9cae8b43fdf5831c936fe8e32d20beb
-generated: "2025-12-08T10:30:58.656794314Z"
+  version: 10.0.0
+digest: sha256:b7483de1e80c80aca8c4acfc23fa4ed1313b4dbb537cf664622c6be67ef96adb
+generated: "2025-12-18T15:42:15.496828178Z"
