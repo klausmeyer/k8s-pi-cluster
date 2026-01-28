@@ -1,9 +1,9 @@
 dependencies:
 - name: paperless-ngx
   repository: https://charts.gabe565.com
-  version: 0.24.0
+  version: 0.24.1
 - name: redis
   repository: https://groundhog2k.github.io/helm-charts
   version: 2.2.1
-digest: sha256:5733a4ec550730c7f23a9b2a4e0939ee4888a9ff6004f1670b54ecd5a64f7740
-generated: "2025-12-08T15:59:11.030966956Z"
+digest: sha256:1e194fd7c7b6d4674595cc809701d0296c5f2e03d9f1bf4965510e4dffb57c9d
+generated: "2026-01-28T12:07:38.341787334Z"

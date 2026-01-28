@@ -6,7 +6,7 @@ version: "0.0.0"
 
 dependencies:
   - name: paperless-ngx
-    version: "0.24.0"
+    version: "0.24.1"
     repository: https://charts.gabe565.com
   - name: redis
     version: "2.2.1"
