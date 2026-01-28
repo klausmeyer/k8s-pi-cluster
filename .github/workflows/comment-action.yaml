@@ -27,7 +27,7 @@ jobs:
               });
             }
 
-            const parsed = context.payload.comment.body.match(/\/(?<command>[^\s]+) (?<deployment>[^\s]+)/);
+            const parsed = context.payload.comment.body.match(/\/(?<command>[^\s]+) (?<deployment>[\w\-]+)/);
 
             if (parsed == null) return;
 
