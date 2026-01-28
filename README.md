@@ -21,3 +21,7 @@ Updates are automated via [Renovate](https://www.mend.io/renovate/).
 Deployments are triggered via GitHub actions and performed by a private runner hosted on one of the raspberry-pis.
 
 The action itself executes `bin/deploy.sh` and passed the namespace/helm-chart to deploy.
+
+# Test
+
+...
