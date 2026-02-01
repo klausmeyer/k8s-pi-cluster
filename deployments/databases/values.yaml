@@ -1,3 +1,7 @@
+cluster:
+  fullnameOverride: "postgres"
+  version:
+    postgresql: "17"
 pg-backup:
   sealedSecrets: true
   settings:

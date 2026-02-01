@@ -5,6 +5,9 @@ type: application
 version: "0.0.0"
 
 dependencies:
+  - name: cluster
+    version: "0.4.0"
+    repository: https://cloudnative-pg.github.io/charts
   - name: pg-backup
     version: "0.1.0"
     repository: oci://registry-1.docker.io/klausmeyer

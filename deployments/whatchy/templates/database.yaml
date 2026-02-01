@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  namespace: databases
+  name: postgres-whatchy
+spec:
+  name: whatchy
+  owner: app
+  cluster:
+    name: postgres
