@@ -6,27 +6,35 @@ cluster:
     # TODO: Move into CRDs managed via the deployments themself
     roles:
       - name: filamentory
+        login: true
         passwordSecret:
           name: postgres-filamentory
       - name: grafana
+        login: true
         passwordSecret:
           name: postgres-grafana
       - name: keycloak
+        login: true
         passwordSecret:
           name: postgres-keycloak
       - name: oopsy
+        login: true
         passwordSecret:
           name: postgres-oopsy
       - name: paperless
+        login: true
         passwordSecret:
           name: postgres-paperless
       - name: planka
+        login: true
         passwordSecret:
           name: postgres-planka
       - name: release-tracker
+        login: true
         passwordSecret:
           name: postgres-release-tracker
       - name: whatchy
+        login: true
         passwordSecret:
           name: postgres-whatchy
 

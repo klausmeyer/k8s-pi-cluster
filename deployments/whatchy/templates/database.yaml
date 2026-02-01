@@ -5,6 +5,6 @@ metadata:
   name: postgres-whatchy
 spec:
   name: whatchy
-  owner: app
+  owner: whatchy
   cluster:
     name: postgres
