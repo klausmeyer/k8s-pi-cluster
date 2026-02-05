@@ -1,42 +1,30 @@
+superuser:
+  username: AgAf+QNFouKjG/SQp4b/FA9Zi8KJJ2Ya4ZDdhaKeSdiR5ceMLJquTlRHekaOcbzvKjiyRGP87z4oT2Vs0kxbQlGpXKhrb/KFtKrqBdYzm+Q75V+O/fvMTzvZbCU9RJvCn9Jr7K13Dtzu79xuFBZwEBdemdU15DL4xFyvKGwL5gO5goghwHUY7A6DLHlX9MoYzLOkd4zi8GGAo3ncBWcrocbqFXLWda99qyXcs1sU8Po3tJ1W5peffSmF2mzZw+s/qH2AA0NN+qzBAbYsCsKDsrsXw4MszAv6XJJSiP7nIfcvRyC2RQOCfo5Pq/7biLRoAAgtCR8iwe1t5g326mqECjnYxQJSV8NjFDDXAcL83IRRJNO4MF4iDl52B2PSuH5yZrSDOTgMV6/Wc+h5pxhC3lJ/VxYmk/1+TjSJTyrHVPEU7kOQ1b2yAswWLy4Lq41ywf30+jsqy9q/1DPMx9xvshZwMi1l7Xfqrve3mnfjj1KAS45ueWziXmk86aQF73jWT70Pb6osmSIE34t280G6dWgEEsB+VOmwgR90TgbU5cAYH3SNxmIqm/Lm6pv774fIb9WEJWVOn0WiM0stfIXQM4WYpycCwQHMKrrg1m/MqU5dhbF+XS7kDi3pe8WcvPX50/UtQh8Oz9ajodTMPHKkdwRZEQgrhR+j0MZsQeRHtMiOz3xok5BGClQYFWkiT6eJv633/sweXQwRxA==
+  password: AgBvttRgF7OMdaKFRY51/F88W8gbhKD1fuOMVG8iyIfXHxUHZviPjzCtLmi7uy8ndACNa9i+MC/HDT0P5gziQBDq+ifcfSB0UVQCBftvFKo5Vz2EB7OQJNG+zhxyXq9jCEDkB14eAJcSdif+RYyjnh38o++z2Bt2rWjN7ydfCKL/Ijsv3XvF++oE1wgeOCmaSXf5hOOTi8/JvhCOZt/RZFClGNiMnF/8YcbsQGrusLhMO/Mb0Qv0NUhN45Rir6UEFMegOUR2Q71qOXw0o50kXHR6fAkZ2ayIMQZRvNV8fwTo+7cNIvljKkEZfChUJl5i9AGCfqwke++vkFP1vRoj356ea6aqKGkkTEAJ1dkgu/OPvw+I1HG38yBew6QQ7WwSeOQVW6F2dekfFRfVBUzR1V1m44uWyPVl/r/r/TZPR9ejrEHjTL4pj37+KXj2k8I70mO0S2OdG0qMRGXANs8eXdyCXDf3rGjkDARyFLkzvp8J3r/1+pqmvwPvW6kl2QUdvTFn3kv3UWZsBXl69ecXdX7Bc0DertejmiYoxLjyKppps8KkfVyJ1wsETu+1xETpDiRu412ZxQiykYPfjdeT5atRfzJQGfIYP6a83g30sYF7JKF1xLjTsrI4yUxObkrjEVBk5yud69CYv3h/uvFwtDsDj2URr8qui6KiiRoAIU3RpWN7+TXCzkPU+n8HG7/XoRsJAT88a1UEugehgg6RLkvC6eLpG2wKPn6ByxyiU0Qizq1qwX03YM3FPsOnOT7bZ2yIlqK0XpYplRsYCD60LHvG
+
 cluster:
   fullnameOverride: "postgres"
   version:
     postgresql: "17"
   cluster:
-    # TODO: Move into CRDs managed via the deployments themself
+    superuserSecret: postgres-superuser
     roles:
-      - name: filamentory
-        login: true
-        passwordSecret:
-          name: postgres-filamentory
-      - name: grafana
-        login: true
-        passwordSecret:
-          name: postgres-grafana
-      - name: keycloak
-        login: true
-        passwordSecret:
-          name: postgres-keycloak
-      - name: oopsy
-        login: true
-        passwordSecret:
-          name: postgres-oopsy
-      - name: paperless
-        login: true
-        passwordSecret:
-          name: postgres-paperless
-      - name: planka
-        login: true
-        passwordSecret:
-          name: postgres-planka
-      - name: release-tracker
-        login: true
-        passwordSecret:
-          name: postgres-release-tracker
-      - name: whatchy
-        login: true
-        passwordSecret:
-          name: postgres-whatchy
+      - { login: true, name: filamentory,     passwordSecret: { name: postgres-filamentory     } }
+      - { login: true, name: grafana,         passwordSecret: { name: postgres-grafana         } }
+      - { login: true, name: keycloak,        passwordSecret: { name: postgres-keycloak        } }
+      - { login: true, name: oopsy,           passwordSecret: { name: postgres-oopsy           } }
+      - { login: true, name: paperless,       passwordSecret: { name: postgres-paperless       } }
+      - { login: true, name: planka,          passwordSecret: { name: postgres-planka          } }
+      - { login: true, name: release-tracker, passwordSecret: { name: postgres-release-tracker } }
+      - { login: true, name: whatchy,         passwordSecret: { name: postgres-whatchy         } }
+  databases:
+    - { name: filamentory, owner: filamentory }
+    - { name: grafana,     owner: grafana     }
+    - { name: keycloak,    owner: keycloak    }
+    - { name: oopsy,       owner: oopsy       }
+    - { name: paperless,   owner: paperless   }
+    - { name: planka,      owner: planka      }
+    - { name: whatchy,     owner: whatchy     }
 
 users:
   - name: filamentory
