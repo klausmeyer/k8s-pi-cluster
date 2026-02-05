@@ -1,0 +1,13 @@
+{{- range .Values.users }}
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  namespace: {{ $.Release.Namespace }}
+  name: postgres-{{ .name }}
+spec:
+  name: {{ .name }}
+  owner: {{ .name }}
+  cluster:
+    name: postgres
+---
+{{ end -}}
