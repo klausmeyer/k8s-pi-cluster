@@ -2,30 +2,6 @@ superuser:
   username: AgAf+QNFouKjG/SQp4b/FA9Zi8KJJ2Ya4ZDdhaKeSdiR5ceMLJquTlRHekaOcbzvKjiyRGP87z4oT2Vs0kxbQlGpXKhrb/KFtKrqBdYzm+Q75V+O/fvMTzvZbCU9RJvCn9Jr7K13Dtzu79xuFBZwEBdemdU15DL4xFyvKGwL5gO5goghwHUY7A6DLHlX9MoYzLOkd4zi8GGAo3ncBWcrocbqFXLWda99qyXcs1sU8Po3tJ1W5peffSmF2mzZw+s/qH2AA0NN+qzBAbYsCsKDsrsXw4MszAv6XJJSiP7nIfcvRyC2RQOCfo5Pq/7biLRoAAgtCR8iwe1t5g326mqECjnYxQJSV8NjFDDXAcL83IRRJNO4MF4iDl52B2PSuH5yZrSDOTgMV6/Wc+h5pxhC3lJ/VxYmk/1+TjSJTyrHVPEU7kOQ1b2yAswWLy4Lq41ywf30+jsqy9q/1DPMx9xvshZwMi1l7Xfqrve3mnfjj1KAS45ueWziXmk86aQF73jWT70Pb6osmSIE34t280G6dWgEEsB+VOmwgR90TgbU5cAYH3SNxmIqm/Lm6pv774fIb9WEJWVOn0WiM0stfIXQM4WYpycCwQHMKrrg1m/MqU5dhbF+XS7kDi3pe8WcvPX50/UtQh8Oz9ajodTMPHKkdwRZEQgrhR+j0MZsQeRHtMiOz3xok5BGClQYFWkiT6eJv633/sweXQwRxA==
   password: AgBvttRgF7OMdaKFRY51/F88W8gbhKD1fuOMVG8iyIfXHxUHZviPjzCtLmi7uy8ndACNa9i+MC/HDT0P5gziQBDq+ifcfSB0UVQCBftvFKo5Vz2EB7OQJNG+zhxyXq9jCEDkB14eAJcSdif+RYyjnh38o++z2Bt2rWjN7ydfCKL/Ijsv3XvF++oE1wgeOCmaSXf5hOOTi8/JvhCOZt/RZFClGNiMnF/8YcbsQGrusLhMO/Mb0Qv0NUhN45Rir6UEFMegOUR2Q71qOXw0o50kXHR6fAkZ2ayIMQZRvNV8fwTo+7cNIvljKkEZfChUJl5i9AGCfqwke++vkFP1vRoj356ea6aqKGkkTEAJ1dkgu/OPvw+I1HG38yBew6QQ7WwSeOQVW6F2dekfFRfVBUzR1V1m44uWyPVl/r/r/TZPR9ejrEHjTL4pj37+KXj2k8I70mO0S2OdG0qMRGXANs8eXdyCXDf3rGjkDARyFLkzvp8J3r/1+pqmvwPvW6kl2QUdvTFn3kv3UWZsBXl69ecXdX7Bc0DertejmiYoxLjyKppps8KkfVyJ1wsETu+1xETpDiRu412ZxQiykYPfjdeT5atRfzJQGfIYP6a83g30sYF7JKF1xLjTsrI4yUxObkrjEVBk5yud69CYv3h/uvFwtDsDj2URr8qui6KiiRoAIU3RpWN7+TXCzkPU+n8HG7/XoRsJAT88a1UEugehgg6RLkvC6eLpG2wKPn6ByxyiU0Qizq1qwX03YM3FPsOnOT7bZ2yIlqK0XpYplRsYCD60LHvG
 
-cluster:
-  fullnameOverride: "postgres"
-  version:
-    postgresql: "17"
-  cluster:
-    superuserSecret: postgres-superuser
-    roles:
-      - { login: true, name: filamentory,     passwordSecret: { name: postgres-filamentory     } }
-      - { login: true, name: grafana,         passwordSecret: { name: postgres-grafana         } }
-      - { login: true, name: keycloak,        passwordSecret: { name: postgres-keycloak        } }
-      - { login: true, name: oopsy,           passwordSecret: { name: postgres-oopsy           } }
-      - { login: true, name: paperless,       passwordSecret: { name: postgres-paperless       } }
-      - { login: true, name: planka,          passwordSecret: { name: postgres-planka          } }
-      - { login: true, name: release-tracker, passwordSecret: { name: postgres-release-tracker } }
-      - { login: true, name: whatchy,         passwordSecret: { name: postgres-whatchy         } }
-  databases:
-    - { name: filamentory, owner: filamentory }
-    - { name: grafana,     owner: grafana     }
-    - { name: keycloak,    owner: keycloak    }
-    - { name: oopsy,       owner: oopsy       }
-    - { name: paperless,   owner: paperless   }
-    - { name: planka,      owner: planka      }
-    - { name: whatchy,     owner: whatchy     }
-
 users:
   - name: filamentory
     username: AgBaYrRAmDry25mpjuN2gPRalWw5zkZxh7FPzMd6lCqCZu7xyStFfWZ4UER2hn+fedq4POTlS4uuGBoCAigNlnbJqnb7+JgTxrU9icRghqp+e96NlWYIcXkrS2yDzO6TYEmmnJXTY2FlHZcN5ezzsAIcUHzLOdfYp1r4UwhhHqhDte33A32GK7kp9RdUuyv5LerhOUrzGa/AntA6xR1n6tTNgiymJGCIgNAHl4QVuB2a8+hTL3Ab5ZhjUxBu4eqbZg9ELTX6LZ03K92TvJ2riz+j3JgNpe4MejeJyVUC0cN8rYRbgdQ6ZAmNl3e7FGF/Wi+eiP87yJScUn4j5+goen2BA/U8rMZb5X6cl9MYJa16YNzYLLH88kKcKLv7QJ5oR2CeIAF/Mn4oIAsMsOQBLKvsO4ObYbH88JVjN6ZwieVv3cNwXUe4sTh9EnhzI/utQeV+JMXQTLB9oxA4xvLFCtopmSlw0GjjzwQTBc6Zqn2374kAe/hH9dkEi7UVAmmu0wQrgllO/hAKlb1aiqawoiOLvW2CPMn6VwnO7L3tZUrCimAe+ZKPvJh0dBvsnmXgGGa0zxmLgCspHSvQAX9QgOd1OskxpPnqUKKEoAJg3N1AtKQpHlnkm3e2Vpi0X98rdY9wmYgP07jRyUcUtRQ6FhwtguF4rHn/SXIpyxIOofQUg4VleFcdsu+g+Cgy/Ky9P/ooSfky78Z5mKi1zQ==
@@ -51,6 +27,30 @@ users:
   - name: whatchy
     username: AgAsIIeskKQXhG/kaRhwVMSoFUyfWTP6oTJKhxUCfNH8I+Yk+bk8uKienyt/g77BF+MvdkFdJTROASTWQP8A9OF2oGKkp8WMkX6qB2GONvust0zcgCLanxP/Gr4u7l8zVVqExo7gx/+kyQ6tDE7zT0+IELaxxq20ou3Tz39u1CcJt/GFpoF35S2ucPXcQT+oMONRI+mtdHVpCRnbzXLixmDq0wzl4Fk6fW5vKCNV4Yc7MpDpVJYsyGq8VpdfBRsN1/4ufhRr76D6GRF0ktmOVphUU0UDw8xZ44z6h6vNrJMxXETtLoAJVToEk9w2F4eA0b1L7qg+chkXGQMkeJIVPOQe6WixKLSg26+Y2cX7WZNXczD08e07T5+kZ9IuJSbjmykY3d6ayRRI1mYXRFX4/dGglMk9GDWdU40iEwSIuN8j0g6dzv521scR7KyfBRZLrvUQzNwiCBOWYBNl0ekDW5wWmg8l+NsYuMjfqe1GywmI8caSlaxNXjMXMXI5EiojNWKRXR9xDR5qWta4hMIz1ACsgq9EAjREqR/B0GhKZllnkubyjtfnYIiOULM6HqZnjBIVmrJrvcUqyBUlWC6ZyDND4FlSePZtMAY4Dx0nYWjrZFFfBeEu6d5LihLhrev8sEJp40sPGQ25hLKVHtNIgB53QEvFwgKSg3/r0v2YXV0QVMkUOFKdJu1Aj76Ja37cJ7eMcTEyAlpl
     password: AgAwUKmfDPdIQG4Zu+Lvbl/uhBaayOKY2lNWUWlRyDAo8WnIAuoiXFdRcRHtO6UcCIHHWcjy8Y/7VeeER2NoFSsuOaw4d55TBBpFi7eQj2HsQSboQqTeIuAu2Nyk0waXzgsLDNCEuARffHnYA2BsjmtND0WWUkB2IQfb79T5Pnbe9ExG7lUT+uByE+OxpiN+EuqN764bmbE83CgzW9k7gGiEgTzk/O9sdSkC7zeugCqBiTKjj0o6V92ijFmbzOQXqF62oegyCH2oP17ZstSsG1hSoUBRf9bJ0OD7Fx7yA7jJErrxeJd1ZaHVtDGwEw9ZkJcUN63K5dEzXiG62BRl28le4Ne9OGwtqMYEStE6Uj7sZZIBZ2wjRQalMigQE/Sp6H3GoW4Sff2IOVeOuQ4OZhmf2Somc1KObO7hrVximvVZ39eGs30CJoHrj84150fFXCovI8aG18CL81+QiSHKMygjPTuu1s/Jf+CwXRPeDgESagK4yFIOG6vQnjtaYqDQ2oZGqJj8+Ht91/PxDikslazYsQlnsjRxixKTyd03d7NUvZhj28LAPfasQ/Q+GVAIrJOvqooZ9BPnEGu3ENbqeVm3SKRAEpynJwZTe6UGtYJhC5k0uKDSEnMW7XBignS7+9jOzBq16z78vPH+DxIVNQ6GwqSvj47R/IRR2OFzV59xgrLjZsc1Ymc4yWefleDGYAQCaC3Az/YxEmHMcw4Nnixa+VmtAlWOP+AB/DJDfzpc1w==
+
+cluster:
+  fullnameOverride: "postgres"
+  version:
+    postgresql: "17"
+  cluster:
+    superuserSecret: postgres-superuser
+    roles:
+      - { login: true, name: filamentory,     passwordSecret: { name: postgres-filamentory     } }
+      - { login: true, name: grafana,         passwordSecret: { name: postgres-grafana         } }
+      - { login: true, name: keycloak,        passwordSecret: { name: postgres-keycloak        } }
+      - { login: true, name: oopsy,           passwordSecret: { name: postgres-oopsy           } }
+      - { login: true, name: paperless,       passwordSecret: { name: postgres-paperless       } }
+      - { login: true, name: planka,          passwordSecret: { name: postgres-planka          } }
+      - { login: true, name: release-tracker, passwordSecret: { name: postgres-release-tracker } }
+      - { login: true, name: whatchy,         passwordSecret: { name: postgres-whatchy         } }
+  databases:
+    - { name: filamentory, owner: filamentory }
+    - { name: grafana,     owner: grafana     }
+    - { name: keycloak,    owner: keycloak    }
+    - { name: oopsy,       owner: oopsy       }
+    - { name: paperless,   owner: paperless   }
+    - { name: planka,      owner: planka      }
+    - { name: whatchy,     owner: whatchy     }
 
 pg-backup:
   sealedSecrets: true
