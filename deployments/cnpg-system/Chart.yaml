@@ -1,0 +1,10 @@
+apiVersion: v2
+name: cnpg
+description: Deployment chart for cnpg
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: cloudnative-pg
+    version: "0.27.0"
+    repository: https://cloudnative-pg.github.io/charts
