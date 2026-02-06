@@ -44,13 +44,14 @@ cluster:
       - { login: true, name: release-tracker, passwordSecret: { name: postgres-release-tracker } }
       - { login: true, name: whatchy,         passwordSecret: { name: postgres-whatchy         } }
   databases:
-    - { name: filamentory, owner: filamentory }
-    - { name: grafana,     owner: grafana     }
-    - { name: keycloak,    owner: keycloak    }
-    - { name: oopsy,       owner: oopsy       }
-    - { name: paperless,   owner: paperless   }
-    - { name: planka,      owner: planka      }
-    - { name: whatchy,     owner: whatchy     }
+    - { name: filamentory,     owner: filamentory     }
+    - { name: grafana,         owner: grafana         }
+    - { name: keycloak,        owner: keycloak        }
+    - { name: oopsy,           owner: oopsy           }
+    - { name: paperless,       owner: paperless       }
+    - { name: planka,          owner: planka          }
+    - { name: release-tracker, owner: release-tracker }
+    - { name: whatchy,         owner: whatchy         }
 
 pg-backup:
   sealedSecrets: true
