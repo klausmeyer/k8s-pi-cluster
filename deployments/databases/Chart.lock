@@ -5,8 +5,5 @@ dependencies:
 - name: pg-backup
   repository: oci://registry-1.docker.io/klausmeyer
   version: 0.1.0
-- name: pg-backup
-  repository: oci://registry-1.docker.io/klausmeyer
-  version: 0.1.0
-digest: sha256:b8a723fd28f7954b54ee9c32be2fc3546c42cb31c98590d1f919273f0657ac2a
-generated: "2026-02-05T18:04:27.276673+01:00"
+digest: sha256:0b9e919d31c83f81d0c53de72ce77d1ce96f62d13ae474b154b21aadc95ba99e
+generated: "2026-02-11T20:42:19.982889+01:00"
