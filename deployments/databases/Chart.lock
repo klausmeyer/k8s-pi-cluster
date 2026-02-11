@@ -1,9 +1,9 @@
 dependencies:
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
-  version: 0.4.0
+  version: 0.5.0
 - name: pg-backup
   repository: oci://registry-1.docker.io/klausmeyer
   version: 0.1.0
-digest: sha256:0b9e919d31c83f81d0c53de72ce77d1ce96f62d13ae474b154b21aadc95ba99e
-generated: "2026-02-11T20:42:19.982889+01:00"
+digest: sha256:549de5eb30c3fb2b08ebf2bf60fb55125ba301bea4daa8c7eccbbc0740c19a19
+generated: "2026-02-11T19:51:05.59004664Z"
