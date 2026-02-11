@@ -87,7 +87,7 @@ grafana:
       role_attribute_path: contains(realm_access.roles[*], 'admin') && 'Admin' || contains(realm_access.roles[*], 'editor') && 'Editor' || 'Viewer'
     database:
       type: postgres
-      host: postgres.databases.svc.cluster.local
+      host: postgres-rw.databases.svc.cluster.local
       name: grafana
       user: grafana
       password: $__file{/etc/secrets/database/password}

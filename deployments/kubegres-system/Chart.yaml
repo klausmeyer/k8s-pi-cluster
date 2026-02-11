@@ -1,5 +1,0 @@
-apiVersion: v2
-name: kubegres-system
-description: Deployment chart for kubegres-system
-type: application
-version: "0.0.0"

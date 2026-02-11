@@ -59,7 +59,7 @@ keycloakx:
         secretName: tls-wildcard-home-klaus-meyer-net
   database:
     vendor: postgres
-    hostname: postgres.databases.svc.cluster.local
+    hostname: postgres-rw.databases.svc.cluster.local
     port: 5432
     database: keycloak
     username: keycloak
