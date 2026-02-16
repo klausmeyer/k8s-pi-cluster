@@ -1,0 +1,9 @@
+dependencies:
+- name: gitea
+  repository: https://dl.gitea.com/charts
+  version: 12.5.0
+- name: redis
+  repository: https://groundhog2k.github.io/helm-charts
+  version: 2.3.0
+digest: sha256:39764a23ce1a22b10cedff619850118f6ae71ff173cc330663bb7541f40c0983
+generated: "2026-02-19T17:22:56.326257+01:00"

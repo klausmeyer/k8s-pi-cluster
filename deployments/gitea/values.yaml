@@ -1,0 +1,63 @@
+gitea:
+  valkey-cluster:
+    enabled: false
+  valkey:
+    enabled: false
+  postgresql:
+    enabled: false
+  postgresql-ha:
+    enabled: false
+
+  persistence:
+    enabled: true
+
+  gitea:
+    admin:
+      existingSecret: gitea-admin-secret
+    config:
+      cache:
+        ADAPTER: redis
+        HOST: redis://gitea-redis-headless.gitea.svc.cluster.local:6379/0?pool_size=100&idle_timeout=180s&
+      session:
+        PROVIDER: redis
+        PROVIDER_CONFIG: redis://gitea-redis-headless.gitea.svc.cluster.local:6379/0?pool_size=100&idle_timeout=180s&
+      queue:
+        TYPE: redis
+        CONN_STR: redis://gitea-redis-headless.gitea.svc.cluster.local:6379/0?pool_size=100&idle_timeout=180s&
+      database:
+        DB_TYPE: postgres
+        HOST: postgres-rw.databases.svc.cluster.local
+        NAME: gitea
+        USER: gitea
+      indexer:
+        ISSUE_INDEXER_TYPE: bleve
+        REPO_INDEXER_ENABLED: true
+      server:
+        OFFLINE_MODE: false
+    additionalConfigSources:
+    - secret:
+        secretName: gitea-app-ini-secrets
+
+  ingress:
+    enabled: true
+    className: nginx
+    pathType: Prefix
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    hosts:
+      - host: git.home.klaus-meyer.net
+        paths:
+          - path: /
+    tls:
+      - hosts:
+          - "*.home.klaus-meyer.net"
+        secretName: tls-wildcard-home-klaus-meyer-net
+
+redis:
+  haMode:
+    enabled: false
+  storage:
+    requestedSize: 8Gi
+    className: # ???
+    keepPvc: true
