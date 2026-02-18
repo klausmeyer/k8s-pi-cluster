@@ -13,19 +13,11 @@ on:
 jobs:
   execute:
     runs-on: self-hosted
+    container:
+      image: klausmeyer/multitool:latest
+      volumes:
+        - "~/.kube:/root/.kube"
     steps:
-      - name: Setup
-        uses: alexellis/arkade-get@master
-        with:
-          kubectl: latest
-          helm: latest
-          yq: latest
-      - name: Inspect versions
-        run: |
-          set -x
-          kubectl version
-          helm version
-          yq --version
       - name: Checkout
         uses: actions/checkout@v6
       - name: Deploy
