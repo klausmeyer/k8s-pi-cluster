@@ -15,7 +15,7 @@ jobs:
     runs-on: self-hosted
     container:
       image: klausmeyer/multitool:master
-      options: |
+      options: >
         -u 1000:1000
         -v /home/pi/.kube:/root/.kube
     steps:
