@@ -14,7 +14,7 @@ jobs:
   execute:
     runs-on: self-hosted
     container:
-      image: klausmeyer/multitool:master
+      image: klausmeyer/multitool:latest
       env:
         KUBECONFIG: /root/.kube/config
       options: >
