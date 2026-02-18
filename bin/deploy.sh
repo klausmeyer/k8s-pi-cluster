@@ -18,6 +18,7 @@
 # helm template --create-namespace -n "${NAMESPACE}" "${RELEASE}" .
 # helm upgrade --install --create-namespace -n "${NAMESPACE}" "${RELEASE}" .
 
+whoami
 pwd
 ls -l /root
 ls -l /root/.kube
