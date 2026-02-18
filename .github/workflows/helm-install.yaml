@@ -14,9 +14,9 @@ jobs:
   execute:
     runs-on: self-hosted
     container:
-      image: klausmeyer/multitool:latest
+      image: klausmeyer/multitool:master
       volumes:
-        - "~/.kube:/root/.kube"
+        - ".kube:/root/.kube"
     steps:
       - name: Checkout
         uses: actions/checkout@v6
