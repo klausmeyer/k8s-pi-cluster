@@ -16,12 +16,12 @@ jobs:
     container:
       image: klausmeyer/multitool:master
       volumes:
-        - ".kube:/root/.kube"
+        - "/home/pi/.kube:/root/.kube"
     steps:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Deploy
-        run: bash ./bin/deploy.sh "${{ inputs.deployment }}"
+        run: bash bin/deploy.sh "${{ inputs.deployment }}"
 
   report:
     if: ${{ always() && inputs.pr }}
