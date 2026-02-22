@@ -1,0 +1,37 @@
+garage:
+  garage:
+    dbEngine: sqlite
+    replicationFactor: 1
+    s3:
+      api:
+        region: de-dahoam-1
+        rootDomain: ".s3.home.klaus-meyer.net"
+  persistence:
+    enabled: true
+    meta:
+      size: 100Mi
+    data:
+      size: 1Gi
+  deployment:
+    replicaCount: 1
+  image:
+    repository: dxflrs/arm64_garage
+    tag: v2.2.0 # renovate: image=dxflrs/arm64_garage
+  ingress:
+    s3:
+      api:
+        enabled: true
+        className: nginx
+        annotations:
+          nginx.ingress.kubernetes.io/proxy-body-size: 500m
+          cert-manager.io/cluster-issuer: letsencrypt
+          cert-manager.io/common-name: "*.home.klaus-meyer.net"
+        hosts:
+          - host: s3.home.klaus-meyer.net
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - secretName: tls-wildcard-home-klaus-meyer-net
+            hosts:
+              - "*.home.klaus-meyer.net"
