@@ -5,7 +5,7 @@ garage:
     s3:
       api:
         region: de-dahoam-1
-        rootDomain: ".s3.garage.home.klaus-meyer.net"
+        rootDomain: ".s3.home.klaus-meyer.net"
       # web:
       #   rootDomain: ".web.garage.home.klaus-meyer.net"
   persistence:
@@ -29,12 +29,12 @@ garage:
           cert-manager.io/common-name: "*.home.klaus-meyer.net"
         hosts:
           # -- garage S3 API endpoint, to be used with awscli for example
-          - host: s3-garage.home.klaus-meyer.net
+          - host: s3.home.klaus-meyer.net
             paths:
               - path: /
                 pathType: Prefix
           # -- garage S3 API endpoint, DNS style bucket access
-          # - host: "*.s3-garage.home.klaus-meyer.net"
+          # - host: "*.s3.home.klaus-meyer.net"
           #   paths:
           #     - path: /
           #       pathType: Prefix
