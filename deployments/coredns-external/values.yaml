@@ -1,0 +1,60 @@
+coredns:
+  isClusterService: false
+  serviceType: "NodePort"
+  servers:
+    - zones:
+        - zone: home.klaus-meyer.net.
+      port: 53
+      nodePort: 32053
+      plugins:
+      - name: errors
+      - name: ready
+      - name: health
+        configBlock: |-
+          lameduck 10s
+      - name: reload
+      - name: loadbalance
+      - name: file
+        parameters: /etc/coredns/home.klaus-meyer.net.db
+  zoneFiles:
+    - filename: home.klaus-meyer.net.db
+      domain: home.klaus-meyer.net
+      # @ SOA <MNAME> <RNAME> <Serial> <REFRESH> <RETRY> <EXPIRE> <TTL>
+      contents: |
+        $ORIGIN home.klaus-meyer.net.
+        @	3600 IN	SOA km-pi4b-1.fritz.box. spam.klaus-meyer.net. 2026022201 7200 3600 1209600 3600
+          3600 IN NS km-pi4b-1.fritz.box.
+          3600 IN NS km-pi4b-2.fritz.box.
+          3600 IN NS km-pi4b-3.fritz.box.
+          3600 IN NS km-pi4b-4.fritz.box.
+
+        app-servers-k8s   IN  A     192.168.178.231
+        app-servers-k8s   IN  A     192.168.178.232
+        app-servers-k8s   IN  A     192.168.178.233
+        app-servers-k8s   IN  A     192.168.178.234
+
+        app-servers-d4r   IN  CNAME 192.168.178.3
+
+        filamentory       IN  CNAME app-servers-k8s
+        git               IN  CNAME app-servers-k8s
+        grafana           IN  CNAME app-servers-k8s
+        idp               IN  CNAME app-servers-k8s
+        longhorn          IN  CNAME app-servers-k8s
+        mailcatcher       IN  CNAME app-servers-k8s
+        oopsy             IN  CNAME app-servers-k8s
+        paperless         IN  CNAME app-servers-k8s
+        planka            IN  CNAME app-servers-k8s
+        registry          IN  CNAME app-servers-k8s
+        releases          IN  CNAME app-servers-k8s
+        s3                IN  CNAME app-servers-k8s
+        whatchy           IN  CNAME app-servers-k8s
+        wiki              IN  CNAME app-servers-k8s
+
+        dashboard         IN  CNAME app-servers-d4r
+        jdownloader       IN  CNAME app-servers-d4r
+        pihole            IN  CNAME app-servers-d4r
+        status            IN  CNAME app-servers-d4r
+        traefik           IN  CNAME app-servers-d4r
+        wud               IN  CNAME app-servers-d4r
+
+        *.s3              IN  CNAME app-servers-k8s
