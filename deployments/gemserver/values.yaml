@@ -1,0 +1,38 @@
+controllers:
+  gemserver:
+    enabled: true
+    type: deployment
+    defaultContainerOptions:
+      image:
+        repository: registry.home.klaus-meyer.net/home/gemserver
+        tag: latest
+    containers:
+      gemserver:
+        enabled: true
+service:
+  gemserver:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        port: 80
+        protocol: HTTP
+        targetPort: 9292
+ingress:
+  gemserver:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    className: nginx
+    hosts:
+      - host: gems.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              port: 80
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"

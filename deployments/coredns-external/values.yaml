@@ -36,6 +36,7 @@ coredns:
         app-servers-d4r   IN  A     192.168.178.3
 
         filamentory       IN  CNAME app-servers-k8s
+        gems              IN  CNAME app-servers-k8s
         git               IN  CNAME app-servers-k8s
         grafana           IN  CNAME app-servers-k8s
         idp               IN  CNAME app-servers-k8s
