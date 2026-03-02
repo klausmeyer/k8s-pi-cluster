@@ -1,16 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-4.6.2/charts/library/common/values.schema.json
+
 controllers:
-  gemserver:
+  main:
     enabled: true
     type: deployment
-    defaultContainerOptions:
-      image:
-        repository: registry.home.klaus-meyer.net/home/gemserver
-        tag: latest
-    containers:
-      gemserver:
+    initContainers:
+      init-chown-data:
         enabled: true
+        image:
+          repository: busybox
+          tag: latest
+        command:
+          ["sh", "-c", "chown -R 1000:1000 /var/lib/gemserver"]
+    containers:
+      main:
+        enabled: true
+        image:
+          repository: registry.home.klaus-meyer.net/home/gemserver
+          tag: latest
+
 service:
-  gemserver:
+  main:
     enabled: true
     ports:
       http:
@@ -18,8 +28,15 @@ service:
         port: 80
         protocol: HTTP
         targetPort: 9292
+persistence:
+  data:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 10G
+    globalMounts:
+      - path: /var/lib/gemserver
 ingress:
-  gemserver:
+  main:
     enabled: true
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
