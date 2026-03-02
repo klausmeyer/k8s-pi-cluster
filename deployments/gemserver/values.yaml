@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-4.6.2/charts/library/common/values.schema.json
+
+controllers:
+  main:
+    enabled: true
+    type: deployment
+    initContainers:
+      init-chown-data:
+        enabled: true
+        image:
+          repository: busybox
+          tag: latest
+        command:
+          ["sh", "-c", "chown -R 1000:1000 /var/lib/gemserver"]
+    containers:
+      main:
+        enabled: true
+        image:
+          repository: registry.home.klaus-meyer.net/home/gemserver
+          tag: latest
+
+service:
+  main:
+    enabled: true
+    ports:
+      http:
+        enabled: true
+        port: 80
+        protocol: HTTP
+        targetPort: 9292
+persistence:
+  data:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 10G
+    globalMounts:
+      - path: /var/lib/gemserver
+ingress:
+  main:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+    className: nginx
+    hosts:
+      - host: gems.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              port: 80
+    tls:
+      - secretName: tls-wildcard-home-klaus-meyer-net
+        hosts:
+          - "*.home.klaus-meyer.net"
