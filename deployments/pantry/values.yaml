@@ -1,0 +1,52 @@
+pantry:
+  backend:
+    image:
+      pullPolicy: Always
+    service:
+      type: ClusterIP
+      port: 4000
+    env:
+      HTTP_ADDR: ":4000"
+      DB_HOST: "postgres-rw.databases.svc.cluster.local"
+      DB_PORT: "5432"
+      DB_NAME: "pantry"
+      DB_USER: "pantry"
+      DB_SSLMODE: "require"
+      S3_ENDPOINT: "https://s3.home.klaus-meyer.net"
+      S3_REGION: "de-dahoam-1"
+      S3_BUCKET: "pantry-pictures"
+      S3_USE_PATH_STYLE: "false"
+    credentials:
+      keys:
+        dbPassword: DB_PASSWORD
+        s3AccessKeyId: S3_ACCESS_KEY_ID
+        s3SecretAccessKey: S3_SECRET_ACCESS_KEY
+
+  sealedSecrets:
+    backendCredentials:
+      enabled: true
+      encryptedData:
+        DB_PASSWORD: AgBpiI30qh8BOuaiRJxvMeR90n0nvk6Uy68GtZC2FwlInOBUVZzdEw3x6hm9pm1i4l7X93hKVwU+bzI+AZ2Xcd4dBnWbsmPfSDe66NoB720qerci5zRddw34AYCFbw7CLvgHMJoaczFJIeCoSXLOi4xRqoSMdif4Nch6DNC6UGzrQsR/WXVlk+yzlj3qeAAb9B2qgLxgzyxRHmZ92j6rqtPweQTq72FoU4Wgz11bTXw8/YZqbYCGT20qMaS84V2KxcC414/n3vke+o4XGfPe90WSU5Rfvb5qn50Gp72vog7Aj4FnSngHeMXiN0qWWJVAk98XUK8W1rrNNN7sTSNBq/gdW968MzvkHN1qpRKdQx13TSH1a2piMLjzIe65bNUkWazh/Zz13+axSvJhkXx3jsGRs1cMiuANOEXviI8+yY5Ml2txnZhvq5BgkV+o9xkbtkL+OpwZMhn4u+mE9+Y02LglM9OjHX3qUSl52z/dzmb8QKPQahZnBsu4lknB+4MzzdSURjXOiYzrWJrl1EG1pq31OleQ73sv1lWqeKDYr7R5CJzRVbu/+rgRrf+KJzn/S2izzsiEjQFPdu5Nscd4+YyjwD5zy9SFZT6PQ3HsjSIc28ZQeSah30mXJ7Ma/Jy41Cgf+21+V4vj/pkt0gqdaDIqsWt0dj2e3KmYwe014Vk7BUywS55gpCwgvI+caQ3jWQBu1CqqNS6rw4q0QjwO7b+0acf2pJiRpl5kyy5rt0rfCA==
+        S3_ACCESS_KEY_ID: AgAjyt40ThyiO15gjYGZzp8Jv1YHXTHreRpVvARwE8BWNJhFXqcjLLDNcwbvumBfhv5NR5vHr9Qx6KkE75HmmWM3+XatkRy2D10jLtk45AApxeXAY/921WUl9iaWMdX5IDv4paejXlzIn1cjlOkEcajT6AU+73OSXW+WZfss5k2dnLikUQEaiwTDwfvi9DV7MkmuSVPVPmBmi1rtKp5bnYeCa1lJ2CGrs2xN8N6/ZWMeKeaqXwt3ZTqVdCOtN8+RykM4EDZ4rYIfLQCuYxz3rp9+qdJLLF6Qlp3AcZg/ex1GN35KdgdoibGocc21Uu7cMm67wDSjQskg47SE6LrCkZfBnnicnPs9bqlbrtRQ9Erl5rz5kudi+KUGoKprctnji+YQ/WPqnnj9R0pdseYM5WY9tAIXWLQTbn9eDf/DeWnKqGoNrKSjfJYo13IjQh00LqgRwbZJs3qW7Qf/N22SLn6puhIQwq1HZMF1d5XM54dm8F6TfEkc2HyqhS3v+7LamU3QLh7xwyBBPMTFbtsBiZECmy4zBgy4wRhkAdzn94c2UhnTBwbuqZ+U+/QIajLseXWJzWdRU23cXHUN/rjmgaCeVoliRuh0apuZ3II1PlmQQhTnH2o4z90rE3JzqrjBqb1WBttmj1pPXGtJuIyFDyyaYIAk9FIiYPhKvl+eJYUwjKOhH1jwKHwOsG2ypXKoVqiD69CYL4DOR0D3pmn7ARohNdLbFlfRMFuOlw==
+        S3_SECRET_ACCESS_KEY: AgA+IQ9oYSNUyGh2bd5YgY6ctPDPObbOaLZxo2ohNTqPfhOxZC0W6jKqD5349uNMaNv2NlV+0352ZvhIH0XwPLmkp0EyBbg767yvzePMdCRT8CZTlzuSr5Tdg020Eqff+HSo+ku88v9mKzXo01hVnlo3ZyThxqzTjeSv6wu7giBI3SOJaOeWQl/CRiW5W2ArYmf3YOfBhOhPh/iexNyYDthvmuIcq2MS1iFW0XkHk+Aamk3jc7fgAkQER3LbHu7GRommoxVPKSlQghOOKbuzV+v4mJIncPVSU/sCw5VRnzpFYwWZMZVlRg7VmqFT2XMsTddcpNAS3Rw/E/DP25p/SUzeFtQnJWFondhODcewPGMIVocN+4CikFyCAvmzr5YNI3jvPevSjgYG+WIaa6lqsYz95vA8OYCOJfUCDiV8lkGlkKMPX1bPEcNENP89uFiHFWYsnYneFNDeFIoUSt1wmhCgD4LAXWb0Ay1XpT9EZ8R2TLDpjv47GRHJcOqkp0jil+lPEr8+ZNPf8VFpTtuIy1JWridjA4lQHqdj/PQ7nNAzgf1L0PMFVoxArbhtZ6vgfngJbLRS8zzUVWkvPfbbAkEBBU4uR5BT7Yfhv9LUnDtcv7r/Leiag9bGFUBo7OQvSqEXwj91Aci+Do4okw5tb6Ya92uvVqPArQN0pYkPajo58r3bQo68uoM42KUY1t6DfxpGrdxFiaViTOpLfYOUm23TXxZgIWXIlushczgqIkkQoI8fxLpWT6/uvZVoWXsqS/qpsi1wc0Ia/Yca6lwm84ER
+
+  frontend:
+    image:
+      pullPolicy: Always
+
+  ingress:
+      enabled: true
+      className: nginx
+      pathType: Prefix
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        cert-manager.io/common-name: "*.home.klaus-meyer.net"
+      hosts:
+        - host: pantry.home.klaus-meyer.net
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - "*.home.klaus-meyer.net"
+          secretName: tls-wildcard-home-klaus-meyer-net

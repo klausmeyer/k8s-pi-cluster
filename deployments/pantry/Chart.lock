@@ -1,0 +1,6 @@
+dependencies:
+- name: pantry
+  repository: file:///Users/meyer/Code/github.com/klausmeyer/pantry/misc/helm/pantry
+  version: 0.1.0
+digest: sha256:495b3ca37123fe48563a371912c462dec7f20ed8d31325ef0c2e77685f7ed71e
+generated: "2026-03-09T22:32:16.969288+01:00"

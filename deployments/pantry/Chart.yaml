@@ -1,0 +1,10 @@
+apiVersion: v2
+name: pantry
+description: Deployment chart for pantry
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: pantry
+    version: 0.1.0
+    repository: file:///Users/meyer/Code/github.com/klausmeyer/pantry/misc/helm/pantry

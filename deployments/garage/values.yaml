@@ -23,9 +23,14 @@ garage:
         enabled: true
         className: nginx
         annotations:
-          nginx.ingress.kubernetes.io/proxy-body-size: 500m
           cert-manager.io/cluster-issuer: letsencrypt
           cert-manager.io/common-name: "*.home.klaus-meyer.net"
+          nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+          nginx.ingress.kubernetes.io/cors-max-age: "3600"
+          nginx.ingress.kubernetes.io/cors-expose-headers: "Content-Length"
+          nginx.ingress.kubernetes.io/cors-allow-headers: "Content-Type, Range"
+          nginx.ingress.kubernetes.io/enable-cors: "true"
+          nginx.ingress.kubernetes.io/proxy-body-size: "500m"
         hosts:
           - host: s3.home.klaus-meyer.net
             paths:
