@@ -1,0 +1,6 @@
+dependencies:
+- name: pantry
+  repository: oci://registry-1.docker.io/klausmeyer
+  version: 0.1.1
+digest: sha256:043db0e98779824b04301458240ef16a982a8442704f928a03e4fee57af02706
+generated: "2026-03-18T16:16:40.165461+01:00"
