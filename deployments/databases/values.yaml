@@ -37,7 +37,7 @@ users:
 cluster:
   fullnameOverride: "postgres"
   version:
-    postgresql: "17"
+    postgresql: "17.9"
   cluster:
     superuserSecret: postgres-superuser
     roles:
