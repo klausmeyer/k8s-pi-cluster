@@ -21,22 +21,17 @@ garage:
     s3:
       api:
         enabled: true
-        className: nginx
         annotations:
-          cert-manager.io/cluster-issuer: letsencrypt
-          cert-manager.io/common-name: "*.home.klaus-meyer.net"
           nginx.ingress.kubernetes.io/cors-allow-origin: "*"
           nginx.ingress.kubernetes.io/cors-max-age: "3600"
           nginx.ingress.kubernetes.io/cors-expose-headers: "Content-Length"
           nginx.ingress.kubernetes.io/cors-allow-headers: "Content-Type, Range"
           nginx.ingress.kubernetes.io/enable-cors: "true"
-          nginx.ingress.kubernetes.io/proxy-body-size: "500m"
         hosts:
           - host: s3.home.klaus-meyer.net
             paths:
               - path: /
                 pathType: Prefix
         tls:
-          - secretName: tls-wildcard-home-klaus-meyer-net
-            hosts:
-              - "*.home.klaus-meyer.net"
+          - hosts:
+              - s3.home.klaus-meyer.net

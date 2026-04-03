@@ -13,9 +13,8 @@ docker-registry:
     hosts:
       - registry.home.klaus-meyer.net
     tls:
-      - secretName: tls-wildcard-home-klaus-meyer-net
-        hosts:
-          - "*.home.klaus-meyer.net"
+      - hosts:
+          - registry.home.klaus-meyer.net
 
   extraEnvVars:
     - name: "OTEL_TRACES_EXPORTER"
@@ -31,6 +30,9 @@ docker-registry-browser:
 
     version: master # Bleeding edge
 
+    image:
+      pullPolicy: Always
+
     environment:
       sealedSecrets: true
       plain:
@@ -42,16 +44,11 @@ docker-registry-browser:
 
     ingress:
       enabled: true
-      className: nginx
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
-        cert-manager.io/common-name: "*.home.klaus-meyer.net"
       hosts:
         - host: registry.home.klaus-meyer.net
           paths:
             - path: /
               pathType: Prefix
       tls:
-        - secretName: tls-wildcard-home-klaus-meyer-net
-          hosts:
-            - "*.home.klaus-meyer.net"
+        - hosts:
+            - registry.home.klaus-meyer.net

@@ -40,19 +40,14 @@ gitea:
 
   ingress:
     enabled: true
-    className: nginx
     pathType: Prefix
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      cert-manager.io/common-name: "*.home.klaus-meyer.net"
     hosts:
       - host: git.home.klaus-meyer.net
         paths:
           - path: /
     tls:
       - hosts:
-          - "*.home.klaus-meyer.net"
-        secretName: tls-wildcard-home-klaus-meyer-net
+          - git.home.klaus-meyer.net
 
 redis:
   haMode:

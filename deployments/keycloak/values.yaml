@@ -44,10 +44,6 @@ keycloakx:
       enabled: true
   ingress:
     enabled: true
-    ingressClassName: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      cert-manager.io/common-name: "*.home.klaus-meyer.net"
     rules:
       - host: idp.home.klaus-meyer.net
         paths:
@@ -55,8 +51,7 @@ keycloakx:
             pathType: Prefix
     tls:
       - hosts:
-          - "*.home.klaus-meyer.net"
-        secretName: tls-wildcard-home-klaus-meyer-net
+          - idp.home.klaus-meyer.net
   database:
     vendor: postgres
     hostname: postgres-rw.databases.svc.cluster.local

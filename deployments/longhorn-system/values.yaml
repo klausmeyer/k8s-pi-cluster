@@ -12,13 +12,8 @@ oauth2-proxy:
 
   ingress:
     enabled: true
-    className: nginx
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      cert-manager.io/common-name: "*.home.klaus-meyer.net"
     hosts:
       - longhorn.home.klaus-meyer.net
     tls:
-      - secretName: tls-wildcard-home-klaus-meyer-net
-        hosts:
-          - "*.home.klaus-meyer.net"
+      - hosts:
+          - longhorn.home.klaus-meyer.net

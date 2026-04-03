@@ -8,19 +8,16 @@ planka:
 
   ingress:
     enabled: true
-    className: nginx
     annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      cert-manager.io/common-name: "*.home.klaus-meyer.net"
+      nginx.org/websocket-services: "planka"
     hosts:
       - host: planka.home.klaus-meyer.net
         paths:
           - path: /
             pathType: ImplementationSpecific
     tls:
-      - secretName: tls-wildcard-home-klaus-meyer-net
-        hosts:
-          - "*.home.klaus-meyer.net"
+      - hosts:
+          - planka.home.klaus-meyer.net
 
   postgresql:
     enabled: false

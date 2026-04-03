@@ -18,16 +18,11 @@ oopsy:
         WEBHOOK_DISCORD_URL: AgAnV+w4Wp0Oloef9WT6zoix9/Wqf7WNhHqvEmJcIMdqisT6bChissvzuJvxSAqPhWy0kW6KyF37iAM7+TdKkKnoliLf3pkAAUwLKx5ZlDUBBnKNw0iDDoV0FIGZrhLgzsXmf42gY6r417xA+lunpI7wBE6+I86eiLemRfbSVfuhAn3MRFSrPKl6eRs/Y9xUBz7csQ6amCTqQg7afC6LIJTapB7lp7RK/0ml5J8DiEgbnPeokiZJdt1r89+U/5rjiJntjw1tmjZKwe6mTjml6ALjMF+8UItUuL8VZhFmFSDHSC6C3KlUS4LDPSM+wQjUlFCtRdnx3zKgpJjkBQ/wLs0uI54vmjovNtgBCN/VI7rgoHTRf2zN2BM5nP6zTE3YNdZ+KHDj4syNBVSzFoEj3GFUwFLJ/rbvfzX3GQKxXQz3PmhoCBGf/clJ7tgrf63y62G+yggs2qTx7cyRveIUtPzCOvjzaNKy3asQxgsPQ0hfwYP2syCxl6Ur2pOTHImSUjWRSG0S7pyr8uCaUGASKjhJ8NAs8BmNxsnr8FeGPZmEhrhC68ymMucG+cx8VtfcXhUK9QiXZ8X3msincaQ4rbHf2EQ3ueevUwA5dFpIeefb6YSzNVMCdaDhxRtbUOiwD0ukTI/dMCa4oZ2vkqAJTurQSASRQpgJFWd9tHhV87cqIoDwCbnTyVRuULqMgcW11TrNalZbgPSwYkxqzde3GA/dWy9ybCjtjrekd6DARszSGtE5KyctS0icim8XO3jRTOTNawEEoH3m1ZZZ/Q1NxRWehj/JrszNdjg2/CjzGvdGI24k5S59ho6ursruFHF2LZxtk6M7WzlW2jB8Wph9n4ek0UuTzMsCdpVT
     ingress:
       enabled: true
-      className: nginx
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
-        cert-manager.io/common-name: "*.home.klaus-meyer.net"
       hosts:
         - host: oopsy.home.klaus-meyer.net
           paths:
             - path: /
               pathType: Prefix
       tls:
-        - secretName: tls-wildcard-home-klaus-meyer-net
-          hosts:
-            - "*.home.klaus-meyer.net"
+        - hosts:
+            - oopsy.home.klaus-meyer.net

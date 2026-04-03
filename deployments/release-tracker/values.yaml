@@ -16,10 +16,6 @@ release-tracker:
         WEBHOOK_DISCORD_URL: AgBbaEUYh2+IukcfiiP6cyQXIOB3TtrNUNvEmxY9cZHWERDHhX2g8neKhCkNtgm81XYWOZeVAvVe8xViV7RYwO4EXO36gFhrGtfYBKrm0rtw80PBQ5rwi/7MLcZFDo6GgRzlzqOoWhTkd/0HaHAsoSyI7j3aNZZ68TBWomBJj500+fd8w+jLSaM+t9DThnJpd+hJjJ5SzoaoRgND93GjcJfRKTxA6GokBhikWhQibsdeUMuV0Klm19Rtm93tbS5ae7Gl/HhGxcrC7vIA+sVo4V8tRCSE+KpZmW7y6GzXSqdAcbsPG4+uBSd6Yzx33ibBzZfQKXeCIGwtPz4t5qJ+tIxE2m4eJidvtgeKW8ZeMWljxdtmFsOX0DkMW+bY/rHwGCpO3zSPVnQNJgpudtaC629su+oCmfqKm2uLdQzOSclvfjTRsofEfZYwlokpTDCQWjw4Z9aXuVsbIIAqcDC6iF9T3LNBWjcj619jDFFQG0wajtgPPrqLTsFnntsxK4BC3mmLOyNTaOBz1o/ajnd7IkalnoT5PPMMkXg0zWrNMtVgjkbs1Hl6xR3nBphwpls5oaj7r/C/BdyTY0RNdVacUWRYg2xTLp/iu7ivtcFJKaivEdXDToSk8KvvFk4EQedikQg3U9A0bP94bBVZSCjxCGLf56xiEPgo3cQIDivNcRL+UZqvjGOrWqBrpWlEqad8JRrwA9M8pAScFBJWWis6xsXW+4n3fGSP1TRVrHZQQQMK+CCLsq4dZt3oN+r7M0upTHYFvYW3gCbz2tmkr1NEM29TxNWSeYiFVA0XJva8RS/Uo2vdUqFDI2NeGDJjMSq93n+pLbxoiWPCYYCnpbDjXAIU7MeWABRaH+et
     ingress:
       enabled: true
-      className: "nginx"
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
-        cert-manager.io/common-name: "*.home.klaus-meyer.net"
       hosts:
         - host: releases.home.klaus-meyer.net
           paths:
@@ -27,5 +23,4 @@ release-tracker:
               pathType: Prefix
       tls:
         - hosts:
-            - "*.home.klaus-meyer.net"
-          secretName: tls-wildcard-home-klaus-meyer-net
+            - releases.home.klaus-meyer.net

@@ -50,6 +50,5 @@ ingress:
             service:
               port: 80
     tls:
-      - secretName: tls-wildcard-home-klaus-meyer-net
-        hosts:
+      - hosts:
           - "*.home.klaus-meyer.net"

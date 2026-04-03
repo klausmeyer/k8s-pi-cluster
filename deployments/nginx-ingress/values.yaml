@@ -1,0 +1,22 @@
+nginx-ingress:
+  controller:
+    kind: daemonset
+    service:
+      type: NodePort
+      httpPort:
+        nodePort: 32080
+      httpsPort:
+        nodePort: 32443
+    config:
+      entries:
+        proxy-protocol: "true"
+        proxy-buffers: "4 512k" # default: 4k
+        proxy-busy-buffers-size: "1024k" # default: 8k
+    defaultTLS:
+      secret: "nginx-ingress/wildcard-home-klaus-meyer-net"
+    wildcardTLS:
+      secret: "nginx-ingress/wildcard-home-klaus-meyer-net"
+    ingressClass:
+      setAsDefaultIngress: true
+    prometheus:
+      create: false

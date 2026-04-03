@@ -43,11 +43,7 @@ pantry:
 
   ingress:
       enabled: true
-      className: nginx
       pathType: Prefix
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
-        cert-manager.io/common-name: "*.home.klaus-meyer.net"
       hosts:
         - host: pantry.home.klaus-meyer.net
           paths:
@@ -55,5 +51,4 @@ pantry:
               pathType: Prefix
       tls:
         - hosts:
-            - "*.home.klaus-meyer.net"
-          secretName: tls-wildcard-home-klaus-meyer-net
+            - pantry.home.klaus-meyer.net

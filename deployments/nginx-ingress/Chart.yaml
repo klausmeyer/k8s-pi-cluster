@@ -1,0 +1,10 @@
+apiVersion: v2
+name: nginx-ingress
+description: Deployment chart for nginx-ingress
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: nginx-ingress
+    version: "2.5.1"
+    repository: oci://ghcr.io/nginx/charts

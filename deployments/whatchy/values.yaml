@@ -27,16 +27,11 @@ whatchy:
         THETVDB_APIKEY: AgArFSncakHRdnpJoF64xpv03hcvVGOxsdnH43vuONpA60iNvTjR03cUdfWR1aHniP8P1BIFkWOjulIgNAz/juKLf7TzqGJJcJHg48n95BgkHlLZRa2Wgv+F8Idyo3+4wC09VIpX9LCAvZcnc0PDy30cjWfj1qNIymou+AitVNkqCL5NlzV1pCAi+PgjgMUBM1Ig2BjmJ6BFeMMzghELanscNReCwDor7awYqrvfPVhU07nPVZKYOHkJbtj/iMfUTuc6b8XX7iLr3ns1Uj8Z0eDQYxS20ilRlN61acILgm+AgcGK6v9TZVjO3w9nhFXJSUs/xNWVDNZutK5QuPzM0cpWc29QZ175HilgBftD6/J0IlB/1PjgifnR6eQDvwxQn/+FYJ5/jZf9nVJ8Xm8CrYKacmSTRulBaB2qNWJMC1/837+vfJAt8Jb07kzahyO01trpMoZgJ5/pQQfqx3Oq51Wgk95zGRhrFO1UHE6RkvCgGn0p2imSHpIADGAi+UHHEuroSBQ3+n5gvNCxlQWZVWrhRBhYOzpCLAsv9R4Lv8r6BMDbVratZZDRFE7X3E4hC7Ak37P16OZUQHglMUqJwaO43gIv9y9SjCOFUk4g8V2w+r9Y/JrNJ/zhkoojqXUoOsDZTd4pqOKf7G3QQg/vuOKEPdMkgzL5J3T3U6nHJ/GgsNq6aH68vRi6bWxewVVAbxeXdW4oqXTzhvrJ5Ikqq15/
     ingress:
       enabled: true
-      className: nginx
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt
-        cert-manager.io/common-name: "*.home.klaus-meyer.net"
       hosts:
         - host: whatchy.home.klaus-meyer.net
           paths:
             - path: /
               pathType: Prefix
       tls:
-        - secretName: tls-wildcard-home-klaus-meyer-net
-          hosts:
-            - "*.home.klaus-meyer.net"
+        - hosts:
+            - "whatchy.home.klaus-meyer.net"
