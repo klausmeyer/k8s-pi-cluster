@@ -9,9 +9,10 @@ nginx-ingress:
         nodePort: 32443
     config:
       entries:
-        proxy-protocol: "true"
+        proxy-buffer-size: "512k" # default: 4k
         proxy-buffers: "4 512k" # default: 4k
         proxy-busy-buffers-size: "1024k" # default: 8k
+        proxy-protocol: "true"
     defaultTLS:
       secret: "nginx-ingress/wildcard-home-klaus-meyer-net"
     wildcardTLS:
