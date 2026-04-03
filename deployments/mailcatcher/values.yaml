@@ -37,10 +37,6 @@ service:
 ingress:
   mailcatcher:
     enabled: true
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt
-      cert-manager.io/common-name: "*.home.klaus-meyer.net"
-    className: nginx
     hosts:
       - host: mailcatcher.home.klaus-meyer.net
         paths:
@@ -51,4 +47,4 @@ ingress:
               port: 80
     tls:
       - hosts:
-          - "*.home.klaus-meyer.net"
+          - mailcatcher.home.klaus-meyer.net
