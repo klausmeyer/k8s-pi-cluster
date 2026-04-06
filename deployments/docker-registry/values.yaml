@@ -5,17 +5,6 @@ docker-registry:
   updateStrategy:
     type: Recreate
 
-  ingress:
-    enabled: true
-    path: /v2/
-    annotations:
-      nginx.ingress.kubernetes.io/proxy-body-size: 1G
-    hosts:
-      - registry.home.klaus-meyer.net
-    tls:
-      - hosts:
-          - registry.home.klaus-meyer.net
-
   extraEnvVars:
     - name: "OTEL_TRACES_EXPORTER"
       value: "none"
@@ -41,14 +30,3 @@ docker-registry-browser:
         PUBLIC_REGISTRY_URL: registry.home.klaus-meyer.net
       secret:
         SECRET_KEY_BASE: AgC9mCRQRbtzyAyghf4r3DMrdm/bv+PHDqgBRSXMqDDp8Srxk2vjD07e/TYWCgLgr5whSGfsr0ZvBPbUAUjbjnHsJKsObraSOxyZGSzhU18D5saVQ+v5HgaW+lQrGL7VScC3EZh2YU4uOe+FagxznNkSL8X/wWh4OBek9Pf+E7xKlHk8xrrntGOB1Gb8B3VAo+8IP8Wr0JKIQKokofGp99DZS6OcR2Je+rdaWc9A36JVj5w5vf4D+mLB7Uqmx6ZsFD9/hJd+GjXanvcphgwavALuJTDvSP1O8QiMkExTFINo1KM5h6UvGj/eAO6HxsGpNIBin0IPWLPsq5KunYItpEsI+nVMijPMusxIKcE9jOHU2ofwzAAGjNToeJ/npOW/JAvF+2G6It6hNzQ8ggqROk2hm/51LLf9cM9Qroyd1f9dFq31UnnTfcoKa6eAelTe88Jo7FvO8ypg6NgGal+ZTw1L75o0X/QiWv5THuy5/zBf1WxjeRIi+JPMjcAVRGdeppinoTWlPW5PjFn1pUNn9AtNQdiygwVWHcYMiQLrOmOnV7ka17X0C9IxsZvQDNLWQ25Fz++XsX3qFC2Kry/2QgxZCHgCD7n/gpUOgAjG1cjWwQzYpQiEv7HFx1thEzfCCvF0bGEUGDygmQaVgrS14VnwJSmqPd63KSS52QejTQp+Xo/8CtqoC90qtoYQuymN2H5NEdqqG943pSaFpz29Dvxs4PsFMWo+PunHz33nb9vXnDKWMCjfBl8Bc0D5sNERSSL9KimSBkHGwIC3/72q5Rtr
-
-    ingress:
-      enabled: true
-      hosts:
-        - host: registry.home.klaus-meyer.net
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - registry.home.klaus-meyer.net

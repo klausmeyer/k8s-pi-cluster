@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: docker-registry
+spec:
+  rules:
+  - host: registry.home.klaus-meyer.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: docker-registry-browser-web
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+      - backend:
+          service:
+            name: docker-registry
+            port:
+              number: 5000
+        path: /v2
+        pathType: Prefix
+  tls:
+  - hosts:
+    - registry.home.klaus-meyer.net
