@@ -49,7 +49,7 @@ paperless-ngx:
       image: "docker.io/apache/tika:latest"
     gotenberg:
       name: "gotenberg"
-      image: "docker.io/gotenberg/gotenberg:8.29"
+      image: "docker.io/gotenberg/gotenberg:8.30"
 
 redis:
   haMode:
