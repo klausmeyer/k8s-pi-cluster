@@ -1,6 +1,6 @@
 docker-registry:
   image:
-    tag: "3.0.0" # renovate: image=registry
+    tag: "3.1.0" # renovate: image=registry
 
   updateStrategy:
     type: Recreate
