@@ -16,7 +16,7 @@ garage:
     replicaCount: 1
   image:
     repository: dxflrs/arm64_garage
-    tag: v2.2.0 # renovate: image=dxflrs/arm64_garage
+    tag: v2.3.0 # renovate: image=dxflrs/arm64_garage
   ingress:
     s3:
       api:
