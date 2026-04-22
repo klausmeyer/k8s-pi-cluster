@@ -1,43 +1,31 @@
-controllers:
-  filamentory:
-    enabled: true
-    type: deployment
-    strategy: RollingUpdate
-    defaultContainerOptions:
-      image:
-        repository: klausmeyer/filamentory
-        tag: master
-      envFrom:
-        - secretRef:
-            name: filamentory
-    containers:
-      filamentory:
-        enabled: true
-    pod:
-      securityContext:
-        fsGroup: 1000
-service:
-  filamentory:
-    enabled: true
-    controller: filamentory
-    primary: true
-    ports:
-      http:
-        enabled: true
-        primary: true
-        port: 80
-        protocol: HTTP
-        targetPort: 4000
-ingress:
-  filamentory:
+rails-application:
+  name: filamentory
+  image:
+    repository: klausmeyer/filamentory
+    tag: master
+    pullPolicy: Always
+  environment:
+    sealedSecrets: true
+    plain:
+      DUMMY: "true"
+    secret:
+      DATABASE_URL: AgAT6nS4z9lCd9NK+eAIs+ejrcmV9gDgPlPjJMKmk3esbj36+/fAa32BThLKtDGm18AQ0cQLpiKDy7yMjAlcIUHQybl+27/5CRx6DHZ5CnT1ePgyI9mUFMsHwp7Qoz5++AlpEdJ+HH5CvrxJniWyG66XXofuoG2QVjpaR0duDi/I+lehGSeyLJ2NyFncesqNkPWmj7aDtgo8ZT+qmL2oSJ0SP4MwkHtrKZhC1LWFcc54APTJJuwjmbk72OuXIdANE0j8GNgfLxQpmj+Gcu3M5OLdJVphI6cXlJJb2REcVT5qM1ZGjklncVe4dYZdgYXlEQ9IT9YV6G3HcGvsfinV5owkANPFr+GMfHW7BNazuO2DX9ivlPvz2ER43NdxOXj12A8WKMn0OdUOAnC+jkxLt0+CcKYi6PTS1QZWHj0DVTrtzSRiVfivSU7NQGqY1uICCRW0yyLg5WRD7ub4uLRq21xhRevAp6UANIO0pr81ch8c8md5aCjEV26/doy19mAIFNoGmGLZCItSwnr9bI4AG07Uhcd5eU22wCCpscnDIWJLi6Q3jhC/AabX8LfTl6R5Qzb7OQ6Q89FU8WffOuv5A4sdjaOt49Y9BpYD7XV/ugCGcY6XtEHkwpByleUuwNBQICNKFY5CXcDkCSyndt9IcAMTRGxGwCyNiS9cst25AgURkiqD2niQ6hxPvr1RVa2oM32QMYOWBOn99NOkngOIpow0Olqftwj6lHNJ/NDnVVcgfI+fkB/bRBX4mvyIrGSjNk1ga4oJXQZy/QsFLP/hcRNentrQugs1Bv2n1udsbsRfKn5hQfe3H/Dh1QniMvleFf/nC8q8mN+TzW1PCBgRkf86
+      SECRET_KEY_BASE: AgBZ18QfpS6fPUkGXXyM76UjlfzrlrdUeW/TBLosVyLvw0oqJQ2d4h39bIlfQzrHqfrcYXjtU3RGLQrUTH9PKwp8hdmGgkGY0j5dlD9TvxY5+sH5R5YAqIc0HQxFYZc9AySV0r8UBNJ1MCDYMzW/sthY6io1+SMNLY5RuU2OJWKR2sEd46UCB3P4IGqdR9+xoH5ptDyy0bddm3O/hIcZN6G60kIW/9XbcWrjLQwND3JlPem0Oar7WvOvzyB7888D/FkLZfNTXDW9XrgLkUleqYpOKEV+/4Y6WWsOXpCY/+9NdvWVT9Ad2hw+mJoXaCjpxQBcD2k4XXNI+WdXGXQ/64bfHeQ41Z+WO06UJkLX4vYyUaOrgwUVrQ3Me+E1Ov7iL82sAxQKpRDODA21WooXQoINvhrj/UbAHJxl5k2YveWCSP+cF1kMNoK21CcKIyEfKRjqnh3W2XUdaT7KeIRdHipGNguP0AzxAwDt0lpoPgFw1tvAUI3dmyKcpv3gWWZSTzRn+ZO7vFAQlMbV1Knvg8pguJSuERA1a0gAn9M4vUc9/qwjp8mw4LY5Q/EO+H8zZK0kFszPotYk/U4gOmAIulOzpn0D1ZzlXrNnhAun4mF34gUs/odD0elZ5haVF7MqIz+6rkDPtAgjAYp3ICyNiOKZyvhK9j3UoE5ojh3RPhXUPEu+eiKFGjygVmc+P3n58o9V9dczKyFdzP/1tCXJKK+bwNAyORc94zmKI9rD2CnGlBvHB3l0ZtMuoQ10xbS+VqxtAFkl6A43/0O0MnOWpdqQ1yRAd28btgM1SGSn1OfOjJ01UGdaBywFPhzUbUEKHAKyQyzIDx/u8kLTFOVmZ9kvNDwnBxBW2xTLpV0CF2yQHw==
+  deployments:
+    web:
+      livenessProbe:
+        httpGet:
+          path: /up
+      readinessProbe:
+        httpGet:
+          path: /up
+  ingress:
     enabled: true
     hosts:
       - host: filamentory.home.klaus-meyer.net
         paths:
           - path: /
             pathType: Prefix
-            service:
-              port: 80
     tls:
       - hosts:
           - filamentory.home.klaus-meyer.net

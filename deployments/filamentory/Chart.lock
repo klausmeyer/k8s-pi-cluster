@@ -1,6 +1,6 @@
 dependencies:
-- name: common
-  repository: https://bjw-s-labs.github.io/helm-charts/
-  version: 4.6.2
-digest: sha256:35e8f4e5d15d878c246a04eb51de580291f31203fa10e9e4d2318f16026b2061
-generated: "2026-01-16T12:46:54.985493853Z"
+- name: rails-application
+  repository: https://klausmeyer.github.io/helm-charts/
+  version: 0.2.1
+digest: sha256:59351fe7587a32aa48ba789ffd717d7aafd5f97dee600dbe6564cbc83b2cb9fc
+generated: "2026-04-22T13:20:57.40841+02:00"
