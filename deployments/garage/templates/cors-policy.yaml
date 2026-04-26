@@ -1,0 +1,19 @@
+apiVersion: k8s.nginx.org/v1
+kind: Policy
+metadata:
+   name: cors-policy
+spec:
+  cors:
+    allowOrigin:
+    - "*"
+    allowMethods:
+    - GET
+    - POST
+    - PUT
+    - OPTIONS
+    allowHeaders:
+    - Content-Type
+    - Range
+    exposeHeaders:
+    - Content-Length
+    maxAge: 3600
