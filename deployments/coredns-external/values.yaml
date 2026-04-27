@@ -42,7 +42,6 @@ coredns:
         idp               IN  CNAME app-servers-k8s
         longhorn          IN  CNAME app-servers-k8s
         mailcatcher       IN  CNAME app-servers-k8s
-        oopsy             IN  CNAME app-servers-k8s
         pantry            IN  CNAME app-servers-k8s
         paperless         IN  CNAME app-servers-k8s
         planka            IN  CNAME app-servers-k8s
