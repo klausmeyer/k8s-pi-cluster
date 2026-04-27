@@ -6,6 +6,7 @@ whatchy:
     environment:
       sealedSecrets: true
       plain:
+        APPSIGNAL_IGNORE_ACTIONS: "HealthCheck::HealthCheckController#index"
         BANNER_CACHE_HOST: "https://www.thetvdb.com"
         DOMAIN: "whatchy.home.klaus-meyer.net"
         S3_BUCKET: "whatchy-posters"
