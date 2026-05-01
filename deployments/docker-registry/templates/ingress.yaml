@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: docker-registry
+  annotations:
+    nginx.org/client-max-body-size: "500m"
 spec:
   rules:
   - host: registry.home.klaus-meyer.net
