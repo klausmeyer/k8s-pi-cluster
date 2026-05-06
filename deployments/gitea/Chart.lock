@@ -4,6 +4,6 @@ dependencies:
   version: 12.5.3
 - name: redis
   repository: https://groundhog2k.github.io/helm-charts
-  version: 2.3.2
-digest: sha256:22a1f1c9b9ff4a85e6f050bcfd1f6cdf0a6f8d56e51614af036f887aeb51cc28
-generated: "2026-04-16T12:06:46.488489798Z"
+  version: 2.3.3
+digest: sha256:54dd36d177e07aea87ef7913cca6971562f6ebb3ca424b2c2f233aec5a8e4f47
+generated: "2026-05-06T10:06:46.023672962Z"
