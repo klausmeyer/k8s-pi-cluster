@@ -16,4 +16,4 @@ fi
 
 helm dependency build
 helm template --create-namespace -n "${NAMESPACE}" "${RELEASE}" .
-[ ! -z ${DRY+x} ] && helm upgrade --install --create-namespace -n "${NAMESPACE}" "${RELEASE}" .
+helm upgrade --install --create-namespace -n "${NAMESPACE}" "${RELEASE}" .
