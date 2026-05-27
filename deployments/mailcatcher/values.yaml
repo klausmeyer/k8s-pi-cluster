@@ -14,7 +14,6 @@ controllers:
 service:
   http:
     enabled: true
-    forceRename: http
     controller: mailcatcher
     primary: true
     ports:
@@ -26,7 +25,6 @@ service:
         targetPort: 1080
   smtp:
     enabled: true
-    forceRename: smtp
     controller: mailcatcher
     primary: false
     ports:
