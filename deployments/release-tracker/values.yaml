@@ -1,26 +1,93 @@
-release-tracker:
-  rails-application:
-    image:
-      tag: master
-      pullPolicy: Always
-    environment:
-      sealedSecrets: true
-      plain:
-        APPSIGNAL_APP_NAME: Release Tracker
-        APPSIGNAL_IGNORE_ACTIONS: "HealthCheck::HealthCheckController#index"
-      secret:
-        APPSIGNAL_PUSH_API_KEY: AgBPa7Zm/UzHc2Xnn8rpmb1h/jpW2B5QSTsb3BwRIkgBnB1u4J0zrjB3f2w7r1dnNdfavRYJ6hcKP8KLrBNuedk4Sh9pNK+RnNYfM+Q+KBZ7kA8mgi87K2dYI6xp/fTR4zpdbSrRbQw4TRYG9jHCZjQVvc4MNJKwMuMvqXZohoMjReyHitM4MAHJ//3vDM1eIMjWVx+oYb/f6ovEp3lN/d+klSpLJVmZAMkjO/ROFvYbbV7b6ADB8Ow8GZxplKw3wKinR1fgJEZnrzgtPx+cWcQOqaZZme8dzEouIuM9ryFRQVCOnLzuYGDrYQmQ9CcHC0APtOJuUz9cXE9nYpZlnyLvp9j2ut1AMAijbvh3yfV/8aCBM6OhsyNnBTmxHebRG+8td4Q17Z/I7+xPvNC306+eGKegpWEs4Mu9VekqbfGrkWFeX/VWhqu+JGuljw0AI5w/2/oZbR2jxf5b8xCdjCUKqArVPbcV6aOt3Fwru3hqIXZ6EaVpm/Ip7FWt7Dj2M0qo+KqLMHUzNZt5qBa2LQNHa4SquOclSj/U+fD+8CJ4x/zINGY3eeB/f4hUBg806iHrRxrix2XKDUFAq8BOMd6ZznjxPUMXA945L9vDg1qHXyfxLzJUTm/zmTvC6H1EQrOZBAQ6eWSRHgjDmtKZrg4db/mm5AzwHGQNyd07HQzh9bWJJU29raSw6UkvTWmx4fB2LXFTqLolz1oIU/dotKFHubYzlot9TwzZi8myDN5WY1Itfys=
-        DATABASE_URL: AgA9hSzzwefuYNlK9/tdCKW7fsIO5t/7J5CQdiRIyoCB7hl10dMDI+SsvdrCn+qN/ezEm3BTT7CIfTBeazq9cQ9yCL6Ct0/OQMUTqkdmmLNCqI16kRbOy7YOXUK2kE9MC+NYAHfMMlluBrOzKcD/XRNBE+MQ4/v9v++JeOnzfmU3jf2kJ8xtITg+J5j3cRKISPfipm12jIvLMNexVHGgP0sRXSoIl8M4o5BzoeL7YcH1B2Eq+Z5uQjQdS0HQas4xBrqJeiZTbFFMkkroeAxlMv/vrv7WUh3sKWIhS/uUS/DxXarCozbPse0bFHjvCp5Yj44ZPd+cZ9YH/WvhJWq0B6hGXfNkPSjGraSymxRqS5DYhXLRsZD5nGKVi6faShD0/SJSfa4NuJNGZ42sU3A2SjcMXllEh2rycVNTLMdkJVabZbmpDWzrV/66BVOgrVAnQD7FxKLE8/PPys4DpISnrWk2UlPsUtIpebbIV9IeNt9p1TEjTqvEBRNcaf8k1D8gUHw0LWvLBD7clayt2ZCj58QknBdWjkxJZ1IcgVbif6MxBNndN9yZHUkkY/MBAxCRcoQWU98ImdsPlPaL150bgpSorZpH8ISrIVTpP9PrvNMEXtUKOx7uHxe6R/HCyjODTiVcIAGb5GsXKq2cZmpoWtL9IiePbO5uj9xtO14KKY19KFBw4wbc4lVOW4F26bnkno94jA20jwUA+8Ki802US6g16VeQctoSfaEYG7t57oSnPLBoNk3U8fCjpSLzzTFpgiEs2ALZyD3ZJkV9Wf34CgvdWU3T/+VeBMy5hFbvY590SIGPsIkB/G3L2H8dOZLgyuflOkCXNCVTfy9iNQVkqHJNbcRsceTJBsU=
-        GITHUB_TOKEN: AgBN9xj7VUreuUPGyzle7+GJoK5yliTarNIetm39W/H8c6iSVYuy5kO82CDgA1uzURWysu3OfB9K11OUkzo8P68TWFQ/hRa4qsR9KGiOR0/DdOIuPxHw2YHki/WZRQSmtWyUWciDM9mzvc7B9/dZGZEf8Oet0sJOUVsj9w06sLkegJ4wPl8Q2Ca8X+xI1AmQ34bjt91TezPjzXfuQdTb1v4Xs2lE1xtGcU9aa0QY+berfdQF45cz3HGZTun9IQUizhNkyJaZGzu7MP6M8ZE1Psb2X27PuPQU63aPYShfO39SoGf/E3C4eMLYdYj2lc/+W8FktNhSHnggEbiuCaPCVBSaQV9sVK5kn9YADpcRUfxx7IcGDM/1ddHThfaWjIm0SDeFQvV9cC5IbdXgXAf6HiqlxcJSxidpPfSnMzSfMnZIgd0bNVWu/Tz52AFH/wTzN+YulihnWsVZXSdkOdMPJsltew0PVgzEmC7mxhuDKSM9ssHCUv/B5YCvVlCKZrb7Rh/z8Vpr65wwupSHt/ubWcBvUnhTCO5MVZG27xwze8drrPrSyLcokd3Vw+LI3x8OYeLxtHzYa9W1Sy5AbI3vO8czs/P0y0XOJ3PiiMCsOlYNC0XzrWhVJlSDnnim6OPBSB82ok9UgR+S+L7P5aKMR+Lg4VTQJlUeWYqWQKgybPfSonIq6HRUgrnBZs3yQbj4RpmfomD/nyNvysyEU6nvJVmW6XxITRx/04EvByDc+8ZQcEPit/pwlPzHa9G061NVW+ZSTb/UGkynygodwlZwDKXxK6At1X6V+Jz0CTZgWVimX8DVKzn1vut9GmEaX4I=
-        SECRET_KEY_BASE: AgCyVkc/RTeUeZoW/RUbup3TUx6ey15LrGswLxNnBWA54OBYtnJwtqcs/O/PR0bcQ3piEn6Qe/vERW4ticWC7gd0zeWS+TYoAXqjd4IjS24fuVW9/+qub0FsblkAckbhznCBN8gayqDCB4cW0yXr43HYL67i9ge0IIt9cb6q13TtoAUaxbVzqkfJ4wF9LkO34DOeg2kOzcIRJR2lPJmCgFG+ajli7YBbS15Z0HgVfCaKQjHhfkiN+MkyvXWMdD2xOy5QEYFB4UopflPmwz1riXF2mx6NMAtNBINc/bbp0gVvHiV7DX7Dj0vi0T+UJ8xr0nKoDNBFU5/QDhQLFSQbBOc/u3jyO2AAKk0X3N5IR2IuK6S+A/OzAQauscDp3RKUiCFd/NbtNNhXub2cZWjE8ibilQAWbDLgaAxo7DvS35LSyMGF+nh0hcMtpRjnHxhx1UWEdyqYP8wj2KAINQT7TTrBa4eEOcBVujPWjrv4SfhWw0MKEt5E19o0nMkFMRgforiKjab2Rm7BVt0aQtNiWJmYpcPylRGJb3vBYLcs13DBPAwZkwo5EBmEBePny35ocncuFuices+Ag6432BFmEyrs4Kuaqt7Hcl/i0WN1gVfsQzLymcsJ2d9Nd1cFkjEOdTxl8t+VcAa0gjoFfBWXsju60PHrGPyKNUgF8kqg0sJosN2G9xe5Qq54CwiKPWlOerGXYKL236Z26/qELqH/Tnh0auKCZdtthBXm3kog7sUNB03BYrtPrOYgmsYlaGwJHjtllQ5/eX+DZutWsLbSPdt0
-        WEBHOOK_DISCORD_URL: AgBbaEUYh2+IukcfiiP6cyQXIOB3TtrNUNvEmxY9cZHWERDHhX2g8neKhCkNtgm81XYWOZeVAvVe8xViV7RYwO4EXO36gFhrGtfYBKrm0rtw80PBQ5rwi/7MLcZFDo6GgRzlzqOoWhTkd/0HaHAsoSyI7j3aNZZ68TBWomBJj500+fd8w+jLSaM+t9DThnJpd+hJjJ5SzoaoRgND93GjcJfRKTxA6GokBhikWhQibsdeUMuV0Klm19Rtm93tbS5ae7Gl/HhGxcrC7vIA+sVo4V8tRCSE+KpZmW7y6GzXSqdAcbsPG4+uBSd6Yzx33ibBzZfQKXeCIGwtPz4t5qJ+tIxE2m4eJidvtgeKW8ZeMWljxdtmFsOX0DkMW+bY/rHwGCpO3zSPVnQNJgpudtaC629su+oCmfqKm2uLdQzOSclvfjTRsofEfZYwlokpTDCQWjw4Z9aXuVsbIIAqcDC6iF9T3LNBWjcj619jDFFQG0wajtgPPrqLTsFnntsxK4BC3mmLOyNTaOBz1o/ajnd7IkalnoT5PPMMkXg0zWrNMtVgjkbs1Hl6xR3nBphwpls5oaj7r/C/BdyTY0RNdVacUWRYg2xTLp/iu7ivtcFJKaivEdXDToSk8KvvFk4EQedikQg3U9A0bP94bBVZSCjxCGLf56xiEPgo3cQIDivNcRL+UZqvjGOrWqBrpWlEqad8JRrwA9M8pAScFBJWWis6xsXW+4n3fGSP1TRVrHZQQQMK+CCLsq4dZt3oN+r7M0upTHYFvYW3gCbz2tmkr1NEM29TxNWSeYiFVA0XJva8RS/Uo2vdUqFDI2NeGDJjMSq93n+pLbxoiWPCYYCnpbDjXAIU7MeWABRaH+et
-    ingress:
-      enabled: true
-      hosts:
-        - host: releases.home.klaus-meyer.net
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - hosts:
-            - releases.home.klaus-meyer.net
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-5.0.1/charts/library/common/values.schema.json
+
+controllers:
+  main:
+    strategy: RollingUpdate
+    containers:
+      main:
+        image:
+          repository: klausmeyer/release-tracker
+          tag: master
+          pullPolicy: Always
+        envFrom:
+          - configMapRef:
+              name: "{{ .Release.Name }}"
+          - secretRef:
+              name: "{{ .Release.Name }}"
+        probes:
+          liveness:
+            enabled: true
+            type: HTTP
+            path: /health
+          readiness:
+            enabled: true
+            type: HTTP
+            path: /health
+          startup:
+            enabled: true
+            type: HTTP
+            path: /health
+  sidekiq:
+    strategy: RollingUpdate
+    containers:
+      main:
+        image:
+          repository: klausmeyer/release-tracker
+          tag: master
+          pullPolicy: Always
+        args: ["sidekiq"]
+        envFrom:
+          - configMapRef:
+              name: "{{ .Release.Name }}"
+          - secretRef:
+              name: "{{ .Release.Name }}"
+
+configMaps:
+  main:
+    data:
+      APPSIGNAL_APP_NAME: Release Tracker
+      APPSIGNAL_IGNORE_ACTIONS: "HealthCheck::HealthCheckController#index"
+      REDIS_URL: "redis://release-tracker-redis-headless:6379/0"
+
+rawResources:
+  main:
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+      spec:
+        encryptedData:
+          APPSIGNAL_PUSH_API_KEY: AgBPa7Zm/UzHc2Xnn8rpmb1h/jpW2B5QSTsb3BwRIkgBnB1u4J0zrjB3f2w7r1dnNdfavRYJ6hcKP8KLrBNuedk4Sh9pNK+RnNYfM+Q+KBZ7kA8mgi87K2dYI6xp/fTR4zpdbSrRbQw4TRYG9jHCZjQVvc4MNJKwMuMvqXZohoMjReyHitM4MAHJ//3vDM1eIMjWVx+oYb/f6ovEp3lN/d+klSpLJVmZAMkjO/ROFvYbbV7b6ADB8Ow8GZxplKw3wKinR1fgJEZnrzgtPx+cWcQOqaZZme8dzEouIuM9ryFRQVCOnLzuYGDrYQmQ9CcHC0APtOJuUz9cXE9nYpZlnyLvp9j2ut1AMAijbvh3yfV/8aCBM6OhsyNnBTmxHebRG+8td4Q17Z/I7+xPvNC306+eGKegpWEs4Mu9VekqbfGrkWFeX/VWhqu+JGuljw0AI5w/2/oZbR2jxf5b8xCdjCUKqArVPbcV6aOt3Fwru3hqIXZ6EaVpm/Ip7FWt7Dj2M0qo+KqLMHUzNZt5qBa2LQNHa4SquOclSj/U+fD+8CJ4x/zINGY3eeB/f4hUBg806iHrRxrix2XKDUFAq8BOMd6ZznjxPUMXA945L9vDg1qHXyfxLzJUTm/zmTvC6H1EQrOZBAQ6eWSRHgjDmtKZrg4db/mm5AzwHGQNyd07HQzh9bWJJU29raSw6UkvTWmx4fB2LXFTqLolz1oIU/dotKFHubYzlot9TwzZi8myDN5WY1Itfys=
+          DATABASE_URL: AgA9hSzzwefuYNlK9/tdCKW7fsIO5t/7J5CQdiRIyoCB7hl10dMDI+SsvdrCn+qN/ezEm3BTT7CIfTBeazq9cQ9yCL6Ct0/OQMUTqkdmmLNCqI16kRbOy7YOXUK2kE9MC+NYAHfMMlluBrOzKcD/XRNBE+MQ4/v9v++JeOnzfmU3jf2kJ8xtITg+J5j3cRKISPfipm12jIvLMNexVHGgP0sRXSoIl8M4o5BzoeL7YcH1B2Eq+Z5uQjQdS0HQas4xBrqJeiZTbFFMkkroeAxlMv/vrv7WUh3sKWIhS/uUS/DxXarCozbPse0bFHjvCp5Yj44ZPd+cZ9YH/WvhJWq0B6hGXfNkPSjGraSymxRqS5DYhXLRsZD5nGKVi6faShD0/SJSfa4NuJNGZ42sU3A2SjcMXllEh2rycVNTLMdkJVabZbmpDWzrV/66BVOgrVAnQD7FxKLE8/PPys4DpISnrWk2UlPsUtIpebbIV9IeNt9p1TEjTqvEBRNcaf8k1D8gUHw0LWvLBD7clayt2ZCj58QknBdWjkxJZ1IcgVbif6MxBNndN9yZHUkkY/MBAxCRcoQWU98ImdsPlPaL150bgpSorZpH8ISrIVTpP9PrvNMEXtUKOx7uHxe6R/HCyjODTiVcIAGb5GsXKq2cZmpoWtL9IiePbO5uj9xtO14KKY19KFBw4wbc4lVOW4F26bnkno94jA20jwUA+8Ki802US6g16VeQctoSfaEYG7t57oSnPLBoNk3U8fCjpSLzzTFpgiEs2ALZyD3ZJkV9Wf34CgvdWU3T/+VeBMy5hFbvY590SIGPsIkB/G3L2H8dOZLgyuflOkCXNCVTfy9iNQVkqHJNbcRsceTJBsU=
+          GITHUB_TOKEN: AgBN9xj7VUreuUPGyzle7+GJoK5yliTarNIetm39W/H8c6iSVYuy5kO82CDgA1uzURWysu3OfB9K11OUkzo8P68TWFQ/hRa4qsR9KGiOR0/DdOIuPxHw2YHki/WZRQSmtWyUWciDM9mzvc7B9/dZGZEf8Oet0sJOUVsj9w06sLkegJ4wPl8Q2Ca8X+xI1AmQ34bjt91TezPjzXfuQdTb1v4Xs2lE1xtGcU9aa0QY+berfdQF45cz3HGZTun9IQUizhNkyJaZGzu7MP6M8ZE1Psb2X27PuPQU63aPYShfO39SoGf/E3C4eMLYdYj2lc/+W8FktNhSHnggEbiuCaPCVBSaQV9sVK5kn9YADpcRUfxx7IcGDM/1ddHThfaWjIm0SDeFQvV9cC5IbdXgXAf6HiqlxcJSxidpPfSnMzSfMnZIgd0bNVWu/Tz52AFH/wTzN+YulihnWsVZXSdkOdMPJsltew0PVgzEmC7mxhuDKSM9ssHCUv/B5YCvVlCKZrb7Rh/z8Vpr65wwupSHt/ubWcBvUnhTCO5MVZG27xwze8drrPrSyLcokd3Vw+LI3x8OYeLxtHzYa9W1Sy5AbI3vO8czs/P0y0XOJ3PiiMCsOlYNC0XzrWhVJlSDnnim6OPBSB82ok9UgR+S+L7P5aKMR+Lg4VTQJlUeWYqWQKgybPfSonIq6HRUgrnBZs3yQbj4RpmfomD/nyNvysyEU6nvJVmW6XxITRx/04EvByDc+8ZQcEPit/pwlPzHa9G061NVW+ZSTb/UGkynygodwlZwDKXxK6At1X6V+Jz0CTZgWVimX8DVKzn1vut9GmEaX4I=
+          SECRET_KEY_BASE: AgCyVkc/RTeUeZoW/RUbup3TUx6ey15LrGswLxNnBWA54OBYtnJwtqcs/O/PR0bcQ3piEn6Qe/vERW4ticWC7gd0zeWS+TYoAXqjd4IjS24fuVW9/+qub0FsblkAckbhznCBN8gayqDCB4cW0yXr43HYL67i9ge0IIt9cb6q13TtoAUaxbVzqkfJ4wF9LkO34DOeg2kOzcIRJR2lPJmCgFG+ajli7YBbS15Z0HgVfCaKQjHhfkiN+MkyvXWMdD2xOy5QEYFB4UopflPmwz1riXF2mx6NMAtNBINc/bbp0gVvHiV7DX7Dj0vi0T+UJ8xr0nKoDNBFU5/QDhQLFSQbBOc/u3jyO2AAKk0X3N5IR2IuK6S+A/OzAQauscDp3RKUiCFd/NbtNNhXub2cZWjE8ibilQAWbDLgaAxo7DvS35LSyMGF+nh0hcMtpRjnHxhx1UWEdyqYP8wj2KAINQT7TTrBa4eEOcBVujPWjrv4SfhWw0MKEt5E19o0nMkFMRgforiKjab2Rm7BVt0aQtNiWJmYpcPylRGJb3vBYLcs13DBPAwZkwo5EBmEBePny35ocncuFuices+Ag6432BFmEyrs4Kuaqt7Hcl/i0WN1gVfsQzLymcsJ2d9Nd1cFkjEOdTxl8t+VcAa0gjoFfBWXsju60PHrGPyKNUgF8kqg0sJosN2G9xe5Qq54CwiKPWlOerGXYKL236Z26/qELqH/Tnh0auKCZdtthBXm3kog7sUNB03BYrtPrOYgmsYlaGwJHjtllQ5/eX+DZutWsLbSPdt0
+          WEBHOOK_DISCORD_URL: AgBbaEUYh2+IukcfiiP6cyQXIOB3TtrNUNvEmxY9cZHWERDHhX2g8neKhCkNtgm81XYWOZeVAvVe8xViV7RYwO4EXO36gFhrGtfYBKrm0rtw80PBQ5rwi/7MLcZFDo6GgRzlzqOoWhTkd/0HaHAsoSyI7j3aNZZ68TBWomBJj500+fd8w+jLSaM+t9DThnJpd+hJjJ5SzoaoRgND93GjcJfRKTxA6GokBhikWhQibsdeUMuV0Klm19Rtm93tbS5ae7Gl/HhGxcrC7vIA+sVo4V8tRCSE+KpZmW7y6GzXSqdAcbsPG4+uBSd6Yzx33ibBzZfQKXeCIGwtPz4t5qJ+tIxE2m4eJidvtgeKW8ZeMWljxdtmFsOX0DkMW+bY/rHwGCpO3zSPVnQNJgpudtaC629su+oCmfqKm2uLdQzOSclvfjTRsofEfZYwlokpTDCQWjw4Z9aXuVsbIIAqcDC6iF9T3LNBWjcj619jDFFQG0wajtgPPrqLTsFnntsxK4BC3mmLOyNTaOBz1o/ajnd7IkalnoT5PPMMkXg0zWrNMtVgjkbs1Hl6xR3nBphwpls5oaj7r/C/BdyTY0RNdVacUWRYg2xTLp/iu7ivtcFJKaivEdXDToSk8KvvFk4EQedikQg3U9A0bP94bBVZSCjxCGLf56xiEPgo3cQIDivNcRL+UZqvjGOrWqBrpWlEqad8JRrwA9M8pAScFBJWWis6xsXW+4n3fGSP1TRVrHZQQQMK+CCLsq4dZt3oN+r7M0upTHYFvYW3gCbz2tmkr1NEM29TxNWSeYiFVA0XJva8RS/Uo2vdUqFDI2NeGDJjMSq93n+pLbxoiWPCYYCnpbDjXAIU7MeWABRaH+et
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 80
+
+ingress:
+  main:
+    hosts:
+      - host: releases.home.klaus-meyer.net
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              identifier: main
+              port: http
+    tls:
+      - hosts: ["releases.home.klaus-meyer.net"]
+
+redis:
+  haMode:
+    enabled: false
+  storage:
+    requestedSize: 1Gi
+    keepPvc: true

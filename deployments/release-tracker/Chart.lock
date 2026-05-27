@@ -1,6 +1,9 @@
 dependencies:
-- name: release-tracker
-  repository: https://klausmeyer.github.io/helm-charts
-  version: 0.1.0
-digest: sha256:646d8ac896b6b71ecefa0298a72b9306349a67e29736fa81740c485d0320ddde
-generated: "2024-11-03T21:10:50.553322+01:00"
+- name: common
+  repository: https://bjw-s-labs.github.io/helm-charts/
+  version: 5.0.1
+- name: redis
+  repository: https://groundhog2k.github.io/helm-charts
+  version: 2.3.3
+digest: sha256:96ceaa8a9bd1cb7efc091c05a40cd262c79f6537087c321688ba0a35e54b1eee
+generated: "2026-05-27T20:47:11.755286+02:00"

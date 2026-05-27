@@ -5,6 +5,9 @@ type: application
 version: "0.0.0"
 
 dependencies:
-  - name: release-tracker
-    version: "0.1.0"
-    repository: https://klausmeyer.github.io/helm-charts
+  - name: common
+    version: 5.0.1
+    repository: https://bjw-s-labs.github.io/helm-charts/
+  - name: redis
+    version: 2.3.3
+    repository: https://groundhog2k.github.io/helm-charts
