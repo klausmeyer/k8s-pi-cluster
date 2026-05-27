@@ -71,6 +71,7 @@ service:
     ports:
       http:
         port: 80
+        targetPort: 8080
 
 ingress:
   main:
