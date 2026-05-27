@@ -2,6 +2,7 @@
 
 controllers:
   main:
+    strategy: RollingUpdate
     containers:
       main:
         image:
