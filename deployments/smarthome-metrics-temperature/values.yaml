@@ -1,21 +1,42 @@
-smarthome-metrics-temperature:
-  rails-application:
-    image:
-      tag: master
-      pullPolicy: Always
-    environment:
-      sealedSecrets: true
-      plain:
-        FRITZBOX_ENDPOINT: "https://192.168.178.1"
-        FRITZBOX_VERIFY_SSL: "false"
-      secret:
-        FRITZBOX_USERNAME: AgCDV/BiWg7J2q3F+h+ZXrsmDQrtYzFIB+qFSF14B99SpCGWxML7cRAlGodnA8LJ1r5kUQY42rSR1awOCqbAi08VnVh63IAvuhnObnhoOsqcNX/yOQYEsCrHWJ/B7htDFo2vY6jZ5wV04BhRvsNQKlqAKGriCPekSAk415FETJuejMCnaOMp0hGp4vSQKu6BG7Tm8O/hD6IvGxAKiEyErayNDO8CSju6Yw2MK2g+xeh6XSj5qYlvOe1z8C4qWWO6CI+SNR2ajJVvl4O+L3E+QoC1yxLtdm+x5dyLwIDof4YlpZ4ORiQSaeY5QgutVmBYZ92k4l7NC58copFFub3xHYPw7FkC0xs/iV+m/5Fj6SEG5iq4BKJ+cXNgqYwGv3Itf8K8ch/TVM6BanUf9mv+E+sa/F4P0jX6EL9YpZk84FP7hGeSqWLN/ikG8wHvmC/+/ARZHAIGbivQvbz23pFUPOEA1JO8qog41eEzd+HMqoYTkTNQSD4uoz595M6bNWHXHa3m1HUy9kOO0sEN8gw5BFod4mtpU0i7TTgQAGDgevGFF6DXoMH83pvw+IDhN8GxQaE++JNDWeFVFrURPuWVGVKKeCfXZ2nY8Qy5WBvrIK6dwDNIyq+O6bdzC9YsK6i2/sOSkgodT9zdrQ3A9IPY/rtfYCxKOv2qYYCQmoaV1ImeMsBsGP1uPIi7KQwga0M5lL0Xwm/u2cvZlpQ=
-        FRITZBOX_PASSWORD: AgB5jGVgXwJN0zL1PHDAQleq8kdU7KbmOZaaUGXEePHPBe3yWixLlWLxHnoy7KsGYDyCVaNwXEj07HhMvZShsslWOTR6OSyTmu12/0SnNHhzNkpTkjYnk+lVB7pqfF9nBP4JarvwRtLrB2APpeWhjYDK/zYE85cU2sftzXYc1TAToCfNQ0uEQdV2fX5SwDPXRitofxRnDJCpqfVPeUcEjPTcyB4KQYOawg7bOBvWhJ6sstpbrPSR4Di82Ln36tfLaziBYNrgbBrngAFiAVvCMXx55k3mbi8rN6rA7Q7knT2DSR/1XCQ5PWFvyvs00nzn4d9mbbai8HQIXNU3Iih2ud3R7zf82RPN13oh3BUNdBXaBBaoDqNm7XpkUvzRC9NhjLmw1XyMghPaF41UYs3T2ly/wEz1GSXjPLqvZ6vwOBcP0eFTwtRMnQmk58LrfQhpMaJ8B05u1hXVSm/ovQhMDdjignsXrMIeOk1GJdH5Xa2kyLQBPLcGpnkCqa5i14OxYcNXMrXOiZrVtdV3HM5MMpjoAu6CT/9u6Cxsnle351IkpCgPsuQFFsUmfZMkEKlhoB1uX3EtQFkt78YTj00bLi3em3X5CXuteuLjivzkr+IzGe6j3q5TLeZKh2a9d9oru/z46Y0/l6cOXOCT3NAvDxabpIWw3jPV6ftgGD+sl0oLtS4b2+W96lvywuzcRezuOsNQCfdRbdcobHckh5GxyeOu
-    deployments:
-      web:
-        livenessProbe:
-          httpGet:
-            path: /
-        readinessProbe:
-          httpGet:
-            path: /
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-5.0.1/charts/library/common/values.schema.json
+
+controllers:
+  main:
+    containers:
+      main:
+        image:
+          repository: klausmeyer/smarthome-metrics-temperature
+          tag: master
+          pullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: "{{ .Release.Name }}"
+        - secretRef:
+            name: "{{ .Release.Name }}"
+
+configMaps:
+  main:
+    data:
+      FRITZBOX_ENDPOINT: "http://192.168.178.1"
+      FRITZBOX_VERIFY_SSL: "false"
+
+rawResources:
+  main:
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+      spec:
+        encryptedData:
+          FRITZBOX_USERNAME: AgCDV/BiWg7J2q3F+h+ZXrsmDQrtYzFIB+qFSF14B99SpCGWxML7cRAlGodnA8LJ1r5kUQY42rSR1awOCqbAi08VnVh63IAvuhnObnhoOsqcNX/yOQYEsCrHWJ/B7htDFo2vY6jZ5wV04BhRvsNQKlqAKGriCPekSAk415FETJuejMCnaOMp0hGp4vSQKu6BG7Tm8O/hD6IvGxAKiEyErayNDO8CSju6Yw2MK2g+xeh6XSj5qYlvOe1z8C4qWWO6CI+SNR2ajJVvl4O+L3E+QoC1yxLtdm+x5dyLwIDof4YlpZ4ORiQSaeY5QgutVmBYZ92k4l7NC58copFFub3xHYPw7FkC0xs/iV+m/5Fj6SEG5iq4BKJ+cXNgqYwGv3Itf8K8ch/TVM6BanUf9mv+E+sa/F4P0jX6EL9YpZk84FP7hGeSqWLN/ikG8wHvmC/+/ARZHAIGbivQvbz23pFUPOEA1JO8qog41eEzd+HMqoYTkTNQSD4uoz595M6bNWHXHa3m1HUy9kOO0sEN8gw5BFod4mtpU0i7TTgQAGDgevGFF6DXoMH83pvw+IDhN8GxQaE++JNDWeFVFrURPuWVGVKKeCfXZ2nY8Qy5WBvrIK6dwDNIyq+O6bdzC9YsK6i2/sOSkgodT9zdrQ3A9IPY/rtfYCxKOv2qYYCQmoaV1ImeMsBsGP1uPIi7KQwga0M5lL0Xwm/u2cvZlpQ=
+          FRITZBOX_PASSWORD: AgB5jGVgXwJN0zL1PHDAQleq8kdU7KbmOZaaUGXEePHPBe3yWixLlWLxHnoy7KsGYDyCVaNwXEj07HhMvZShsslWOTR6OSyTmu12/0SnNHhzNkpTkjYnk+lVB7pqfF9nBP4JarvwRtLrB2APpeWhjYDK/zYE85cU2sftzXYc1TAToCfNQ0uEQdV2fX5SwDPXRitofxRnDJCpqfVPeUcEjPTcyB4KQYOawg7bOBvWhJ6sstpbrPSR4Di82Ln36tfLaziBYNrgbBrngAFiAVvCMXx55k3mbi8rN6rA7Q7knT2DSR/1XCQ5PWFvyvs00nzn4d9mbbai8HQIXNU3Iih2ud3R7zf82RPN13oh3BUNdBXaBBaoDqNm7XpkUvzRC9NhjLmw1XyMghPaF41UYs3T2ly/wEz1GSXjPLqvZ6vwOBcP0eFTwtRMnQmk58LrfQhpMaJ8B05u1hXVSm/ovQhMDdjignsXrMIeOk1GJdH5Xa2kyLQBPLcGpnkCqa5i14OxYcNXMrXOiZrVtdV3HM5MMpjoAu6CT/9u6Cxsnle351IkpCgPsuQFFsUmfZMkEKlhoB1uX3EtQFkt78YTj00bLi3em3X5CXuteuLjivzkr+IzGe6j3q5TLeZKh2a9d9oru/z46Y0/l6cOXOCT3NAvDxabpIWw3jPV6ftgGD+sl0oLtS4b2+W96lvywuzcRezuOsNQCfdRbdcobHckh5GxyeOu
+
+service:
+  main:
+    controller: main
+    ports:
+      http:
+        port: 80
+        targetPort: 8080

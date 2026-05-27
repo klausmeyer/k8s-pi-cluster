@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-5.0.1/charts/library/common/values.schema.json
+
 controllers:
   mailcatcher:
     enabled: true
@@ -12,7 +14,7 @@ controllers:
 service:
   http:
     enabled: true
-    nameOverride: http
+    forceRename: http
     controller: mailcatcher
     primary: true
     ports:
@@ -24,7 +26,7 @@ service:
         targetPort: 1080
   smtp:
     enabled: true
-    nameOverride: smtp
+    forceRename: smtp
     controller: mailcatcher
     primary: false
     ports:

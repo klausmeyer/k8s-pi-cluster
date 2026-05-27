@@ -5,6 +5,6 @@ type: application
 version: "0.0.0"
 
 dependencies:
-  - name: smarthome-metrics-temperature
-    version: "0.1.0-alpha1"
-    repository: https://klausmeyer.github.io/helm-charts
+  - name: common
+    version: 5.0.1
+    repository: https://bjw-s-labs.github.io/helm-charts/
