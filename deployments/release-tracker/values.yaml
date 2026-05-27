@@ -18,15 +18,15 @@ controllers:
           liveness:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
           readiness:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
           startup:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
   sidekiq:
     strategy: RollingUpdate
     containers:
@@ -71,7 +71,6 @@ service:
     ports:
       http:
         port: 80
-        targetPort: 8080
 
 ingress:
   main:

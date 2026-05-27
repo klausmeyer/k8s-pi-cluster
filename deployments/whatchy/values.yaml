@@ -18,15 +18,15 @@ controllers:
           liveness:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
           readiness:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
           startup:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
 
   cron:
     type: cronjob
