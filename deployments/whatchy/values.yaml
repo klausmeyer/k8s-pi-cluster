@@ -38,7 +38,7 @@ controllers:
           repository: klausmeyer/whatchy
           tag: master
           pullPolicy: Always
-        args: ["rake", "crons:daily"]
+        args: ["bin/rails", "crons:daily"]
         envFrom:
           - configMapRef:
               name: "{{ .Release.Name }}"
@@ -48,7 +48,7 @@ controllers:
 configMaps:
   main:
     data:
-      APPSIGNAL_IGNORE_ACTIONS: "HealthCheck::HealthCheckController#index"
+      APPSIGNAL_IGNORE_ACTIONS: "Rails::HealthController#show"
       BANNER_CACHE_HOST: "https://www.thetvdb.com"
       DOMAIN: "whatchy.home.klaus-meyer.net"
       S3_BUCKET: "whatchy-posters"

@@ -35,7 +35,7 @@ controllers:
           repository: klausmeyer/release-tracker
           tag: master
           pullPolicy: Always
-        args: ["sidekiq"]
+        args: ["bundle", "exec", "sidekiq"]
         envFrom:
           - configMapRef:
               name: "{{ .Release.Name }}"
@@ -46,7 +46,7 @@ configMaps:
   main:
     data:
       APPSIGNAL_APP_NAME: Release Tracker
-      APPSIGNAL_IGNORE_ACTIONS: "HealthCheck::HealthCheckController#index"
+      APPSIGNAL_IGNORE_ACTIONS: "Rails::HealthController#show"
       REDIS_URL: "redis://release-tracker-redis-headless:6379/0"
 
 rawResources:
