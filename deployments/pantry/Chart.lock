@@ -1,6 +1,6 @@
 dependencies:
-- name: pantry
-  repository: oci://registry-1.docker.io/klausmeyer
-  version: 0.1.1
-digest: sha256:043db0e98779824b04301458240ef16a982a8442704f928a03e4fee57af02706
-generated: "2026-03-18T16:16:40.165461+01:00"
+- name: common
+  repository: https://bjw-s-labs.github.io/helm-charts/
+  version: 5.0.1
+digest: sha256:754f21ee6fca6dc4a85e91384ff0b919b715234d764ef344bd3bbe93414275d3
+generated: "2026-05-28T21:42:11.961702+02:00"

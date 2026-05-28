@@ -5,6 +5,6 @@ type: application
 version: "0.0.0"
 
 dependencies:
-  - name: pantry
-    version: 0.1.1
-    repository: oci://registry-1.docker.io/klausmeyer
+  - name: common
+    version: 5.0.1
+    repository: https://bjw-s-labs.github.io/helm-charts/
