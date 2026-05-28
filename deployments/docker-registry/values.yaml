@@ -19,20 +19,21 @@ controllers:
           liveness:
             enabled: true
             type: HTTP
-            path: /ping
+            path: /up
           readiness:
             enabled: true
             type: HTTP
-            path: /ping
+            path: /up
           startup:
             enabled: true
             type: HTTP
-            path: /ping
+            path: /up
 
 configMaps:
   main:
     suffix: browser
     data:
+      PORT: "80"
       DOCKER_REGISTRY_URL: http://docker-registry:5000
       ENABLE_DELETE_IMAGES: "true"
       PUBLIC_REGISTRY_URL: registry.home.klaus-meyer.net
@@ -57,7 +58,6 @@ service:
     ports:
       http:
         port: 80
-        targetPort: 8080
 
 ingress:
   main:

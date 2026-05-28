@@ -18,15 +18,15 @@ controllers:
           liveness:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
           readiness:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
           startup:
             enabled: true
             type: HTTP
-            path: /health
+            path: /up
   sidekiq:
     strategy: RollingUpdate
     containers:
@@ -35,7 +35,7 @@ controllers:
           repository: klausmeyer/release-tracker
           tag: master
           pullPolicy: Always
-        args: ["sidekiq"]
+        args: ["bundle", "exec", "sidekiq"]
         envFrom:
           - configMapRef:
               name: "{{ .Release.Name }}"
@@ -46,7 +46,7 @@ configMaps:
   main:
     data:
       APPSIGNAL_APP_NAME: Release Tracker
-      APPSIGNAL_IGNORE_ACTIONS: "HealthCheck::HealthCheckController#index"
+      APPSIGNAL_IGNORE_ACTIONS: "Rails::HealthController#show"
       REDIS_URL: "redis://release-tracker-redis-headless:6379/0"
 
 rawResources:
@@ -71,7 +71,6 @@ service:
     ports:
       http:
         port: 80
-        targetPort: 8080
 
 ingress:
   main:
