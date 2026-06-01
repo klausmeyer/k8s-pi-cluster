@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-5.0.1/charts/library/common/values.schema.json
 
 controllers:
-  main:
+  web:
     strategy: RollingUpdate
     containers:
       main:
@@ -27,7 +27,7 @@ controllers:
             enabled: true
             type: HTTP
             path: /up
-  sidekiq:
+  jobs:
     strategy: RollingUpdate
     containers:
       main:
@@ -35,7 +35,7 @@ controllers:
           repository: klausmeyer/release-tracker
           tag: master
           pullPolicy: Always
-        args: ["bundle", "exec", "sidekiq"]
+        args: ["bin/jobs"]
         envFrom:
           - configMapRef:
               name: "{{ .Release.Name }}"
@@ -68,7 +68,7 @@ rawResources:
 
 service:
   main:
-    controller: main
+    controller: web
     ports:
       http:
         port: 80
