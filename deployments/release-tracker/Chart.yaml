@@ -8,6 +8,3 @@ dependencies:
   - name: common
     version: 5.0.1
     repository: https://bjw-s-labs.github.io/helm-charts/
-  - name: redis
-    version: 2.4.0
-    repository: https://groundhog2k.github.io/helm-charts

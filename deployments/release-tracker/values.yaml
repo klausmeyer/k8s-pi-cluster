@@ -47,7 +47,6 @@ configMaps:
     data:
       APPSIGNAL_APP_NAME: Release Tracker
       APPSIGNAL_IGNORE_ACTIONS: "Rails::HealthController#show"
-      REDIS_URL: "redis://release-tracker-redis-headless:6379/0"
 
 rawResources:
   main:
@@ -86,10 +85,3 @@ ingress:
               port: http
     tls:
       - hosts: ["releases.home.klaus-meyer.net"]
-
-redis:
-  haMode:
-    enabled: false
-  storage:
-    requestedSize: 1Gi
-    keepPvc: true

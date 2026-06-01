@@ -2,8 +2,5 @@ dependencies:
 - name: common
   repository: https://bjw-s-labs.github.io/helm-charts/
   version: 5.0.1
-- name: redis
-  repository: https://groundhog2k.github.io/helm-charts
-  version: 2.4.0
-digest: sha256:074cff034412731cf32f3dc49b87cc4abfcc928b551597eda2c3a5d184995be4
-generated: "2026-05-27T19:23:58.667005306Z"
+digest: sha256:754f21ee6fca6dc4a85e91384ff0b919b715234d764ef344bd3bbe93414275d3
+generated: "2026-06-01T18:29:35.497605+02:00"
