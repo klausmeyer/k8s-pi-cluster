@@ -36,6 +36,8 @@ paperless-ngx:
   ingress:
     main:
       enabled: true
+      annotations:
+        nginx.org/client-max-body-size: "500m"
       hosts:
         - host: paperless.home.klaus-meyer.net
           paths:
