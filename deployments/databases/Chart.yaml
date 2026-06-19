@@ -9,5 +9,5 @@ dependencies:
     version: 5.0.1
     repository: https://bjw-s-labs.github.io/helm-charts/
   - name: cluster
-    version: 0.6.1
+    version: 0.7.0
     repository: https://cloudnative-pg.github.io/charts
