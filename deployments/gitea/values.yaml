@@ -1,4 +1,7 @@
 gitea:
+  image:
+    tag: "1.26.4" # renovate: image=gitea/gitea
+
   valkey-cluster:
     enabled: false
   valkey:
