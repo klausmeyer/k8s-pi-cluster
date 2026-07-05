@@ -49,7 +49,7 @@ configMaps:
       APPSIGNAL_IGNORE_ACTIONS: "Rails::HealthController#show"
 
 rawResources:
-  main:
+  release-tracker:
     manifest:
       apiVersion: bitnami.com/v1alpha1
       kind: SealedSecret
@@ -64,6 +64,50 @@ rawResources:
           SECRET_KEY_BASE: AgCyVkc/RTeUeZoW/RUbup3TUx6ey15LrGswLxNnBWA54OBYtnJwtqcs/O/PR0bcQ3piEn6Qe/vERW4ticWC7gd0zeWS+TYoAXqjd4IjS24fuVW9/+qub0FsblkAckbhznCBN8gayqDCB4cW0yXr43HYL67i9ge0IIt9cb6q13TtoAUaxbVzqkfJ4wF9LkO34DOeg2kOzcIRJR2lPJmCgFG+ajli7YBbS15Z0HgVfCaKQjHhfkiN+MkyvXWMdD2xOy5QEYFB4UopflPmwz1riXF2mx6NMAtNBINc/bbp0gVvHiV7DX7Dj0vi0T+UJ8xr0nKoDNBFU5/QDhQLFSQbBOc/u3jyO2AAKk0X3N5IR2IuK6S+A/OzAQauscDp3RKUiCFd/NbtNNhXub2cZWjE8ibilQAWbDLgaAxo7DvS35LSyMGF+nh0hcMtpRjnHxhx1UWEdyqYP8wj2KAINQT7TTrBa4eEOcBVujPWjrv4SfhWw0MKEt5E19o0nMkFMRgforiKjab2Rm7BVt0aQtNiWJmYpcPylRGJb3vBYLcs13DBPAwZkwo5EBmEBePny35ocncuFuices+Ag6432BFmEyrs4Kuaqt7Hcl/i0WN1gVfsQzLymcsJ2d9Nd1cFkjEOdTxl8t+VcAa0gjoFfBWXsju60PHrGPyKNUgF8kqg0sJosN2G9xe5Qq54CwiKPWlOerGXYKL236Z26/qELqH/Tnh0auKCZdtthBXm3kog7sUNB03BYrtPrOYgmsYlaGwJHjtllQ5/eX+DZutWsLbSPdt0
           SOLID_QUEUE_MONITOR_USERNAME: AgAB3yMrpU+Muq4FF2sJ7eWsnufKdwgTXXXH27STzbfUdpO7QAniQFmPqsxSlPhA16r3E/9TGIp/4NfMkej/fSEAbpjEYvKq9nFrcdN+9fA4gAwgkADfZhn9eDT25JUCsBLJCQ/i1+gnjB41VkoaUQFxV/eZfKBJx/bbfJ1MtLDp40ZHJn3ojTLO5XYoezQ5GZDP+lA3EIrDWTIinEuvV9ia6wJD8H+pBNai79GQOhixy/mtCTsBfjKLciZW78v36IBgDI+GmvtlBgUXJjqnDKZTelg48Qv0FIig8n/O2YRhPEPhUW6+lddlYwhpWVFdcaP6GgMFQdit9Epswnw6gHJ8EWvYNDkrAWEBwakxKBxY1i5Oc7H/s/DJhmxy2ibaEtjgZP16cb4ogsGzRMO8v6h4DMenFA4ONNE1YkbVEMeao6JaSTGRNHU9HiJG1864kL7wHgZPmECa3w8VmomRP8jZBc89neLI1fhqX/ml9QAP4FyvKEL7KVHL3A3lHSSQ5Ff4ay8wJwiS+iCEkZ1XT93T1UHqtv2ErAmqE72+0676ihMVyEygrx65mJMJvloU06519bqtrQnqNkqJmjMHLzfdOzVyNir4hU7dLfsgT5n66Wy//3WmTJXWntQpZSLhAnW9RVayqPwLj5ftYle9QXKqqpOZs7twn3j7vV4AFxV4SU1Xnv8burFNmzDwEgVsfBdeD/M8Gg==
           SOLID_QUEUE_MONITOR_PASSWORD: AgCLpuG1RbQO3TbRksYTyJNoI5BF+S20V68bQ5aKMd2UdIeITVHax615fTTHEi8NRQxFmrMK4T01wVM7dS8v/ECCM3CZ6yj436gMRGNbdUnyQ6HJ2jv5nkt2keTlBYA1f+nOFmedLdvx6HlelwIWiFaHOXRBXvejhpr+R2/kiciEyHBnfo/EItEq5zDzSiLX+lioTrxoHlZWQMEaKXjBxbVkv4c0Wrqsi3NXENSMhjkTJ+C7py/+V8JeJ4E01Emfv5LxcKIYSPIvj+c/4RYm/uEXmol2q/l9RaRtAwkQaqUHDQzpszj+Tgjaec7dlsf8GFkwkY8A809/GeWbhwzwLH5lWLF4OQnWEQgVB5Q866FS6blwDsWoFqaBD/aP3YsKUZy6hEOuEZ7fUDuVUuabAOPFxxIyPc2Bk5QWI+dgfbh/H/HhCaJaQSiFLejOxHeBjMvuZfH/+7XTKZXoUBzG5tQRpeBpUe7bNFXa37m1EkSvnTkEgInx0Ec0ytAQkuTx4cdWXphGzmfLIpun/v+24lDxrMMf6ZoYeV6YPgLFFlAA0SQgPmXi+XeUJlB/9wbBBbryQ4PZwCkX4ho+A8zWlH5reoj59D+KNbSnXggn6mc3S+9W7sREHS6+7WoeIF5foez4bysf6aUeHrVxSTgsVKM3ZLq+cOyPqnmGbBugtZZRzaN0KznIRxR0Nb6NeG3TH44MbtalPIfY4mPeAdV6Lg==
+  database-role-secret:
+    forceRename: postgres-role-release-tracker
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        namespace: databases
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+        labels:
+          cnpg.io/reload: "true"
+      spec:
+        template:
+          type: kubernetes.io/basic-auth
+        encryptedData:
+          username: AgB2HMtUhKChGpZ2v9fsCY12Xu49IofQzSXan9cZh0GhEoTI+VOrnz7HypTndnvrQY6Ma4laj9hMgbQPuJpJEBrX5+N5YEyb9KGmTAfjLNHqG4iAFlaoSQpUTyEvwbx6t1JYmBcO/o9PILvJ0Blq4D9fh9aaPuBR36W8adgdsQlP2K6BROJ4ahfbQbeB8z88q8CB6o57fTEsOuCUhdsUrMKjN9U2p+HR9lr82EFy21qBD1YPsxvx+IuXixvc8HMraQtjS+eiXhlUn6LC8dSOhkaVwR4wH9N2aZfnQItOFWFKT9vUyAhbWxeW9bp5881C+qYorTq9qOFIQQeNq6raETeHLwCW55BFa0DfkQJClMaH359GWSQ3XpiZIaAD7VIlSafcSduc45hmCG2wyveHBnfCDeuUTPhPf1uYvv+xy7pHtUtYPiQezavpbnxMBN0FMcl/EVKp7M71hj/5l7Qe/SvlgK8Y3Qgg1OdcwIKo+c8rugR4DjbU8WL+2VlqLDxoqPEqScu2XAC3BV+0g9+SSFdRHCJnrJqxyR/w541rTmo2SaLzAxikwwLTDr70VNjxxsBrxDVB5kHlfCoBaMvzsq0uvQHfSeuSFHP4SIklVy/tBKS+yqMa+79HKbHcyPUiqYu3eifxOJ3eqqqGZqD32aYjox5338iZhc3BMMpavRJL0mFmBN7sDAl7yxvuHaW+fZ1/QgLlZbX3AjiAH2Yac7U=
+          password: AgB88gWnnfDXF6/+reZseqfp5GCxr7fhJ2TMiYa1jUUEQYlorn0IwMPdNwB6m3eAnw7LGVkxrZyWNtGIuGGwXYQbn79HTfH3A+PuIoQ19UPJj8Jv+7iMpmR1zkdxZcgyygJKTK86mL6hU5vyZzP9s+62FW7tsYlwEv6bW2i51xjXCGLQ590sDU53KDYOYty3RG9H+HnaCma1ilJbY7ASnC8UflcccNQhdoe6qUs3CMhtrphYkaLEafltTkH7Lt2bZwB2SkTu8zOi4v3+a1+G9Ew2xNHVCzauMj05pRIWwXjsKLnQETJfaixibtjyMNS6WrMMLYZwT/iq2GC0KTQOaZVQYGbibWF1sv2Lcys1d5vQuaFsy2nCswM8iu7k68MgPSA3lg+g7qlzOs1pO5iPzV/SlU0qq9uGTwEQ36yLFDbX22on259CRcxvaFYVFgDGCnUWw4TZIga/jTIk0YGl5xgoPGNBFgn1aNcX+74sUjRsv3eq453tY1e7sbmI8ruBky5TexH2UzBkzZbb/yX6Qqyt6A9LvZ/qH7lK/kTGYm+hdplJQrWv7BX7XPylCThBmKRGoo/2cZzfp+V9QnNv3VbErj5Se0aGV/Oi/kZIqz4DSDy+3uD1UahqcpR5tuwiofJnh1cyuV//uuKLYXgxGxPGkc9z5KupfCk5v2JOhEKrJC4eOjUpXyRLd2YZGAjB6KaBXRWLPCX88rCl1Y1OKEAMDENQRzH5VbOSGeTLXskCTA==
+  database-role:
+    forceRename: postgres-role-release-tracker
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: DatabaseRole
+      metadata:
+        namespace: databases
+      spec:
+        cluster:
+          name: postgres
+        name: release-tracker
+        login: true
+        passwordSecret:
+          name: postgres-role-release-tracker
+  database:
+    forceRename: postgres-db-release-tracker
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: Database
+      metadata:
+        name: postgres-db-release-tracker
+        namespace: databases
+      spec:
+        name: release-tracker
+        owner: release-tracker
+        cluster:
+          name: postgres
 
 service:
   main:

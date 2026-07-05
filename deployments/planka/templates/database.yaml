@@ -1,0 +1,39 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  namespace: databases
+  name: postgres-role-planka
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  labels:
+    cnpg.io/reload: "true"
+spec:
+  template:
+    type: kubernetes.io/basic-auth
+  encryptedData:
+    username: AgBzWROlwzoKOiCOVBo9VgUUJlMm9QECpDf09YJefG44AwV7jToKB7cVjAc5lVEWCcz2glZiYTMiNFlqWVJ7koQTnGFJo/4LWzPxGGrQdAt3WuRxdcYQYutMm+zHcwyiQvkMgfhvXyAGUdEmJ0ctFFwfn4gk8zrwx9fBjkf9R5YJFfmfNL0J6Ez2DuRiqlG0FAZgHd2fOLXaREgC8dZbuWw0ONfq84DERX5h0IGSjoss/DERfJqUgd62LNQas51sfFd6wVVDu9sQ3LUrlfjKiWaC6Rewqm+yp5FhE6stNnolAMlJTEph6xl+T/W/0H/lCJv/fZ6c42xxqzJtiph5rcRgSOCbV8jzirORINgSRksHb0aaFPLZhDGs9/BC5uXSUkndpaJ0coB3E/jChRNJZ5SLNQnChstY92aYamh9HLL6PNQm4G5g/6Gvd8syHCyNBbvF4keHOBMUu2Hv5gVghbB+xNN6kqA9NmZETNbyIuMXNMVHDnWFIFuoLOXYuRwxKMlSpIIUdQwYkyO17Fz6V+0de/4PVcjRIFgRiWX7q3ksWAtxsErlL2pYPQ22HZ1pXe67zJAAehjhPCzY+tO3p1//dYOkO5EK8d4qkSn65tAJIBgCeDVyr166QuFrUIbuwvVC4vgucFhuWYcKfHg8OAiq7IKxbNJrYtsf3023tn4pIJ7kTDPvmZgBzpFIMd7e1SiSNASUBZU=
+    password: AgAik37jTESSaIqDndC6ekcQ2/cZURw/Qi6Qx/TKDx7nM5pWjvGwCoZ0o2nibnP/bbaylVGTxEv0kfbbN8Mw7AfeYnlmmal3OEmZ84Qnd0NXqOfM5apK3q6MWBDtT4kuJIrFmNi5Rn/LIqlx0M8H+6hg9HfhnTpWKhrxj9xZ4X8YrKM8jzSOUTzAC6DM+taiGpdktPfHgm6G8OZJiRiApGPH/UZx4NU6NvutALns+AfQ3srYyDkzbcKA0E56AEZXYJQsvGh8S6pJUYGRdll4CmLwUbi+w+KE5z6x5GlOqnFO/BEr1JeZ2daCBGUTNiBgt5uV55seR8vu/Dcn+20Od/NH+lJoBfWWJ9w/DBxMunrvWsCUVfnydwJVImkf6cMyVJmTBx4qprx0YpsR5EPn7vRT6BrYIpX1hfgJ0gBOAA0SutHokVY8F0BAP2P6fzNBmoU5d01j05QgtMJn+RYdDNDUG8EC60p03FRLc462kEg3h6mUJBO2u4o8nP0x+wh9GO94nujqNLAIpvn6n7skiNihOsyAZ7nOxr3Uz+ew2p/OjY6tCkheS8mOnoZKC50qwBkqE/d3dcCNdQQp6svRUo3/Zs1TYMg0JZ8vLNy+sO9Gx3OCo+JoaYq4G9kXVna+2sqxc5yFf0u80jKDxFVpufJdlbI1iMigjPyldWiZXMbG2IBQFZCVXsSeA3bmWRxbKab9QuAfQlU/YUIPujTqAqg+cDfpNoz6fILm/hsUsn4vfw==
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: DatabaseRole
+metadata:
+  namespace: databases
+  name: postgres-role-planka
+spec:
+  cluster:
+    name: postgres
+  name: planka
+  login: true
+  passwordSecret:
+    name: postgres-role-planka
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: postgres-db-planka
+  namespace: databases
+spec:
+  name: planka
+  owner: planka
+  cluster:
+    name: postgres

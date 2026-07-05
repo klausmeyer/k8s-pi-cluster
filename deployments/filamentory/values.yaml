@@ -34,7 +34,7 @@ configMaps:
       APPSIGNAL_IGNORE_ACTIONS: "Rails::HealthController#show"
 
 rawResources:
-  main:
+  filamentory:
     manifest:
       apiVersion: bitnami.com/v1alpha1
       kind: SealedSecret
@@ -46,6 +46,50 @@ rawResources:
           APPSIGNAL_PUSH_API_KEY: AgBBSaYS5IueXB/Fmwn9RabbAIMClqrgttGlAEwhNToWM/QqJKCkR0I+jWC+OWe6kfttB3NVFt6g7RP5MxHETNzF2dt5lef52SlD+gkYcKyrDI+ETHVwq8zK2GoOMo2NYZiS4qmIwNQN9eIAnT4XO5d1pG8LKVPsw09VKO/5HSjI4dE5F+kd0pE2MlPgEAL+FOkKfvFBisySUldg5T2Eo26svn9WyIfR1YaQ2LLeeXEJn3gd7L8RI6YuxLFRXGlR6LrjFuhYoTAvJ12lwmub57CE+7wDKV3+AcEaKQrqjFQYI8Yv+3V5QgPF3u35FQc32EPUI8cMfbVB9oOK51t8JeyOx1fBcXB/kPdJEOHLUfER/0LWr47cACVJeriMJpxuilkiY5a8bY3tGRY1E1ZvP0mWf91VuCfvXZj1dzll6DoOi7d04+u4HCngJAUH0q/lkTqbeaKZoQJD1iBirNqWw4jmW9aQhQanJnyEDwLbEDBROH8RcrMxMMQKwSV1ldegmeKxDKltPR0yWXfc2PBpjZLJJQqV3om4xKB8P11Z1TJ9omCUQao8DdSfFh3MwfYqypZ+g+INt2ItBRaK9+Es1BYVQXZqF5GlARapPfk5SpYo8iwCeDqr4reByDeKscnjaXGojmsgQpvTazE47Ou4yK16LBNG+JvcVXu63WkUe7oqbi1N2fUwBVh6G2e8vs2fpSiYP/MYyzrqokPluOreS0E4twwI6L1CeOHn/PrHmLNuz/4Ik5w=
           DATABASE_URL: AgAT6nS4z9lCd9NK+eAIs+ejrcmV9gDgPlPjJMKmk3esbj36+/fAa32BThLKtDGm18AQ0cQLpiKDy7yMjAlcIUHQybl+27/5CRx6DHZ5CnT1ePgyI9mUFMsHwp7Qoz5++AlpEdJ+HH5CvrxJniWyG66XXofuoG2QVjpaR0duDi/I+lehGSeyLJ2NyFncesqNkPWmj7aDtgo8ZT+qmL2oSJ0SP4MwkHtrKZhC1LWFcc54APTJJuwjmbk72OuXIdANE0j8GNgfLxQpmj+Gcu3M5OLdJVphI6cXlJJb2REcVT5qM1ZGjklncVe4dYZdgYXlEQ9IT9YV6G3HcGvsfinV5owkANPFr+GMfHW7BNazuO2DX9ivlPvz2ER43NdxOXj12A8WKMn0OdUOAnC+jkxLt0+CcKYi6PTS1QZWHj0DVTrtzSRiVfivSU7NQGqY1uICCRW0yyLg5WRD7ub4uLRq21xhRevAp6UANIO0pr81ch8c8md5aCjEV26/doy19mAIFNoGmGLZCItSwnr9bI4AG07Uhcd5eU22wCCpscnDIWJLi6Q3jhC/AabX8LfTl6R5Qzb7OQ6Q89FU8WffOuv5A4sdjaOt49Y9BpYD7XV/ugCGcY6XtEHkwpByleUuwNBQICNKFY5CXcDkCSyndt9IcAMTRGxGwCyNiS9cst25AgURkiqD2niQ6hxPvr1RVa2oM32QMYOWBOn99NOkngOIpow0Olqftwj6lHNJ/NDnVVcgfI+fkB/bRBX4mvyIrGSjNk1ga4oJXQZy/QsFLP/hcRNentrQugs1Bv2n1udsbsRfKn5hQfe3H/Dh1QniMvleFf/nC8q8mN+TzW1PCBgRkf86
           SECRET_KEY_BASE: AgBZ18QfpS6fPUkGXXyM76UjlfzrlrdUeW/TBLosVyLvw0oqJQ2d4h39bIlfQzrHqfrcYXjtU3RGLQrUTH9PKwp8hdmGgkGY0j5dlD9TvxY5+sH5R5YAqIc0HQxFYZc9AySV0r8UBNJ1MCDYMzW/sthY6io1+SMNLY5RuU2OJWKR2sEd46UCB3P4IGqdR9+xoH5ptDyy0bddm3O/hIcZN6G60kIW/9XbcWrjLQwND3JlPem0Oar7WvOvzyB7888D/FkLZfNTXDW9XrgLkUleqYpOKEV+/4Y6WWsOXpCY/+9NdvWVT9Ad2hw+mJoXaCjpxQBcD2k4XXNI+WdXGXQ/64bfHeQ41Z+WO06UJkLX4vYyUaOrgwUVrQ3Me+E1Ov7iL82sAxQKpRDODA21WooXQoINvhrj/UbAHJxl5k2YveWCSP+cF1kMNoK21CcKIyEfKRjqnh3W2XUdaT7KeIRdHipGNguP0AzxAwDt0lpoPgFw1tvAUI3dmyKcpv3gWWZSTzRn+ZO7vFAQlMbV1Knvg8pguJSuERA1a0gAn9M4vUc9/qwjp8mw4LY5Q/EO+H8zZK0kFszPotYk/U4gOmAIulOzpn0D1ZzlXrNnhAun4mF34gUs/odD0elZ5haVF7MqIz+6rkDPtAgjAYp3ICyNiOKZyvhK9j3UoE5ojh3RPhXUPEu+eiKFGjygVmc+P3n58o9V9dczKyFdzP/1tCXJKK+bwNAyORc94zmKI9rD2CnGlBvHB3l0ZtMuoQ10xbS+VqxtAFkl6A43/0O0MnOWpdqQ1yRAd28btgM1SGSn1OfOjJ01UGdaBywFPhzUbUEKHAKyQyzIDx/u8kLTFOVmZ9kvNDwnBxBW2xTLpV0CF2yQHw==
+  database-role-secret:
+    forceRename: postgres-role-filamentory
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        namespace: databases
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+        labels:
+          cnpg.io/reload: "true"
+      spec:
+        template:
+          type: kubernetes.io/basic-auth
+        encryptedData:
+          username: AgBaYrRAmDry25mpjuN2gPRalWw5zkZxh7FPzMd6lCqCZu7xyStFfWZ4UER2hn+fedq4POTlS4uuGBoCAigNlnbJqnb7+JgTxrU9icRghqp+e96NlWYIcXkrS2yDzO6TYEmmnJXTY2FlHZcN5ezzsAIcUHzLOdfYp1r4UwhhHqhDte33A32GK7kp9RdUuyv5LerhOUrzGa/AntA6xR1n6tTNgiymJGCIgNAHl4QVuB2a8+hTL3Ab5ZhjUxBu4eqbZg9ELTX6LZ03K92TvJ2riz+j3JgNpe4MejeJyVUC0cN8rYRbgdQ6ZAmNl3e7FGF/Wi+eiP87yJScUn4j5+goen2BA/U8rMZb5X6cl9MYJa16YNzYLLH88kKcKLv7QJ5oR2CeIAF/Mn4oIAsMsOQBLKvsO4ObYbH88JVjN6ZwieVv3cNwXUe4sTh9EnhzI/utQeV+JMXQTLB9oxA4xvLFCtopmSlw0GjjzwQTBc6Zqn2374kAe/hH9dkEi7UVAmmu0wQrgllO/hAKlb1aiqawoiOLvW2CPMn6VwnO7L3tZUrCimAe+ZKPvJh0dBvsnmXgGGa0zxmLgCspHSvQAX9QgOd1OskxpPnqUKKEoAJg3N1AtKQpHlnkm3e2Vpi0X98rdY9wmYgP07jRyUcUtRQ6FhwtguF4rHn/SXIpyxIOofQUg4VleFcdsu+g+Cgy/Ky9P/ooSfky78Z5mKi1zQ==
+          password: AgBiQJEQITXQfjQ/3kLuxvBfR1P1XZ261w/CKVVlRoTAZ100+Tn4VuIq4OslbiHvb1wpBpj17SNQxYY/Ra4ZYbiIZaRmNjOzxRMMfSxurl9ZJHZhxwNzn4ZUrKNwqupfN1AA/6TJ53YYQTpB9QqifPFPETmI4y+Ek2gckRNpiyHbgT6qNEQPVPsDlr4MApTCCBVWfF+Pj/B6zAbiLvPbZjk1C0TMeBLEMzsQKV4TQzBIdKQynY61ecS0CeRJ466My+4E//19sTejulm+KKN4d6hjY6NYDcRAWF/nFFkpH5GetKB2afTkwY757tWI79u6OvnCJ42wjxNincWpMIBk8ZpAyoXiKCyiAkIuwNN1c74ZXfnQezYfQUR0bpmQpqeE86CdzpiPgkY20At25SGE6e73TzjVlfOC7DY2hD1FeVq4/ulFQuwnptvxR8aaRMTfVKOUWxy6JR7p/feuCWv7OtXWAQiPYWVh+gzS9r3w6jtcxXRyWnZ0orRDMs9PqRpQ3XNMSVe1dGcr/Eb4ykBUHdajnWHQEg01dW/BUzttvNM2XNnx0k6dax1mbr01ZK1fa8vbUdpssGbE+WXxV4BJjTvhOxf6yfGFrqFhGNrWsTnROKQ/WL5k5Rc8AFGyMeuZQFf10tdyAMMGZQtFxh+sNNTNjZ07t7V9sT7aF18mJVwr4srcWQP27T+xhh0qGg23acBPG9JYvcipNC57lpUA0lDOwZzkqF9j1UKH6OypHrABnQ==
+  database-role:
+    forceRename: postgres-role-filamentory
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: DatabaseRole
+      metadata:
+        namespace: databases
+      spec:
+        cluster:
+          name: postgres
+        name: filamentory
+        login: true
+        passwordSecret:
+          name: postgres-role-filamentory
+  database:
+    forceRename: postgres-db-filamentory
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: Database
+      metadata:
+        name: postgres-db-filamentory
+        namespace: databases
+      spec:
+        name: filamentory
+        owner: filamentory
+        cluster:
+          name: postgres
 
 service:
   main:

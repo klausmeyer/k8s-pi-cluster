@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-5.0.1/charts/library/common/values.schema.json
 
 controllers:
-  main:
+  web:
     strategy: RollingUpdate
     containers:
       main:
@@ -59,7 +59,7 @@ configMaps:
       SMTP_SERVER: "mailcatcher-smtp.mailcatcher.svc.cluster.local"
 
 rawResources:
-  main:
+  whatchy:
     manifest:
       apiVersion: bitnami.com/v1alpha1
       kind: SealedSecret
@@ -76,10 +76,54 @@ rawResources:
           SMTP_PASSWORD: AgCJ1/xcvrvYLKsaSl5Ueknmx9SNBxYxaerqyUeQxZ82Ku4HZUz4HrWwKOP+1xk2qs9WvQ0XXrhnXKMoYV9y1Pgip84L8eBg/DPIOMX8IGC6VUYCT1sMLWV3rFmqDNr8ieh8aul0TUiEWwX1WPT5ck0o2Gc0XfsAv/0NoqddT1G5MWIboRzLd3yW6XI2RvXTo7xAnd+U4UX0CR+M/Z4VyRez5tln+1Z1YmU15cGDIXlgxa+AKxDhkYUAP0gvLo2Ug2mqVGXHBa7VZHQYoWOkRaJyMbQLe/OLgoeDczLpHE2wEWR4HcCBnhURRFEdjxDb3JAVIYGBE/W/EGf9a7Od7nhOlJfgLgsJMDcMnL8dwGnQuTZbjk7tpJAcsxyXhHdNB8ExiJfSU20wJRIObN5caEE0N5wVcFJgCdChPOyj1fD69VnlfAbbHopgph20/O2GeYn/3P3jfLKbl3BcDZazsSEP/DGxmDqlXs5/LaycBr8Tcx8flEgbAEhFXwLl9/UHSzRIgk5IaTvAEdhMwDms++p0EpQoVrkZbzq4gFb0WM9rpSU15D3b0wxz3UoRx2ozTzSaFOG4ewrjPB7z3xOhttAQGHj03xhXoy3I5YblbfaGRsvtIQn8GRWKiFMVd1AJAEF0EOjGEpplr1xR0Yzw+tIsvW6ieufvpZ2aiqfzJOdjaoEUCZgISg/RGRf87t7A0rAgpk5x9w==
           SMTP_USERNAME: AgCJ1/xcvrvYLKsaSl5Ueknmx9SNBxYxaerqyUeQxZ82Ku4HZUz4HrWwKOP+1xk2qs9WvQ0XXrhnXKMoYV9y1Pgip84L8eBg/DPIOMX8IGC6VUYCT1sMLWV3rFmqDNr8ieh8aul0TUiEWwX1WPT5ck0o2Gc0XfsAv/0NoqddT1G5MWIboRzLd3yW6XI2RvXTo7xAnd+U4UX0CR+M/Z4VyRez5tln+1Z1YmU15cGDIXlgxa+AKxDhkYUAP0gvLo2Ug2mqVGXHBa7VZHQYoWOkRaJyMbQLe/OLgoeDczLpHE2wEWR4HcCBnhURRFEdjxDb3JAVIYGBE/W/EGf9a7Od7nhOlJfgLgsJMDcMnL8dwGnQuTZbjk7tpJAcsxyXhHdNB8ExiJfSU20wJRIObN5caEE0N5wVcFJgCdChPOyj1fD69VnlfAbbHopgph20/O2GeYn/3P3jfLKbl3BcDZazsSEP/DGxmDqlXs5/LaycBr8Tcx8flEgbAEhFXwLl9/UHSzRIgk5IaTvAEdhMwDms++p0EpQoVrkZbzq4gFb0WM9rpSU15D3b0wxz3UoRx2ozTzSaFOG4ewrjPB7z3xOhttAQGHj03xhXoy3I5YblbfaGRsvtIQn8GRWKiFMVd1AJAEF0EOjGEpplr1xR0Yzw+tIsvW6ieufvpZ2aiqfzJOdjaoEUCZgISg/RGRf87t7A0rAgpk5x9w==
           THETVDB_APIKEY: AgArFSncakHRdnpJoF64xpv03hcvVGOxsdnH43vuONpA60iNvTjR03cUdfWR1aHniP8P1BIFkWOjulIgNAz/juKLf7TzqGJJcJHg48n95BgkHlLZRa2Wgv+F8Idyo3+4wC09VIpX9LCAvZcnc0PDy30cjWfj1qNIymou+AitVNkqCL5NlzV1pCAi+PgjgMUBM1Ig2BjmJ6BFeMMzghELanscNReCwDor7awYqrvfPVhU07nPVZKYOHkJbtj/iMfUTuc6b8XX7iLr3ns1Uj8Z0eDQYxS20ilRlN61acILgm+AgcGK6v9TZVjO3w9nhFXJSUs/xNWVDNZutK5QuPzM0cpWc29QZ175HilgBftD6/J0IlB/1PjgifnR6eQDvwxQn/+FYJ5/jZf9nVJ8Xm8CrYKacmSTRulBaB2qNWJMC1/837+vfJAt8Jb07kzahyO01trpMoZgJ5/pQQfqx3Oq51Wgk95zGRhrFO1UHE6RkvCgGn0p2imSHpIADGAi+UHHEuroSBQ3+n5gvNCxlQWZVWrhRBhYOzpCLAsv9R4Lv8r6BMDbVratZZDRFE7X3E4hC7Ak37P16OZUQHglMUqJwaO43gIv9y9SjCOFUk4g8V2w+r9Y/JrNJ/zhkoojqXUoOsDZTd4pqOKf7G3QQg/vuOKEPdMkgzL5J3T3U6nHJ/GgsNq6aH68vRi6bWxewVVAbxeXdW4oqXTzhvrJ5Ikqq15/
+  database-role-secret:
+    forceRename: postgres-role-whatchy
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        namespace: databases
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+        labels:
+          cnpg.io/reload: "true"
+      spec:
+        template:
+          type: kubernetes.io/basic-auth
+        encryptedData:
+          username: AgAsIIeskKQXhG/kaRhwVMSoFUyfWTP6oTJKhxUCfNH8I+Yk+bk8uKienyt/g77BF+MvdkFdJTROASTWQP8A9OF2oGKkp8WMkX6qB2GONvust0zcgCLanxP/Gr4u7l8zVVqExo7gx/+kyQ6tDE7zT0+IELaxxq20ou3Tz39u1CcJt/GFpoF35S2ucPXcQT+oMONRI+mtdHVpCRnbzXLixmDq0wzl4Fk6fW5vKCNV4Yc7MpDpVJYsyGq8VpdfBRsN1/4ufhRr76D6GRF0ktmOVphUU0UDw8xZ44z6h6vNrJMxXETtLoAJVToEk9w2F4eA0b1L7qg+chkXGQMkeJIVPOQe6WixKLSg26+Y2cX7WZNXczD08e07T5+kZ9IuJSbjmykY3d6ayRRI1mYXRFX4/dGglMk9GDWdU40iEwSIuN8j0g6dzv521scR7KyfBRZLrvUQzNwiCBOWYBNl0ekDW5wWmg8l+NsYuMjfqe1GywmI8caSlaxNXjMXMXI5EiojNWKRXR9xDR5qWta4hMIz1ACsgq9EAjREqR/B0GhKZllnkubyjtfnYIiOULM6HqZnjBIVmrJrvcUqyBUlWC6ZyDND4FlSePZtMAY4Dx0nYWjrZFFfBeEu6d5LihLhrev8sEJp40sPGQ25hLKVHtNIgB53QEvFwgKSg3/r0v2YXV0QVMkUOFKdJu1Aj76Ja37cJ7eMcTEyAlpl
+          password: AgAwUKmfDPdIQG4Zu+Lvbl/uhBaayOKY2lNWUWlRyDAo8WnIAuoiXFdRcRHtO6UcCIHHWcjy8Y/7VeeER2NoFSsuOaw4d55TBBpFi7eQj2HsQSboQqTeIuAu2Nyk0waXzgsLDNCEuARffHnYA2BsjmtND0WWUkB2IQfb79T5Pnbe9ExG7lUT+uByE+OxpiN+EuqN764bmbE83CgzW9k7gGiEgTzk/O9sdSkC7zeugCqBiTKjj0o6V92ijFmbzOQXqF62oegyCH2oP17ZstSsG1hSoUBRf9bJ0OD7Fx7yA7jJErrxeJd1ZaHVtDGwEw9ZkJcUN63K5dEzXiG62BRl28le4Ne9OGwtqMYEStE6Uj7sZZIBZ2wjRQalMigQE/Sp6H3GoW4Sff2IOVeOuQ4OZhmf2Somc1KObO7hrVximvVZ39eGs30CJoHrj84150fFXCovI8aG18CL81+QiSHKMygjPTuu1s/Jf+CwXRPeDgESagK4yFIOG6vQnjtaYqDQ2oZGqJj8+Ht91/PxDikslazYsQlnsjRxixKTyd03d7NUvZhj28LAPfasQ/Q+GVAIrJOvqooZ9BPnEGu3ENbqeVm3SKRAEpynJwZTe6UGtYJhC5k0uKDSEnMW7XBignS7+9jOzBq16z78vPH+DxIVNQ6GwqSvj47R/IRR2OFzV59xgrLjZsc1Ymc4yWefleDGYAQCaC3Az/YxEmHMcw4Nnixa+VmtAlWOP+AB/DJDfzpc1w==
+  database-role:
+    forceRename: postgres-role-whatchy
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: DatabaseRole
+      metadata:
+        namespace: databases
+      spec:
+        cluster:
+          name: postgres
+        name: whatchy
+        login: true
+        passwordSecret:
+          name: postgres-role-whatchy
+  database:
+    forceRename: postgres-db-whatchy
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: Database
+      metadata:
+        name: postgres-db-whatchy
+        namespace: databases
+      spec:
+        name: whatchy
+        owner: whatchy
+        cluster:
+          name: postgres
 
 service:
   main:
-    controller: main
+    controller: web
     ports:
       http:
         port: 80

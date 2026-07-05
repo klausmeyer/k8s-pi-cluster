@@ -1,0 +1,39 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  namespace: databases
+  name: postgres-role-grafana
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  labels:
+    cnpg.io/reload: "true"
+spec:
+  template:
+    type: kubernetes.io/basic-auth
+  encryptedData:
+    username: AgAaUjTp9HB87MDdcgTqRE07pQLH9nAmYEVM+ksUxqDziqynTftgm1MHfY/luJQRCLWv98wB5rmH8NZiHnRJPgewHS+qBvLa71oYsnnhHE6FtkeNpD3JfPm2soBPmo8yU/Z414WmoF12jOTFjSOna6tmnXwD0/NjVadHiLUJaWsgz1Ts59MOM8jRhh93ipLHEnvf5OZyhlLbslTn1Tw/uGTQ5PP+WELHNx+j/Vw6RO3RfaTW5HvI+UPlAgNaa7fbrjY4x9xKbvQU1jngkecFJDCA3g4mJMz6mZgPYisHpdehdILNd0SX3+gjRYm3qwpXCu23ESRw2ALfOWd+YCj2b+B0gL1aw6jCPyK6ne6C81Dir6nbyURwIeNaogTvaucsyvznRpnhRqY24rUrlPEyVBZiA0nC+PS3205YNLhoZf4wrLI7lowE5u7cT1QHXt6mzT7yKZGVgqp1dOvgG+0c2ayEezcw2y7kKtlnniLZ8As588WrHvuaosI9Gyw9tg4KAd5DjgL9ND5rc/I4ojKTfwPsD+W3/jxD7nHCokUKrAL+Bflci8BvpOUQTPQdQAcdVvaDcSytYGlvucdd6/2eVMYUKM27JYQv/55yB7rUyfTp1wi7e0plVGrp8BRcDJ8JC2/5SVRX1vfLCV0tdg9v5lgJyRUM0tyKosORoXGF7cLFc0EDQ8EcuNuTSaLDXkc1Q0Kmbhp3rCbB
+    password: AgBCZjBsGGHd39tF0BN3PzvwNriwYyM0LoIRCnMsSoMigTkjuA4Ks01FW69aKtfw3/UtvFeLqStj5ib8EMHdtBtaez8mrz2bTCAljVJqYKGk5rFxD7rGknPzzYaUZDzQHini2uQjITHg7nzGZw16rStQsf6JbrVj8dXqtgN5BXBmc2vfrRwix2wOgs0ZKfUyCqmN/Po+cUDpqIJLpIKCbC0YTVUTsfCCpSCnAorbm+LkqenxDNuDtrJHO4tjfYP0bGlIomxxfJHQgY3IJDR71HXAT6iDJzgfavdbRdD6jGQK0nJiEVBDPWhO4YInJXg3osh0o8AA+j74w3VkzZA/EcTNL+vfi5UaIJKekV3FVMfSqQKdwUa/9tUDRzA4qITgZM/VVMTHTZLvO0vA3y1ktFl25pspFNcGdbkjCQ38CcA57rchm7oWhh3fDKO5tooNZzz7SY75JvaSS4v1UE5X2FcpELkSFq7ghmas5MZRhe8yei34imkZjpHU6x7xXsRei60+O1iWWaZjzEDf1TExcg+FL1WYjkL0A7O4efEHWdnDWzTdijeHlpj8Y+CMAmHleKhzuueOZukhnHJUbJgP3l09RDy+J92UVjB+kXzqmRnABhLkgc7BUwolJWPVv/UDDs0++x7MM9Gdq+Wq8J8hk8KFxV4YVH88iJdptnp4EhPJ7oNd5ba4NFIMZgnnYsXCLms92Ev7ks8J4yVsJUkeCHwv+kIXbe8qV6Tbjbmv/pWm7w==
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: DatabaseRole
+metadata:
+  namespace: databases
+  name: postgres-role-grafana
+spec:
+  cluster:
+    name: postgres
+  name: grafana
+  login: true
+  passwordSecret:
+    name: postgres-role-grafana
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: postgres-db-grafana
+  namespace: databases
+spec:
+  name: grafana
+  owner: grafana
+  cluster:
+    name: postgres
