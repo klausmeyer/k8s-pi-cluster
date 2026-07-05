@@ -1,0 +1,39 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  namespace: databases
+  name: postgres-role-gitea
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  labels:
+    cnpg.io/reload: "true"
+spec:
+  template:
+    type: kubernetes.io/basic-auth
+  encryptedData:
+    username: AgCjIzIrARuPEEx8YCX24UQB6zGfL5rXn+wfuHsr9xn/W4hQtgtGprPbSwDSBgxwCz1270yfOZEs+VDauqbdhh1VmBVEWRPFcDbvB7U/gOKRDW92vfWDmsFllMzQzTQLRz4lUuVd1nw4sI5o+yldXUsQMPpjKwrNaLo3Sq9dELHMgbR+Qlweb3VSYM8YUgXntB12AUxo45n1zK4iHFzzn4zaYv+nlLXF+EtnOPagLtgwolDT6Ms5Cqe2msn353LK3blquBeUwBwzTP8AeR/0HeMGesZZ783EaUcrwq+5tQ0RcjnGuN1V8I+Io5pNtmEPJSwt4GUBju+c6T7PM10AV9qt+D3JqE7e8C2oWsqbodF4oVKzm/Ur5zs6eigCcfzojYxlc0YwMGjcf1NG7YDHQ3XpccZjPAK75/IkjztTP+9EV9Ove/hoSrf7IeZxsd9c4tftkdEJOVX2orTlOVSqp4cDEi7pzJNKgie8YGuqXht+6+5jU5jA9GUNeNdJcaLp+AbWXGIDrba+PTHuq3UT8PgykekdSCTy/en7LkqzIg97Cp+WgpmGfnRnZUroV3aWaZybpf4iCoGY9NCKSYR5LpTqfgyoXDOW1FQdqsbx3ciYBUpMrxGDzEl33Iz/MHv935BYOz+pM+2rvRoQE6pIUO1WF4AaRctCadQ0im578BAcjg1AZ6pjB350UjaSSpm/jJXuzfSXdA==
+    password: AgBh2sTkFP5JnlyL2VDvAGxvImahKSwkMUtFeNE1iZHQJmVBqVW1b5l+AVcFmyPmvWagj8fFTyGq94oMnQ3t7fNVcIpoy0Eb+5IGL27f0DueJHYcPf6z/cX+qFGDaqVjuEXJMtSRWdkyzP5mcDNxaKoh52esQu9ev4IRYkaR4yQYL+AybEPzjTH03En7dtrMToVA4xCkzvQ9ofxuw2x1PrWAQIEJY/F1mxGZwI6IRkVGF6lK46XZP70bZGoygDd1Id1QEZPqrEl8OBZ/QErEW3etvQlU32u2bRmtNNx0nhKJRKS7biROWgA9CMqCEs+yP8H9fBsQD6QXzqYJ/USbbQdqYI+XDdcNJT5KeWRnd4NOorr9i11WzjjDTkyMyVfilxLjfQ24NvEO0jGFdw/r/Cvy9KPFz9WF6v2hE60A7BmQnwkHZyWiWEwXvbU0U47W9eribiGLo2mRbdR3Dl/zTzCBGSC3MJZU9jTdGP3aLqfCXKDjoDQMLPP/Nug13h05zLnki+toJMUtCXhPwKYverw4+RM2eJUQXuApQo2JyG3hAVTaYLfhc4BN2wJLdntlzO61MamXJKrrqmcH1ZGK0DBtJE6wGcxuBvFqeWNWbttbu1TqN98spHfvxJ6X3GTrg4Pm/TgCTuIDWtNXDMmJ9600cCKVwaYTch0kbEGImqMRiPa/M+20sNH9S6lfaguZN0hNd9HAasPIcMG4QmZy0vyfqKEGIQrT6Hv8bPFAJmQ6fQ==
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: DatabaseRole
+metadata:
+  namespace: databases
+  name: postgres-role-gitea
+spec:
+  cluster:
+    name: postgres
+  name: gitea
+  login: true
+  passwordSecret:
+    name: postgres-role-gitea
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: postgres-db-gitea
+  namespace: databases
+spec:
+  name: gitea
+  owner: gitea
+  cluster:
+    name: postgres

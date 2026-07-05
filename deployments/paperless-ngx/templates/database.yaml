@@ -1,0 +1,39 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  namespace: databases
+  name: postgres-role-paperless
+  annotations:
+    sealedsecrets.bitnami.com/namespace-wide: "true"
+  labels:
+    cnpg.io/reload: "true"
+spec:
+  template:
+    type: kubernetes.io/basic-auth
+  encryptedData:
+    username: AgCri30jzdfjJZIWGi6GGrU96hZg+LcDl3kt+mKNDc82zQ2AAQcBeRS8EyZVIFQSsUNL5XPhLR/zYo/zTZcCeDn0+LJ+ko0HmLOSQYSH9txD+fHW8MgEGM9+0bocjdtkH5FYgu4p6BAY+Pxe2m7zCCH+tQB6GPJ61FVRHX+1Z9+IdBkv1rI6sSObYv8pf76UZH+IPDL1etFxgu4SAM7zB3Q/O026ICRu/cju8pEO6F48PdsfmKxXrGtGarn3W8YtHJgk5wlVQVwUElj5dc3belTAOQMGw2B089TjuZo6LU463mMJNEHBVvR12VGA+urP+dQ+8mAtvLgVa6IwGk3/mKWDNHjPBIuey2uyIFx0xiyJRRn691f8PGZs81hflNx1+mkCk1ffF4NNKG42IOiQKWu70lCbD7KTdTmSK9NteOmeln6ATsCtD+fQYguwvM9uRc8tduTfffWwUFFKIAhiiPmn2JwqnxMucRP/OsmFRaE1+eqQ2wNtWAjSGs2Wzcv8g9w74Wn/Sm5GcNXMh4iMzaFell/2KE4TFf49AOJPH4ZUPFxKCSoqw2b1Hktfcx7LaTZXUFT6dOvwKcfEmaVAZEHxCismPYxfjGUVPlgROqxeHoGcv9XJ3gS1eaMeihK0AQGQurQd1xFHq+NK9PkQrm+htLAGQAnAKZgaV+u/jC1TSQ8fiSIZq3DA9GlaQLZBZy1lw7l9ZR5qC64=
+    password: AgBPqRP4F+CJKSatwpuuP9A4Q+ksvDgKCMfFC8Cgp0aRookXS9q7BNdFip+8EGNSlA0U6mx9Q7Q7aeqPFjUgP6TQYjqssg2w6A9N/M8FwUS6dbY4g4zlPh3jUsnk6APF5pasNYjHv8iCOalCZ5QQ53PV5hKEVOAAOGc+b/QyeSd5NkJ8a+x+obSifEPYv3F/phe2P93oEa8O6UexD84RZAId+h+hi7C11T6DFbN60fuE8gCjwLP0IyvixFMUKX3CHOCHI7RiF5psAWdKBLN5kl4sdui36hrLGdpFDDHREvmXCh/XMzBjKA+kWg3yK16CX07762paIlLuYyO5PEqqrsViJZsTDFUoOjMDlYZDYFpjyBiYoKG4018qQwDODydfKDOorSL6/G8CMquuD7TkHrOLojqlZMz/KzPOmZid/ALBQNJCOfxF6mnS2Ij3WQ7ZFQKdWbmKdrWWPOKAUSjS/1HusSycHeleO2MdZW6CUb00oqvdGmWAciX0vTzod6u2mGSqtL0Scz2bA8NJNkHFvBJ/JAtWJUxwbC8kB3TpiY+x9gqQe1asNAKDS2+PU8ruWB3njWiZRNd00zU8UXsw/94C8QIGqizXXlIh7N1DBXK0A1JcQnRFt3Zkkc+pyEhCNzHtaDOUn39Kzxzw2Okx4cSzqrAc1bgFYjoVU7I6wA6Ajs7IJ2UCt74UlKnrMXbQSmhBWL3QvVSk7BUXRfDmMzaNNZniboJQZti1eD8Hetpbdg==
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: DatabaseRole
+metadata:
+  namespace: databases
+  name: postgres-role-paperless
+spec:
+  cluster:
+    name: postgres
+  name: paperless
+  login: true
+  passwordSecret:
+    name: postgres-role-paperless
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: postgres-db-paperless
+  namespace: databases
+spec:
+  name: paperless
+  owner: paperless
+  cluster:
+    name: postgres
