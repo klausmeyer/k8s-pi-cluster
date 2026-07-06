@@ -45,7 +45,6 @@ configMaps:
 
 rawResources:
   pg-backup:
-    forceRename: pg-backup
     manifest:
       apiVersion: bitnami.com/v1alpha1
       kind: SealedSecret
