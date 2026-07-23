@@ -2,6 +2,10 @@ paperless-ngx:
   image:
     tag: "3.0.0" # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
   env:
+    PAPERLESS_SECRET_KEY:
+      secretKeyRef:
+        name: paperless
+        key: secret_key
     PAPERLESS_DBENGINE: postgresql
     PAPERLESS_DBHOST: postgres-rw.databases.svc.cluster.local
     PAPERLESS_DBNAME: paperless
