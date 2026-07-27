@@ -1,4 +1,7 @@
 paperless-ngx:
+  controller:
+    type: statefulset
+    strategy: OnDelete
   image:
     tag: "3.0.3" # renovate: image=ghcr.io/paperless-ngx/paperless-ngx
   env:
