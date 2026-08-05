@@ -1,5 +1,15 @@
 keycloakx:
   fullnameOverride: "keycloak"
+  replicas: 2
+  podDisruptionBudget:
+    minAvailable: 1
+  lifecycleHooks: |
+    preStop:
+      exec:
+        command:
+          - sh
+          - -c
+          - sleep 15
   image:
     tag: "26.7.0" # renovate: image=quay.io/keycloak/keycloak
   command:
