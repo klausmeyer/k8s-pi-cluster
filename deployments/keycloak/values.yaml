@@ -11,7 +11,7 @@ keycloakx:
           - -c
           - sleep 15
   image:
-    tag: "26.7.0" # renovate: image=quay.io/keycloak/keycloak
+    tag: "26.7.1" # renovate: image=quay.io/keycloak/keycloak
   command:
     - "/opt/keycloak/bin/kc.sh"
     - "start"
