@@ -11,7 +11,7 @@
         "/(^|/)values\\.yaml$/"
       ],
       "matchStrings": [
-        "tag: \"(?<currentValue>[^\"+]+)\" # renovate: image=(?<depName>[^\\s+]+)\\n"
+        "[^\\s+]: \"(?<currentValue>[^\"+]+)\" # renovate: image=(?<depName>[^\\s+]+)\\n"
       ]
     }
   ]
