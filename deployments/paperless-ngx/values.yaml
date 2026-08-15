@@ -17,9 +17,6 @@ paperless-ngx:
         name: paperless-postgresql
         key: password
     PAPERLESS_REDIS: redis://paperless-ngx-redis
-    PAPERLESS_TIKA_ENABLED: "1"
-    PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://localhost:3000
-    PAPERLESS_TIKA_ENDPOINT: http://localhost:9998
   redis:
     enabled: false
   persistence:
@@ -51,14 +48,6 @@ paperless-ngx:
       tls:
         - hosts:
             - paperless.home.klaus-meyer.net
-  additionalContainers:
-    tika:
-      name: "tika"
-      image: "docker.io/apache/tika:latest"
-    gotenberg:
-      name: "gotenberg"
-      image: "docker.io/gotenberg/gotenberg:8.35"
-
 redis:
   haMode:
     enabled: false
