@@ -50,9 +50,9 @@ configMaps:
     data:
       APPSIGNAL_IGNORE_ACTIONS: "Rails::HealthController#show"
       BANNER_CACHE_HOST: "https://www.thetvdb.com"
-      DOMAIN: "whatchy.home.klaus-meyer.net"
+      DOMAIN: "whatchy.rooster-piranha.ts.net"
       S3_BUCKET: "whatchy-posters"
-      S3_ENDPOINT: "https://s3.home.klaus-meyer.net"
+      S3_ENDPOINT: "https://s3.rooster-piranha.ts.net"
       S3_REGION: "de-dahoam-1"
 
 rawResources:

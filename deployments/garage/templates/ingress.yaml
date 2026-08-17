@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: garage
+  annotations:
+    tailscale.com/proxy-group: tailscale-proxies
+spec:
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: garage
+      port:
+        name: s3-api
+  tls:
+    - hosts: ["s3"]

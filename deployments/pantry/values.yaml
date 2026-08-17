@@ -77,7 +77,7 @@ configMaps:
       DB_NAME: pantry
       DB_USER: pantry
       DB_SSLMODE: require
-      S3_ENDPOINT: https://s3.home.klaus-meyer.net
+      S3_ENDPOINT: https://s3.rooster-piranha.ts.net
       S3_REGION: de-dahoam-1
       S3_BUCKET: pantry-pictures
       S3_USE_PATH_STYLE: "false"
