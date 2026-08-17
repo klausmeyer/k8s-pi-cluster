@@ -6,5 +6,9 @@ planka:
   admin_email: spam@klaus-meyer.net
   admin_name: Klaus Meyer
 
+  extraEnv:
+    - name: BASE_URL
+      value: "https://planka.rooster-piranha.ts.net"
+
   postgresql:
     enabled: false
