@@ -100,13 +100,13 @@ service:
 
 ingress:
   main:
-    hosts:
-      - host: filamentory.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              identifier: main
-              port: http
+    className: tailscale
+    annotations:
+      tailscale.com/proxy-group: tailscale-proxies
+    defaultBackend:
+      service:
+        name: filamentory
+        port:
+          name: http
     tls:
-      - hosts: ["filamentory.home.klaus-meyer.net"]
+      - hosts: ["filamentory"]
