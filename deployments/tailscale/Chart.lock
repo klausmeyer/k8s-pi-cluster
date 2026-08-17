@@ -1,0 +1,9 @@
+dependencies:
+- name: common
+  repository: https://bjw-s-labs.github.io/helm-charts/
+  version: 5.1.0
+- name: tailscale-operator
+  repository: https://pkgs.tailscale.com/helmcharts
+  version: 1.102.2
+digest: sha256:e580c45d47844aaa46d186e16d92522bbe0f8b4324487904ee8b52977ce5f593
+generated: "2026-08-17T16:26:51.340644+02:00"
