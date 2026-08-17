@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gollum
+  annotations:
+    tailscale.com/proxy-group: tailscale-proxies
+spec:
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: gollum
+      port:
+        name: http
+  tls:
+    - hosts: ["wiki"]

@@ -41,17 +41,11 @@ gitea:
     - secret:
         secretName: gitea-app-ini-secrets
 
-  ingress:
-    enabled: true
-    className: nginx # Required, as otherwise rendered as "".
-    pathType: Prefix
-    hosts:
-      - host: git.home.klaus-meyer.net
-        paths:
-          - path: /
-    tls:
-      - hosts:
-          - git.home.klaus-meyer.net
+  service:
+    http:
+      clusterIP: false # Workaround for the chart default value "None"
+    ssh:
+      clusterIP: false # Workaround for the chart default value "None"
 
 redis:
   haMode:

@@ -118,13 +118,13 @@ service:
 
 ingress:
   main:
-    hosts:
-      - host: releases.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              identifier: main
-              port: http
+    className: tailscale
+    annotations:
+      tailscale.com/proxy-group: tailscale-proxies
+    defaultBackend:
+      service:
+        name: release-tracker
+        port:
+          name: http
     tls:
-      - hosts: ["releases.home.klaus-meyer.net"]
+      - hosts: ["releases"]

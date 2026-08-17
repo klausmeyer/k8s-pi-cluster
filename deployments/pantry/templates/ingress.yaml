@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pantry
+  annotations:
+    tailscale.com/proxy-group: tailscale-proxies
+spec:
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: pantry-frontend
+      port:
+        name: http
+  tls:
+    - hosts: ["pantry"]

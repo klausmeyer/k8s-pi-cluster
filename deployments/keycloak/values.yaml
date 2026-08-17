@@ -52,16 +52,6 @@ keycloakx:
     mode: xforwarded
     http:
       enabled: true
-  ingress:
-    enabled: true
-    rules:
-      - host: idp.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: Prefix
-    tls:
-      - hosts:
-          - idp.home.klaus-meyer.net
   database:
     vendor: postgres
     hostname: postgres-rw.databases.svc.cluster.local

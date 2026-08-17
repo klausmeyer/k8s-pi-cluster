@@ -5,7 +5,7 @@ garage:
     s3:
       api:
         region: de-dahoam-1
-        rootDomain: ".s3.home.klaus-meyer.net"
+        rootDomain: ".s3.rooster-piranha.ts.net"
   persistence:
     enabled: true
     meta:
@@ -17,17 +17,3 @@ garage:
   image:
     repository: dxflrs/arm64_garage
     tag: v2.3.0 # renovate: image=dxflrs/arm64_garage
-  ingress:
-    s3:
-      api:
-        enabled: true
-        annotations:
-          nginx.org/policies: "cors-policy"
-        hosts:
-          - host: s3.home.klaus-meyer.net
-            paths:
-              - path: /
-                pathType: Prefix
-        tls:
-          - hosts:
-              - s3.home.klaus-meyer.net

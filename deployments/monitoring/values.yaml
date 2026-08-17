@@ -67,9 +67,9 @@ grafana:
       email_attribute_path: email
       login_attribute_path: username
       name_attribute_path: full_name
-      auth_url: https://idp.home.klaus-meyer.net/auth/realms/home/protocol/openid-connect/auth
-      token_url: https://idp.home.klaus-meyer.net/auth/realms/home/protocol/openid-connect/token
-      api_url: https://idp.home.klaus-meyer.net/auth/realms/home/protocol/openid-connect/userinfo
+      auth_url: https://idp.rooster-piranha.ts.net/auth/realms/home/protocol/openid-connect/auth
+      token_url: http://keycloak-http.keycloak.svc.cluster.local/auth/realms/home/protocol/openid-connect/token
+      api_url: http://keycloak-http.keycloak.svc.cluster.local/auth/realms/home/protocol/openid-connect/userinfo
       role_attribute_path: contains(realm_access.roles[*], 'admin') && 'Admin' || contains(realm_access.roles[*], 'editor') && 'Editor' || 'Viewer'
     database:
       type: postgres

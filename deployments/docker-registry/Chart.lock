@@ -1,9 +1,0 @@
-dependencies:
-- name: common
-  repository: https://bjw-s-labs.github.io/helm-charts/
-  version: 5.1.0
-- name: docker-registry
-  repository: https://twuni.github.io/docker-registry.helm
-  version: 3.0.0
-digest: sha256:36acbbcccadc98ac12973394b83f1c57f80ebd8abab331da55e4b7cfbacd7683
-generated: "2026-08-16T13:00:36.733450898Z"

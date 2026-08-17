@@ -6,18 +6,9 @@ planka:
   admin_email: spam@klaus-meyer.net
   admin_name: Klaus Meyer
 
-  ingress:
-    enabled: true
-    annotations:
-      nginx.org/websocket-services: "planka"
-    hosts:
-      - host: planka.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: ImplementationSpecific
-    tls:
-      - hosts:
-          - planka.home.klaus-meyer.net
+  extraEnv:
+    - name: BASE_URL
+      value: "https://planka.rooster-piranha.ts.net"
 
   postgresql:
     enabled: false

@@ -17,6 +17,7 @@ paperless-ngx:
         name: paperless-postgresql
         key: password
     PAPERLESS_REDIS: redis://paperless-ngx-redis
+    PAPERLESS_URL: https://paperless.rooster-piranha.ts.net
   redis:
     enabled: false
   persistence:
@@ -36,18 +37,6 @@ paperless-ngx:
       enabled: true
       accessMode: ReadWriteOnce
       size: 1Gi
-  ingress:
-    main:
-      enabled: true
-      annotations:
-        nginx.org/client-max-body-size: "500m"
-      hosts:
-        - host: paperless.home.klaus-meyer.net
-          paths:
-            - path: /
-      tls:
-        - hosts:
-            - paperless.home.klaus-meyer.net
 redis:
   haMode:
     enabled: false

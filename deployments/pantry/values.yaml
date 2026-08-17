@@ -42,13 +42,13 @@ controllers:
           - name: BACKEND_UPSTREAM
             value: "{{ .Release.Name }}-backend:4000"
           - name: OIDC_ISSUER
-            value: https://idp.home.klaus-meyer.net/auth/realms/home
+            value: https://idp.rooster-piranha.ts.net/auth/realms/home
           - name: OIDC_CLIENT_ID
             value: pantry
           - name: OIDC_REDIRECT_URI
-            value: https://pantry.home.klaus-meyer.net/auth/callback
+            value: https://pantry.rooster-piranha.ts.net/auth/callback
           - name: OIDC_POST_LOGOUT_REDIRECT_URI
-            value: https://pantry.home.klaus-meyer.net/
+            value: https://pantry.rooster-piranha.ts.net/
           - name: OIDC_SCOPE
             value: openid profile email
         probes:
@@ -77,11 +77,11 @@ configMaps:
       DB_NAME: pantry
       DB_USER: pantry
       DB_SSLMODE: require
-      S3_ENDPOINT: https://s3.home.klaus-meyer.net
+      S3_ENDPOINT: https://s3.rooster-piranha.ts.net
       S3_REGION: de-dahoam-1
       S3_BUCKET: pantry-pictures
       S3_USE_PATH_STYLE: "false"
-      OIDC_ISSUER: https://idp.home.klaus-meyer.net/auth/realms/home
+      OIDC_ISSUER: https://idp.rooster-piranha.ts.net/auth/realms/home
 
 rawResources:
   backend:
@@ -153,17 +153,3 @@ service:
     ports:
       http:
         port: 80
-
-ingress:
-  frontend:
-    hosts:
-      - host: pantry.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              identifier: frontend
-              port: http
-    tls:
-      - hosts:
-          - pantry.home.klaus-meyer.net
