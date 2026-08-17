@@ -1,0 +1,13 @@
+apiVersion: v2
+name: tailscale
+description: Deployment chart for tailscale
+type: application
+version: "0.0.0"
+
+dependencies:
+  - name: common
+    version: 5.1.0
+    repository: https://bjw-s-labs.github.io/helm-charts/
+  - name: tailscale-operator
+    version: "1.102.2"
+    repository: https://pkgs.tailscale.com/helmcharts

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-5.0.1/charts/library/common/values.schema.json
+
+rawResources:
+  operator-oauth:
+    forceRename: operator-oauth
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+      spec:
+        encryptedData:
+          client_id: AgBvh6uDTSXfhL0sVhdW78cDq6pcoVwGwfNWh3pDx/vczjFZ8qIilK5ZtQCB4zFzSTDOvOvLXChI8vyaSmAnvTUnePVdbrvmQP5vw0u3mGUSlMkIBW61YcIN8r8r+SOEsaDqvo21SqBu8v494fNtNDkcmOvohazBCQz14fFh8InpBgCu2baZsjV9jA1SlwH5e+FTS85czU1euefdK19rb3QXlmz+qHofVSec8RkVRlrr+QCJ4VQxhDK5qLr7kSMraix1D0/XAEeO6lnMGDygbHZ9MrEhAkn/oyjMjN8pHbhxvRvt329L9Bo5m0p3s9LbIIGfQKvKGKNPDv5QprYxq4CeYTJDCucVVTWAaD5rLKbww4zEBemoEryL/0b7heZDq1NUTz9IZ38b82acT1kygG0DINmL/cY/80BP6T0TQox2eV93xeB7MydFXaPDf17XyqUd5s233pGJdY2zCaVU4RaHXyqMEhSEEXpXwBsrsDhVEGpQFT9WEYoXvHkWkkiNF7FwwmlCuAQhPdz6Ftka8vKGk/+1fOORbRk/l1It4j5d4lnRG3sVZ0xqnYpRR2F15HAmQUCA5rHWg/Vozego1v4bdtzYYjp7aa90UWhIfuNuPFBLRXv1bXtVrWuEKtz9Dp5V57YL9kvZnQb8AlMSY6tpGZTxSPqsig/LI5gHrCvOB/ybXxE+Dw2W6wROqSEzt22SPu8jBgeD0eMp+6lxrwCvKw==
+          client_secret: AgAm49LPvhi7dHjPl4AT55R9wn9z2I+sySomxi1ecIR/b40t5tZ+tyOn5reTO85U1YW2ds7/374t159tIUPf+V7XOZanWpbizfNrrxwVprpnMLJQJygXfse/N/0Gp0oG0NsV9AWkBUXUrg5EEWIOjoSCclBvZO/GZf8Ru76mYv+N3XM0i9cpfH0lFayZWduSQcouCHiMphD+Pt12QF4nziuc6ng17Xe7zNSPXTcVZzVcHp2xoKp2NhZ3zNyIgPBg4V4XxevX1v+prnirqSCIKeR9ITIW55SlWZGlmzUyLYjW1X/19aofb/jecGVVS4tHqdLNhCYlRI5WH+WgEX01ZZVJicwWlnYb54dxdKOuZLH5PMQVg4tkwJtbnWlwlptggHt4U7yy2aWhhjM/u78oM4LEFclvN8KK3l80NymJeNuTqiV5kMvHFZLpQngu2qZWmmldRk4Pwvqen1kWz1fSik97Mn5HesS/UPau6O3n2rhGO+PX5Rtwqs2NkzMTmoi52Wlu6A0MriIVGPR24VPbfFB1FkJEED+66aIJZG59CiV4WH/RI09Rt1KdZDwix8+/tFz+/tU9uRcvYS7TdT+JwmYP7Eohh/6eg++ptBSUEmGf0uNAgG7RYA5SvMlwuD60yG8ZtXBw794wkqeeZVGr73UefrXYmIJVbWvTuJsB08dNJ7mRJvd0typCt/+rFP5TEf4YmA3r7pcFxG+m8BsBkR1Mlbmg5MI9/U6vFxOXYDMnFL+tKy4y/djEXi7Vn8HmStk0dYJJ1cAFPOh9cNa/d26U
+  tailscale-proxies:
+    forceRename: tailscale-proxies
+    manifest:
+      apiVersion: tailscale.com/v1alpha1
+      kind: ProxyGroup
+      metadata:
+        name: tailscale-proxies
+      spec:
+        type: ingress
+        replicas: 3

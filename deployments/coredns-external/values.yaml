@@ -38,7 +38,6 @@ coredns:
         filamentory       IN  CNAME app-servers-k8s
         gems              IN  CNAME app-servers-k8s
         git               IN  CNAME app-servers-k8s
-        grafana           IN  CNAME app-servers-k8s
         idp               IN  CNAME app-servers-k8s
         longhorn          IN  CNAME app-servers-k8s
         mailcatcher       IN  CNAME app-servers-k8s

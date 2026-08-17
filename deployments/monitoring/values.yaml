@@ -54,7 +54,7 @@ grafana:
 
   grafana.ini:
     server:
-      root_url: https://grafana.home.klaus-meyer.net
+      root_url: https://grafana.rooster-piranha.ts.net
     auth:
       disable_login_form: true
     auth.generic_oauth:
@@ -92,8 +92,9 @@ grafana:
 
   ingress:
     enabled: true
-    hosts:
-      - grafana.home.klaus-meyer.net
+    ingressClassName: tailscale
+    annotations:
+      tailscale.com/proxy-group: tailscale-proxies
+    hosts: []
     tls:
-      - hosts:
-          - grafana.home.klaus-meyer.net
+    - hosts: ["grafana"]
