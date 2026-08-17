@@ -36,18 +36,6 @@ paperless-ngx:
       enabled: true
       accessMode: ReadWriteOnce
       size: 1Gi
-  ingress:
-    main:
-      enabled: true
-      annotations:
-        nginx.org/client-max-body-size: "500m"
-      hosts:
-        - host: paperless.home.klaus-meyer.net
-          paths:
-            - path: /
-      tls:
-        - hosts:
-            - paperless.home.klaus-meyer.net
 redis:
   haMode:
     enabled: false
