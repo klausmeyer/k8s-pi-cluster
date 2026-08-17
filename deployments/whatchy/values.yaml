@@ -54,9 +54,6 @@ configMaps:
       S3_BUCKET: "whatchy-posters"
       S3_ENDPOINT: "https://s3.home.klaus-meyer.net"
       S3_REGION: "de-dahoam-1"
-      SMTP_ENABLED: "true"
-      SMTP_PORT: "25"
-      SMTP_SERVER: "mailcatcher-smtp.mailcatcher.svc.cluster.local"
 
 rawResources:
   whatchy:
