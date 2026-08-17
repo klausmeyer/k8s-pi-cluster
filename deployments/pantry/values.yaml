@@ -46,9 +46,9 @@ controllers:
           - name: OIDC_CLIENT_ID
             value: pantry
           - name: OIDC_REDIRECT_URI
-            value: https://pantry.home.klaus-meyer.net/auth/callback
+            value: https://pantry.rooster-piranha.ts.net/auth/callback
           - name: OIDC_POST_LOGOUT_REDIRECT_URI
-            value: https://pantry.home.klaus-meyer.net/
+            value: https://pantry.rooster-piranha.ts.net/
           - name: OIDC_SCOPE
             value: openid profile email
         probes:
@@ -153,17 +153,3 @@ service:
     ports:
       http:
         port: 80
-
-ingress:
-  frontend:
-    hosts:
-      - host: pantry.home.klaus-meyer.net
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              identifier: frontend
-              port: http
-    tls:
-      - hosts:
-          - pantry.home.klaus-meyer.net
