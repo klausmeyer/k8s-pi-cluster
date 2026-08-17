@@ -42,7 +42,7 @@ controllers:
           - name: BACKEND_UPSTREAM
             value: "{{ .Release.Name }}-backend:4000"
           - name: OIDC_ISSUER
-            value: https://idp.home.klaus-meyer.net/auth/realms/home
+            value: https://idp.rooster-piranha.ts.net/auth/realms/home
           - name: OIDC_CLIENT_ID
             value: pantry
           - name: OIDC_REDIRECT_URI
@@ -81,7 +81,7 @@ configMaps:
       S3_REGION: de-dahoam-1
       S3_BUCKET: pantry-pictures
       S3_USE_PATH_STYLE: "false"
-      OIDC_ISSUER: https://idp.home.klaus-meyer.net/auth/realms/home
+      OIDC_ISSUER: https://idp.rooster-piranha.ts.net/auth/realms/home
 
 rawResources:
   backend:

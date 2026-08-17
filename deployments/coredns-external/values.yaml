@@ -35,14 +35,7 @@ coredns:
 
         app-servers-d4r   IN  A     192.168.178.3
 
-        gems              IN  CNAME app-servers-k8s
-        idp               IN  CNAME app-servers-k8s
-        pantry            IN  CNAME app-servers-k8s
-        paperless         IN  CNAME app-servers-k8s
-        planka            IN  CNAME app-servers-k8s
         registry          IN  CNAME app-servers-k8s
-        s3                IN  CNAME app-servers-k8s
-        wiki              IN  CNAME app-servers-k8s
 
         dashboard         IN  CNAME app-servers-d4r
         jdownloader       IN  CNAME app-servers-d4r
