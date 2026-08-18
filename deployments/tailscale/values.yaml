@@ -23,3 +23,13 @@ rawResources:
       spec:
         type: ingress
         replicas: 3
+  tailscale-egress-proxies:
+    forceRename: tailscale-egress-proxies
+    manifest:
+      apiVersion: tailscale.com/v1alpha1
+      kind: ProxyGroup
+      metadata:
+        name: tailscale-egress-proxies
+      spec:
+        type: egress
+        replicas: 3

@@ -59,18 +59,18 @@ grafana:
       disable_login_form: true
     auth.generic_oauth:
       enabled: true
-      name: Keycloak
+      name: Tailscale
       allow_sign_up: true
       client_id: $__file{/etc/secrets/oauth/client_id}
       client_secret: $__file{/etc/secrets/oauth/client_secret}
-      scopes: openid email profile offline_access roles
+      scopes: openid email profile
       email_attribute_path: email
       login_attribute_path: username
       name_attribute_path: full_name
-      auth_url: https://idp.rooster-piranha.ts.net/auth/realms/home/protocol/openid-connect/auth
-      token_url: http://keycloak-http.keycloak.svc.cluster.local/auth/realms/home/protocol/openid-connect/token
-      api_url: http://keycloak-http.keycloak.svc.cluster.local/auth/realms/home/protocol/openid-connect/userinfo
-      role_attribute_path: contains(realm_access.roles[*], 'admin') && 'Admin' || contains(realm_access.roles[*], 'editor') && 'Editor' || 'Viewer'
+      auth_url: https://tsidp.rooster-piranha.ts.net/authorize
+      token_url: https://tsidp.rooster-piranha.ts.net/token
+      api_url: https://tsidp.rooster-piranha.ts.net/userinfo
+      role_attribute_path: contains(roles[*], 'admin') && 'GrafanaAdmin' || 'None'
     database:
       type: postgres
       host: postgres-rw.databases.svc.cluster.local

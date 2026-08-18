@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s-labs/helm-charts/common-5.0.1/charts/library/common/values.schema.json
+
+controllers:
+  main:
+    strategy: RollingUpdate
+    initContainers:
+      fix-data-permissions:
+        image:
+          repository: alpine
+          tag: latest
+        command:
+          - /bin/sh
+          - -c
+          - |
+            echo "Fixing user permissions in /data..."
+            chown -R 1001:1001 /data
+            echo "Done."
+    containers:
+      main:
+        image:
+          repository: ghcr.io/tailscale/tsidp
+          tag: v0.0.14
+        envFrom:
+          - configMapRef:
+              name: "{{ .Release.Name }}"
+          - secretRef:
+              name: "{{ .Release.Name }}"
+
+service:
+  main:
+    controller: main
+    annotations:
+      tailscale.com/tailnet-fqdn: tsidp.rooster-piranha.ts.net
+      tailscale.com/proxy-group: tailscale-egress-proxies
+    type: ExternalName
+    externalName: placeholder # The operator overwrites the externalName field
+    ports:
+      https:
+        port: 443
+
+configMaps:
+  main:
+    data:
+      TAILSCALE_USE_WIP_CODE: "1"
+      TS_STATE_DIR: "/data"
+      TS_HOSTNAME: "tsidp" # Change to idp later when dropping Keycloak
+      TSIDP_ENABLE_STS: "1"
+
+rawResources:
+  release-tracker:
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+      spec:
+        encryptedData:
+          TS_AUTHKEY: AgAkJ79ZUjudirrQ/HUwRMFFJq+teP/w5z8Kjy1xuzqA0fH4LWo56K5PO++L7Va+z0j1Afk+6J3v+Xo7IuxF2KbOVJcKEIJrHMyw53P6v9/sDT7RRpl7Q06JofjPNOFN0xPaC+gJtaaUPnz+zwHaxspkU5d3vwnSRcsE1ddo34rxBIGoLrqflp7di/ky5Fktom3352q0m+Dtq+voQERR5/gZWpf37IxpZZLqNAEQ1/aax6TZfNEnGK7H0Z7J5/8E9ckgNQPXhvlZPROb8tZacf/sqUSP77s/HMXN5TI5HPrsilRdE0phTbdZaFcXvyzcpAUKpsrAPV0kdaGweP5XT7v8a7BWk3jKPx71+4TWdepm6gj3M1YeUK4AQxMT9L+OyVOslA6W46Df6XCh2QLKFMtZ38L5k3MFLBzPu+6Xf4agnfcXfRUlHWynRx/ZHoCErOD1z1lsm5qWAP5Zq3yxhVyV1RazLxbYn+E1Nu3DKxm3xTZQKB53k+XFKnSAeS5J1lFLBtLkgJd3qRqtUE+y4MnccHwCjv/rvLnv/8jVYPUoS72dzi64ptUarEO2fCriiJXQMi9GY6zNGwXcvCn6kF+egowCPZUysK86jxddP+spgU2iMZr0IG3oBU/wEzGEYRPq1lGbWeEkVvNa14/6QFw+6ewaIxMwgZ5UwtmDppOrISRs5aw3bkSfy6ngdSVadAjPvYi9U3Lzl/V/+x40lWqlc0cnfhy6vn6awKWZ5YmiQ2vDveSPb1PZIUOHciU43CAlIQrHXLd3aX5Q+WcU
+
+persistence:
+  data:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 1G
+    globalMounts:
+      - path: /data
