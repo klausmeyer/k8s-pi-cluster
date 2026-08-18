@@ -13,17 +13,15 @@ on:
 jobs:
   execute:
     runs-on: self-hosted
-    container:
-      image: klausmeyer/multitool:latest
-      env:
-        KUBECONFIG: /root/.kube/config
-      options: >
-        -v /home/pi/.kube/config:/root/.kube/config
+    env:
+      KUBECONFIG: "/home/pi/.kube/config"
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
           submodules: true
+      - name: Setup tools via mise
+        uses: jdx/mise-action@v3
       - name: Deploy
         run: bash bin/deploy.sh "${{ inputs.deployment }}"
 

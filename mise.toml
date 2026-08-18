@@ -1,0 +1,5 @@
+[tools]
+docker-cli = "latest"
+helm = "latest"
+kubectl = "latest"
+yq = "latest"
