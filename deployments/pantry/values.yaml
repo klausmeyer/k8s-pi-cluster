@@ -81,7 +81,7 @@ configMaps:
       S3_REGION: de-dahoam-1
       S3_BUCKET: pantry-pictures
       S3_USE_PATH_STYLE: "false"
-      OIDC_ISSUER: https://idp.rooster-piranha.ts.net/auth/realms/home
+      OIDC_ISSUER: http://keycloak-http.keycloak.svc.cluster.local/auth/realms/home
 
 rawResources:
   backend:
