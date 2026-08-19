@@ -28,26 +28,6 @@ keycloakx:
     - name: JAVA_OPTS_APPEND
       value: >-
         -Djgroups.dns.query={{ include "keycloak.fullname" . }}-headless
-  extraVolumes: |
-    - name: theme
-      emptyDir: {}
-  extraVolumeMounts: |
-    - name: theme
-      mountPath: /opt/keycloak/themes/keywind
-  extraInitContainers: |
-    - name: theme-provider
-      image: registry.home.klaus-meyer.net/home/keycloak-themes:latest
-      imagePullPolicy: IfNotPresent
-      command:
-        - sh
-      args:
-        - -c
-        - |
-          echo "Copying theme..."
-          cp -R /themes/keywind/* /theme
-      volumeMounts:
-        - name: theme
-          mountPath: /theme
   proxy:
     mode: xforwarded
     http:
