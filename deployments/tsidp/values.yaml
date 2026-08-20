@@ -19,7 +19,7 @@ controllers:
       main:
         image:
           repository: ghcr.io/tailscale/tsidp
-          tag: v0.0.14
+          tag: v0.0.15
         envFrom:
           - configMapRef:
               name: "{{ .Release.Name }}"
