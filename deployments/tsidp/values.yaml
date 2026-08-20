@@ -33,7 +33,7 @@ service:
       tailscale.com/tailnet-fqdn: tsidp.rooster-piranha.ts.net
       tailscale.com/proxy-group: tailscale-egress-proxies
     type: ExternalName
-    externalName: placeholder # The operator overwrites the externalName field
+    # externalName: placeholder # The operator overwrites the externalName field
     ports:
       https:
         port: 443
