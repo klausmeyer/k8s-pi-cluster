@@ -9,5 +9,5 @@ dependencies:
     version: "12.7.0"
     repository: https://dl.gitea.com/charts
   - name: redis
-    version: "2.4.6"
+    version: "2.4.7"
     repository: https://groundhog2k.github.io/helm-charts
