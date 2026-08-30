@@ -35,7 +35,7 @@ configMaps:
     data:
       DB_HOST: postgres-rw.databases.svc.cluster.local
       DB_PORT: "5432"
-      DATABASES: filamentory,gitea,grafana,keycloak,pantry,paperless,planka,release-tracker,whatchy
+      DATABASES: filamentory,gitea,grafana,pantry,paperless,planka,release-tracker,whatchy
   pg-backup-hooks:
     data:
       before-backup: |
