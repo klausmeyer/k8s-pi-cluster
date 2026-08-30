@@ -37,6 +37,8 @@ gitea:
         REPO_INDEXER_ENABLED: true
       server:
         OFFLINE_MODE: false
+        ROOT_URL: https://git.rooster-piranha.ts.net
+        SSH_DOMAIN: git.rooster-piranha.ts.net
     additionalConfigSources:
     - secret:
         secretName: gitea-app-ini-secrets
