@@ -1,4 +1,10 @@
 gitea:
+  strategy:
+    type: "RollingUpdate"
+    rollingUpdate:
+      maxSurge: "100%"
+      maxUnavailable: 1
+
   image:
     tag: "1.27.2" # renovate: image=gitea/gitea
 
