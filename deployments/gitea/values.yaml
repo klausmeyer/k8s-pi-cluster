@@ -39,6 +39,9 @@ gitea:
         OFFLINE_MODE: false
         ROOT_URL: https://git.rooster-piranha.ts.net
         SSH_DOMAIN: git.rooster-piranha.ts.net
+        LANDING_PAGE: login
+      service:
+        REQUIRE_SIGNIN_VIEW: true
     additionalConfigSources:
     - secret:
         secretName: gitea-app-ini-secrets
