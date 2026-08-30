@@ -6,7 +6,7 @@ gitea:
       maxUnavailable: 1
 
   image:
-    tag: "1.27.2" # renovate: image=gitea/gitea
+    tag: "1.27.3" # renovate: image=gitea/gitea
 
   valkey-cluster:
     enabled: false
