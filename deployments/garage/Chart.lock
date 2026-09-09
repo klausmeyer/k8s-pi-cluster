@@ -1,6 +1,6 @@
 dependencies:
 - name: garage
   repository: ""
-  version: 0.9.4
-digest: sha256:937b48d0b22d957a5bd33bf2a5a284ac61ac4d15c86ebbdcecfe71a84de58872
-generated: "2026-09-07T08:44:54.762653+02:00"
+  version: 0.10.2
+digest: sha256:e2863e3cd6d87e7becca72ccd6be1798de4350856b44786a01ae6c205e8bfb0a
+generated: "2026-09-09T08:19:39.595951+02:00"
