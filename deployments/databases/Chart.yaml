@@ -11,3 +11,6 @@ dependencies:
   - name: cluster
     version: 0.8.1
     repository: https://cloudnative-pg.github.io/charts
+  - name: databasement
+    version: 1.8.4
+    repository: https://david-crty.github.io/databasement

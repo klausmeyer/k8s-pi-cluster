@@ -74,7 +74,8 @@ rawResources:
         encryptedData:
           username: AgAf+QNFouKjG/SQp4b/FA9Zi8KJJ2Ya4ZDdhaKeSdiR5ceMLJquTlRHekaOcbzvKjiyRGP87z4oT2Vs0kxbQlGpXKhrb/KFtKrqBdYzm+Q75V+O/fvMTzvZbCU9RJvCn9Jr7K13Dtzu79xuFBZwEBdemdU15DL4xFyvKGwL5gO5goghwHUY7A6DLHlX9MoYzLOkd4zi8GGAo3ncBWcrocbqFXLWda99qyXcs1sU8Po3tJ1W5peffSmF2mzZw+s/qH2AA0NN+qzBAbYsCsKDsrsXw4MszAv6XJJSiP7nIfcvRyC2RQOCfo5Pq/7biLRoAAgtCR8iwe1t5g326mqECjnYxQJSV8NjFDDXAcL83IRRJNO4MF4iDl52B2PSuH5yZrSDOTgMV6/Wc+h5pxhC3lJ/VxYmk/1+TjSJTyrHVPEU7kOQ1b2yAswWLy4Lq41ywf30+jsqy9q/1DPMx9xvshZwMi1l7Xfqrve3mnfjj1KAS45ueWziXmk86aQF73jWT70Pb6osmSIE34t280G6dWgEEsB+VOmwgR90TgbU5cAYH3SNxmIqm/Lm6pv774fIb9WEJWVOn0WiM0stfIXQM4WYpycCwQHMKrrg1m/MqU5dhbF+XS7kDi3pe8WcvPX50/UtQh8Oz9ajodTMPHKkdwRZEQgrhR+j0MZsQeRHtMiOz3xok5BGClQYFWkiT6eJv633/sweXQwRxA==
           password: AgBvttRgF7OMdaKFRY51/F88W8gbhKD1fuOMVG8iyIfXHxUHZviPjzCtLmi7uy8ndACNa9i+MC/HDT0P5gziQBDq+ifcfSB0UVQCBftvFKo5Vz2EB7OQJNG+zhxyXq9jCEDkB14eAJcSdif+RYyjnh38o++z2Bt2rWjN7ydfCKL/Ijsv3XvF++oE1wgeOCmaSXf5hOOTi8/JvhCOZt/RZFClGNiMnF/8YcbsQGrusLhMO/Mb0Qv0NUhN45Rir6UEFMegOUR2Q71qOXw0o50kXHR6fAkZ2ayIMQZRvNV8fwTo+7cNIvljKkEZfChUJl5i9AGCfqwke++vkFP1vRoj356ea6aqKGkkTEAJ1dkgu/OPvw+I1HG38yBew6QQ7WwSeOQVW6F2dekfFRfVBUzR1V1m44uWyPVl/r/r/TZPR9ejrEHjTL4pj37+KXj2k8I70mO0S2OdG0qMRGXANs8eXdyCXDf3rGjkDARyFLkzvp8J3r/1+pqmvwPvW6kl2QUdvTFn3kv3UWZsBXl69ecXdX7Bc0DertejmiYoxLjyKppps8KkfVyJ1wsETu+1xETpDiRu412ZxQiykYPfjdeT5atRfzJQGfIYP6a83g30sYF7JKF1xLjTsrI4yUxObkrjEVBk5yud69CYv3h/uvFwtDsDj2URr8qui6KiiRoAIU3RpWN7+TXCzkPU+n8HG7/XoRsJAT88a1UEugehgg6RLkvC6eLpG2wKPn6ByxyiU0Qizq1qwX03YM3FPsOnOT7bZ2yIlqK0XpYplRsYCD60LHvG
-  database-role-secret:
+  # PG Backup
+  database-role-secret-backup:
     forceRename: postgres-role-backup
     manifest:
       apiVersion: bitnami.com/v1alpha1
@@ -88,6 +89,62 @@ rawResources:
         encryptedData:
           username: AgA+envgNThEyJVB4GEvKBoDeiHTboR2YMx98XByH2jo6lycXoN4QQ7/vvepnDVLUArBACcr3ZYU8XmF/eQqlWFwNojbDuemjUBup2zNA4yzQmffVb+09BRhegUAGCIFi8rX2HPVCZyLQCsQMUyh3vUKi+yiK2+0nOJ5/2L9UvbKITr025nYOFKj4f8YNcNOzD4dkksC3fpzlTKIyxVMjD6U+h6zJk7iLV57KYR5ZSjHc7ePPkyBsGQvGE8yrRULq13E5zGyMggxvvg6jQc0Bq3GyQAhL5iC3WFNcJxNNsgwCxbIuT8DuSitNwL7QctQtSh+GclxDiunapNHMdBtEhBw+TcrJ9sSlP7WOpCujNrBvQWaaZ3z2cRtoWPy8nsZ8S6XDw6CBGz2R+0YN2/AWvvMPkQyUSYOB5qI35alkTuU6YDMhRH/ksc6Qi+d5HqaFdfzRx2Gvs065l8HC32qnDp2C1wizKyxpRs+iU10sbtrCW89aekaL9oNAohF9R5DoMjUOZAOeflAeqYNhD7SZ88EUkhghaqBOrh8cGeYrpVqyK96gSFP59hfD6m7lm+MjcDfEMmz34zqMCOkjL4QkG7IY8gQlK03NRf6F2x+8osst1jUnTyhDpm5xDwHA+lhXN+fLDfYV4tyQpY1PT453vJCDzkDz7MgAAZyE7X8B9B42PAjGn+3J5o0x/aynSSixq62phX5bak=
           password: AgAoAiU4Zl+/TZ8xLZz/2TzgWcmZ6UweUeSOodanEADBy4UdFj7v8Xv5MqNAUNwDbQpJkz1z9g3adXWyF6eZ5Ey9ecBHPbbLOE/CLpQ+2OraZyQ2S+0Z3tdxKQQIhv6ZBb3ZlEal6E0e56JVnNK8d55mTgtNQVVkYnLWTRsrPvCWSprn/CNMvgEtc+ndB6L8XR7R6ychsThSFhuAkoCmN5tlnP3tkAlwoQbq1TV12Rvfpb/243TYLf8lo/hZFCeSQ+68Qzzwz7A52pCzZQZhc5x6bY1lWilKHSLSSISkGn89suX/8DmGH/K71vMxcKAFM/Pb3klzL3ARO37qKkqUrUAk7zUtDZVDeDaiSgjB/mDV+uOX60dwrVZHbL8PgWS+eSdQesp6bD9xaiQQkFWuwXH7gi8PlxFHNIjbat7z6A0n+/ImRSVxSNBZJVAUyGf4fJ6UIMgVXISgdLyulNxLGF7/+gJKncCQfeWJ1CmxP6wMe9vkqD7ry+g/XiZ3c+kRI7Iu8xQsqwXePvR74rrbx1h3Ewjagg/vueJfEpRHxIP6sY+ZHfsudTmKy9vQ9C/+E2AuHbu7CqENnY/hILM3aWG2zOJvDvOfw7L7UGcc5i4C9x6KBpQa+mXtrALPRGu0ZGgssCiYnj5xGTnmVEiBWROTDZPPOb7Ia70h6ykuLcpR3/VGEiJF9hqbB55L+EBhs3bAAz1vJNgPVdG70QM61tPu/YXyoJHlYbTeje5ogwfOcTVO7HYr31a/jjZWzRgsB5qVTQguKjLtQQlBAtdjL1zn
+  # Databasement
+  database-role-databasement:
+    forceRename: postgres-role-databasement
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: DatabaseRole
+      metadata:
+        namespace: databases
+      spec:
+        cluster:
+          name: postgres
+        name: databasement
+        login: true
+        passwordSecret:
+          name: postgres-role-databasement
+  database-databasement:
+    forceRename: postgres-db-databasement
+    manifest:
+      apiVersion: postgresql.cnpg.io/v1
+      kind: Database
+      metadata:
+        name: postgres-db-databasement
+        namespace: databases
+      spec:
+        name: databasement
+        owner: databasement
+        cluster:
+          name: postgres
+  database-role-secret-databasement:
+    forceRename: postgres-role-databasement
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        namespace: databases
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+        labels:
+          cnpg.io/reload: "true"
+      spec:
+        template:
+          type: kubernetes.io/basic-auth
+        encryptedData:
+          username: AgBryor0Bb+t4mzvXDa84PNP4/h91nYwrAJgNBqLAHq2ByHp94wYpqPkluahuNr4DDpN03k8XmYHb5USYtbFVwJmNvKUGIh/Bqn/qJKE7lpqcEGZBdAUY2/xFkF1BH+PBG6hzUON2ko1WQ/FASgud0WkN8b98n8/n9KJKOSa5uMvtgYHZhBDFpgxMUJxlGmW/H0Zl7S4OieQ5PQpvGkNeAPh4J83j0hVv+rtMMRAT2qC9Z8hLlhx9JmgEc7zGF52sXrqzBFE//KsEz9k/aHVcPyHy5HjaRDoWjt2jJCcc6yIG7OSehIU0Lu92g4+AI47qxxCdOPwIPoPAUHBXw5on95pT/j1TttM7eCj3MJEEdt3Zo7eG0TRKQ+3NMoOMEiSPldUJ4hxYkGZ7Frl3brKrob0caG9VV74ibIMN6XcsGT549WZpOT8FtGxnUPmNXliHRny5BdKpqntXGldTy5f4moPGmvrRGMJdTLDZQVN8WGRNbVeBFAz8eqVOOad27U9P38w6dcmOi9hJK5dkclDC7YBqFlx94eCHSFLup33NvNYtCxnmoUkmIFcnMIBWHwfSNvu52RYC2SxvkjWptsysKFqDJMG5WsFhTuOOTCSz6DdmtHiiYxB8EFAX0k5zQaRaPr1bOOTkWFmkVDqlI5YtedKwik6beZnNGh+ZdEx4DC8JQ42+cpwRrHvq8dsFlxcK5b5QASkF7+jW+LmW3w=
+          password: AgA3J64jm34O1kERzhULbSSGydI3Flvrh4lT5d30JiKRV72iY2nxPNndJBXd13kFvgdhEOeWRnrhpQCeECIv1d028wMBpAkj0e5gXO6nOSxTDmrtBmSVGD2I9wjntkWaeuR/DZ2cuIADqIGzIA0yky80wzL+bL8bZ0aRc9aH3RUos/d2xd4caj8Ie/HFzxvSdNdTsYdnhkA+lrN5IkorJcFfFWnQ8dsBfr+6xylY3MxUhmg+oMfT/e2Wy20L3eSC0HW4ZgWjl2UQPxZ8EuJwN4Gw5gerXgW117BMi1m0xpP1KSXXRQngrIM/uSCPxGolzsGfBzj6PMYVbCGWC2ycHp7dqQhIAQ0ccRtVYG9/bonCUvQA+HZNpuJ9fqxlZIXSpmXvD4C1NfImDATek0DA+QYGE7xoq7Arf/vsBQ5qbBsT3+6jVveCQr+4ab9hL5y665UJam1zpzzffkoHrT/JxmAA1CCxFaBi8GTKEb0mY0+cx+PtQRMw22mIBSSFHg+fBGa6B9wKrHx6OgXI4zIeNGDt+/7Y3ieb277AAn9reBqqiImKqQ/epTyFQWRj+vkWIWOfoqUQFhtcQUQ6NXLxYN+2XFAKN9lJU3BmKmvCpy5pJJWkjzDy3gFXzevj+AYBSTkefNFzDu1v/sgk6h3gNY1uldWEU6RmS4bDEne2PZD1vnnkEV8gqrf3C+CGN4OufdAXXTk8YPypfEGh1LjL42rzKM8By/NfSo6x3O2G5XtrvQ==
+  databasement:
+    forceRename: databasement
+    manifest:
+      apiVersion: bitnami.com/v1alpha1
+      kind: SealedSecret
+      metadata:
+        annotations:
+          sealedsecrets.bitnami.com/namespace-wide: "true"
+      spec:
+        encryptedData:
+          APP_KEY: AgBtnVR3tth3IWyYJDSaT7Ak6tYQNpljxk1FQJEo0ISBY+6taPoVNatTYttVDaBantK564tB+60WURJP6AcwC6DRbL65FZ4ZUGSN9LkYUizpTKLU7tvtXmh/C9DMXHEtCCZrzNY5i+rfdaP4NAQeUkfxZMB/T4mOh1xIVFf6OFDXhGE710DLbcitS2hjq4n+1yTgZ13XdzIHm2e2dykCsT5qQjjchxYlzNaCcVsvlabSy7NR1HVCTAiOK2O35TjwrL08WPSqam6emDX3wumAF+cSqsaDFhuQ3SIX5HOCPMxEchblBFfgNZdgBsifcZ27nP1WXzawxx+tYPMGkulDqtjdAwFNdgveNKp9XQou5reWaqkyhWpBjwVOFZCqrJWWcbJ8nhPFxqGsi40svAaR3Zxi48cSSM7iFblBiDB2VFRcPbvw35GxMAKwa9hbEvn41uaxmQ9HZNhZuAHfsMUzfG/qrtQeQzuCv9D9I+6FlOiZvet92lm31KuPUVYidlIjK8+H8lyVmb8IKtP2voyptMC0ch61FgvMx+QbfS2Bp1xZ0RAJ0ZJHGFVdGJjGFXY7/+VY3zCMDPFU/fc2b2QEInb27jygIf0ImEiQ7xVNo6MCEqe/gzyDjWSo0yyLU22yaf2PaWe2trRi+56RUcePvyuJf6oLoPMULCuss2AySN7oZPbaz7whWUtXiHxR8i1XadxXQq++LEbd7IzqHbsTh4g6XIcOeCvRuU3XZ4hylge/yZW0paMo5sl/iqgQ4KoH0JXcM6w=
 
 cluster:
   fullnameOverride: "postgres"
@@ -95,10 +152,32 @@ cluster:
     postgresql: "18.6" # renovate: image=ghcr.io/cloudnative-pg/postgresql
   cluster:
     superuserSecret: postgres-role-postgres
-    roles:
-      - login: true
-        name: backup
-        passwordSecret:
-          name: postgres-backup
-        inRoles:
-          - pg_read_all_data
+    # roles:
+    #   - login: true
+    #     name: backup
+    #     passwordSecret:
+    #       name: postgres-backup
+    #     inRoles:
+    #       - pg_read_all_data
+    #   - login: true
+    #     name: databasement
+    #     passwordSecret:
+    #       name: postgres-databasement
+
+databasement:
+  app:
+    url: https://databasement.rooster-piranha.ts.net
+    appKey:
+      fromSecret:
+        secretName: databasement
+        secretKey: APP_KEY
+  database:
+    connection: pgsql
+    host: postgres-rw.databases.svc.cluster.local
+    port: 5432
+    name: databasement
+    username: databasement
+    password:
+      fromSecret:
+        secretName: postgres-role-databasement
+        secretKey: password

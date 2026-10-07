@@ -5,5 +5,8 @@ dependencies:
 - name: cluster
   repository: https://cloudnative-pg.github.io/charts
   version: 0.8.1
-digest: sha256:700251ac7d50eb79dc9769fef1f8c1bb83523fca96bb30dbbdb8e65de00f83c2
-generated: "2026-09-18T06:39:34.801213747Z"
+- name: databasement
+  repository: https://david-crty.github.io/databasement
+  version: 1.8.4
+digest: sha256:23a71ad4438d5af9534682ab16df82da6124f7bc778dc156bdcd3becb9051ac4
+generated: "2026-10-07T14:14:31.38476+02:00"
